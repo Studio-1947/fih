@@ -60,8 +60,14 @@ export default function HeroSection({ content }: HeroSectionProps) {
         </div>
 
         <div className="relative mx-auto w-full max-w-[620px]  lg:mx-0">
-          <div className="absolute -left-8 top-8 h-16 w-16 rounded-full bg-primary/80 blur-xl" aria-hidden="true" />
-          <div className="absolute -right-5 top-20 h-20 w-20 rounded-full bg-primary/70 blur-2xl" aria-hidden="true" />
+          {/* <div
+            className="absolute -left-8 top-8 h-16 w-16 rounded-full bg-primary/80 blur-xl"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute -right-5 top-20 h-20 w-20 rounded-full bg-primary/70 blur-2xl"
+            aria-hidden="true"
+          /> */}
 
           <div className="relative overflow-visible bg-surface p-0">
             <div className="relative aspect-[5/5] bg-surface  left-0">
@@ -73,14 +79,25 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 priority
               /> */}
 
-              <div className="absolute inset-x-0 bottom-0 z-20 h-20 bg-gradient-to-t from-surface to-transparent" />
+              {/* <div className="absolute inset-x-0 bottom-0 z-20 h-20 bg-gradient-to-t from-surface to-transparent" /> */}
+
+              <Image
+                src="/hero/Bbbb_5.gif"
+                alt=""
+                width={300}
+                height={420}
+                unoptimized
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-10 left-[29%] z-10 h-auto w-[90%] object-contain"
+                priority
+              />
 
               <Image
                 src={content.heroManPath}
                 alt="Community member"
                 width={250}
                 height={360}
-                className="absolute -bottom-15 left-[24%] z-20 h-auto w-[50%] object-contain overflow-hidden"
+                className="absolute -bottom-15 left-[20%] z-20 h-auto w-[50%] object-contain overflow-hidden"
                 priority
               />
 
@@ -89,7 +106,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 alt="Child beneficiary"
                 width={300}
                 height={500}
-                className="absolute -bottom-10 left-[10%] z-40 h-auto w-[42%] object-contain"
+                className="absolute -bottom-10 left-[6%] z-40 h-auto w-[42%] object-contain"
                 priority
               />
 
@@ -98,7 +115,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 alt="Community member"
                 width={300}
                 height={420}
-                className="absolute -bottom-10 -right-[-5%] z-30 h-auto w-[60%] object-contain overflow-hidden"
+                className="absolute -bottom-10 -right-[-9%] z-30 h-auto w-[60%] object-contain overflow-hidden"
                 priority
               />
             </div>

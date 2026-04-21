@@ -36,9 +36,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} h-full antialiased`}
+      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} h-full overflow-x-hidden antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-surface text-black [font-family:var(--font-body)]">
+      <body className="min-h-full overflow-x-hidden flex flex-col bg-surface text-black [font-family:var(--font-body)]">
         <Header />
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
           {children}

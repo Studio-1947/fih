@@ -1,25 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Heart } from "lucide-react";
 
 const navLinks = [
   { href: "/about", label: "About Us" },
-  { href: "/our-work", label: "Our Work" },
-  { href: "/impact-news", label: "Impact & News" },
-  { href: "/partners", label: "Partners" },
+  { href: "/grants-mandates", label: "Grants & Mandates" },
+  { href: "/stories-of-change", label: "Stories of Change" },
+  { href: "/press-media", label: "Press & Media" },
   { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (!isMenuOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
-    <header className="relative z-20 px-4 pt-6 text-black sm:px-6 lg:px-8">
+    <header className="relative z-40 px-4 pt-6 text-black sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
-        <div className="flex items-center justify-between gap-3">
+        <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <Image
               src="/logos/logo_nav.png"
@@ -69,7 +82,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsMenuOpen((value) => !value)}
-            className="inline-flex items-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:hidden"
+            className="inline-flex cursor-pointer items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-black [font-family:var(--font-heading)] min-[1120px]:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav-panel"
@@ -82,15 +95,15 @@ export default function Header() {
           <nav
             id="mobile-nav-panel"
             aria-label="Mobile navigation"
-            className="mt-4 min-[1120px]:hidden"
+            className="fixed inset-0 z-30 h-screen w-screen overflow-hidden bg-white pt-28 min-[1120px]:hidden"
           >
-            <ul className="grid gap-2 rounded-2xl bg-primary p-3">
+            <ul className="mx-auto grid w-full max-w-sm gap-3 px-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block rounded-lg bg-secondary px-3 py-2 text-sm font-medium [font-family:var(--font-heading)]"
+                    className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
                   >
                     {link.label}
                   </Link>
@@ -100,7 +113,7 @@ export default function Header() {
                 <Link
                   href="/donate"
                   onClick={() => setIsMenuOpen(false)}
-                  className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-secondary px-3 py-2 text-sm font-semibold [font-family:var(--font-heading)]"
+                  className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)]"
                 >
                   Donate Now
                   <Heart
