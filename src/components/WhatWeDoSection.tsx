@@ -25,7 +25,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
         className="pointer-events-none absolute inset-x-0 top-0 h-[56%] bg-linear-to-b from-black via-black/80 to-transparent"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl p-5 sm:p-7 lg:px-10 lg:pb-12 lg:pt-20 xl:pt-24">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:pb-12 lg:pt-20 xl:pt-24">
         <div className="relative grid gap-6 lg:grid-cols-2 lg:justify-center lg:gap-x-14">
           <div className="min-w-0 space-y-3">
             <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary [font-family:var(--font-heading)]">

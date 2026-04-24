@@ -31,9 +31,9 @@ export const whatWeDoContent: WhatWeDoContent = {
       title: "Accessible Primary Care",
       description:
         "Operating mobile, fixed, and innovative floating digital clinics to bring high-quality, data-driven healthcare directly to underserved communities.",
-      imagePath: "/hero/child_image.png",
+      imagePath: "/floating_image.jpg",
       ctaLabel: "Explore Healthcare Programs",
-      ctaHref: "/grants-mandates",
+      ctaHref: "/stories-of-change",
       programs: [
         {
           title: "Floating Digital Clinic",
@@ -50,9 +50,9 @@ export const whatWeDoContent: WhatWeDoContent = {
       title: "Employment-Oriented Education",
       description:
         "Creating formal sector employment by training rural youth and visually impaired learners as allied health professionals and tech specialists.",
-      imagePath: "/hero/woman_image.png",
+      imagePath: "/Technology usage (1).jpg",
       ctaLabel: "Explore Education Programs",
-      ctaHref: "/stories-of-change",
+      ctaHref: "/csr-projects#present-projects",
       programs: [
         {
           title: "IGL STEU Program",

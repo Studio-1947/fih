@@ -11,7 +11,7 @@ export default function RecognitionSection({
   content,
 }: RecognitionSectionProps) {
   return (
-    <section className="w-full py-8 sm:py-10 lg:py-12">
+    <section className="w-full py-12 lg:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div 
           className="relative flex flex-col lg:flex-row overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] shadow-xl"

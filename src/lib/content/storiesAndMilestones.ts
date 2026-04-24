@@ -17,7 +17,7 @@ export const storiesAndMilestonesContent: StoriesAndMilestonesContent = {
   eyebrow: "IMPACT & NEWS",
   title: "Stories of Change & Recent Milestones",
   readMoreCta: "Read Impact Stories",
-  readMoreHref: "#",
+  readMoreHref: "/stories-of-change#testimonials",
   milestones: [
     {
       tag: "Partnership",

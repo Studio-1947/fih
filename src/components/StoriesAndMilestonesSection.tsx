@@ -10,7 +10,7 @@ export default function StoriesAndMilestonesSection({
   content,
 }: StoriesAndMilestonesSectionProps) {
   return (
-    <section className="w-full bg-[#FAFAFA] py-16 sm:py-20 lg:py-24">
+    <section className="w-full bg-[#FAFAFA] py-12 sm:py-16 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}

@@ -6,31 +6,37 @@ import Image from "next/image";
 import { Heart } from "lucide-react";
 
 const navLinks = [
-  { href: "/about", label: "About Us" },
+  { href: "/aboutFIH", label: "About Us" },
   { href: "/grants-mandates", label: "Grants & Mandates" },
   { href: "/stories-of-change", label: "Stories of Change" },
+  { href: "/csr-projects", label: "CSR Projects" },
   { href: "/press-media", label: "Press & Media" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!isMenuOpen) {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
       document.body.style.overflow = "";
-      return;
+      document.documentElement.style.overflow = "";
+      document.body.style.touchAction = "";
     }
-
-    document.body.style.overflow = "hidden";
 
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.body.style.touchAction = "";
     };
   }, [isMenuOpen]);
 
   return (
-    <header className="relative z-40 px-4 pt-6 text-black sm:px-6 lg:px-8">
+    <header className="relative z-100 px-4 pt-6 text-black sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
         <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
@@ -95,7 +101,7 @@ export default function Header() {
           <nav
             id="mobile-nav-panel"
             aria-label="Mobile navigation"
-            className="fixed inset-0 z-30 h-screen w-screen overflow-hidden bg-white pt-28 min-[1120px]:hidden"
+            className="fixed inset-0 z-30 h-[100dvh] w-screen overflow-hidden bg-white pt-28 touch-none min-[1120px]:hidden"
           >
             <ul className="mx-auto grid w-full max-w-sm gap-3 px-4">
               {navLinks.map((link) => (

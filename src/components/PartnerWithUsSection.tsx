@@ -10,7 +10,7 @@ export default function PartnerWithUsSection({
   content,
 }: PartnerWithUsSectionProps) {
   return (
-    <section className="w-full bg-white py-10 lg:py-12">
+    <section id="contact" className="w-full bg-white py-12 lg:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -97,8 +97,10 @@ export default function PartnerWithUsSection({
             </div>
 
             {/* Support Our Mission Card */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#FACC15] p-6 lg:p-8 shadow-lg">
-              <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-[#EAB308]/60 blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl bg-primary p-6 lg:p-8 shadow-lg">
+              {/* Decorative Circles */}
+              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-black/10" />
+              <div className="absolute -bottom-12 -left-12 h-36 w-36 rounded-full bg-black/10" />
               
               <div className="relative z-10 flex flex-col items-start gap-4">
                 <Heart className="h-7 w-7 fill-white text-white" />
@@ -125,12 +127,12 @@ export default function PartnerWithUsSection({
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="rounded-3xl border border-black/5 bg-[#FAFAFA] p-6 sm:p-8 lg:p-10 shadow-sm">
+          <div className="flex h-full flex-col rounded-3xl border border-black/5 bg-[#FAFAFA] p-6 sm:p-8 lg:p-10 shadow-sm">
             <h3 className="mb-6 text-xl font-bold text-[#202020] [font-family:var(--font-heading)]">
               Send Us a Message
             </h3>
 
-            <form className="space-y-5">
+            <form className="flex flex-1 flex-col space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#202020]/70 [font-family:var(--font-heading)]">
@@ -166,20 +168,19 @@ export default function PartnerWithUsSection({
                 />
               </div>
 
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-1 flex-col gap-1.5">
                 <label className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#202020]/70 [font-family:var(--font-heading)]">
                   Message
                 </label>
                 <textarea
                   placeholder="Tell us about your interest or how you'd like to support"
-                  rows={3}
-                  className="w-full resize-none rounded-xl border border-black/10 bg-white px-4 py-3.5 text-xs placeholder-black/40 outline-none transition-colors focus:border-primary [font-family:var(--font-body)]"
+                  className="w-full flex-1 resize-none rounded-xl border border-black/10 bg-white px-4 py-3.5 text-xs placeholder-black/40 outline-none transition-colors focus:border-primary [font-family:var(--font-body)]"
                 />
               </div>
 
               <button
                 type="button"
-                className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-[#141416] py-3.5 text-[13px] font-bold text-white transition-opacity hover:opacity-90 [font-family:var(--font-heading)]"
+                className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-[#141416] py-3.5 text-[13px] font-bold text-white transition-opacity hover:opacity-90 [font-family:var(--font-heading)]"
               >
                 Send Message
                 <ArrowRight className="h-4 w-4" />

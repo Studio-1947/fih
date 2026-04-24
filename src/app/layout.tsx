@@ -24,8 +24,34 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "NGO Website",
-  description: "Modern NGO website built with Next.js and Sanity",
+  metadataBase: new URL("https://fihindia.org"), // Replace with actual domain when available
+  title: "Foundation for Innovations in Health",
+  description:
+    "Foundation for Innovations in Health (FIH) – Building a skilled health workforce and expanding access to primary care across rural India.",
+  openGraph: {
+    title: "Foundation for Innovations in Health",
+    description:
+      "Building a skilled health workforce and expanding access to primary care across rural India.",
+    url: "https://fihindia.org",
+    siteName: "Foundation for Innovations in Health",
+    images: [
+      {
+        url: "/logos/logo_nav.png",
+        width: 800,
+        height: 800,
+        alt: "FIH Logo",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Foundation for Innovations in Health",
+    description:
+      "Building a skilled health workforce and expanding access to primary care across rural India.",
+    images: ["/logos/logo_nav.png"],
+  },
 };
 
 export default function RootLayout({
