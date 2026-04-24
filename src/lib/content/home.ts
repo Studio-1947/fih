@@ -23,8 +23,8 @@ export const homeHeroContent: HomeHeroContent = {
   titleBottom: "",
   description:
     "Mitigating multi-dimensional poverty and building rural resilience through data-driven healthcare and employment-oriented education.",
-  primaryCta: { label: "Support Our Mission", href: "/contact" },
-  secondaryCta: { label: "Discover Our Work", href: "/our-work" },
+  primaryCta: { label: "Support Our Mission", href: "/#contact" },
+  secondaryCta: { label: "Discover Our Work", href: "/stories-of-change" },
   stats: [
     { value: "10,450+", label: "Beneficiaries Reached" },
     { value: "950+", label: "Trained Professional Health Workers" },
