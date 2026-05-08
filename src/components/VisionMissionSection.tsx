@@ -35,8 +35,8 @@ export default function VisionMissionSection({ content }: VisionMissionSectionPr
             
             <div className="relative z-10 flex flex-col items-start gap-6">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 shadow-sm backdrop-blur-md">
-                <Target className="h-8 w-8 text-primary" />
-              </div>
+                <Target className="h-8 w-8 text-primary-dark" />
+               </div>
               <h2 className="text-3xl font-bold text-white [font-family:var(--font-heading)]">
                 Mission
               </h2>

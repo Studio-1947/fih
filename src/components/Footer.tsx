@@ -25,21 +25,20 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[1.45fr_0.85fr]">
           <div className="max-w-md space-y-6">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/logos/logo_nav.png"
-                alt="Foundation for Innovations in Health"
-                width={36}
-                height={36}
-                className="h-9 w-9 rounded-full bg-white/95 object-cover p-1"
+                alt="Foundation for Innovations in Health logo"
+                width={52}
+                height={52}
+                className="h-12 w-12 rounded-full object-cover sm:h-14 sm:w-14 bg-white"
               />
-              <div className="leading-tight">
-                <p className="text-[10px] uppercase tracking-[0.16em] text-white/55 [font-family:var(--font-body)]">
-                  Foundation
-                </p>
-                <p className="text-base font-semibold [font-family:var(--font-heading)]">FIH</p>
-              </div>
-            </div>
+              <span className="text-sm font-semibold leading-tight text-white [font-family:var(--font-heading)] lg:text-base">
+                Foundation for
+                <br />
+                Innovations in Health
+              </span>
+            </Link>
 
             <p className="text-[26px] leading-snug text-white/65 [font-family:var(--font-body)] sm:text-lg">
               Foundation for Innovations in Health - mitigating multi-dimensional poverty through

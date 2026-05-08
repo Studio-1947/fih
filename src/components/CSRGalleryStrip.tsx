@@ -4,11 +4,35 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const images = [
-  "01.jpeg", "02.jpeg", "03.jpeg", "04.jpeg", "05.jpeg",
-  "06.jpeg", "07.jpeg", "08.jpeg", "09.jpeg", "10.jpeg",
-  "11.jpeg", "12.jpeg", "13.jpeg", "14.jpeg", "15.jpeg",
-  "16.jpeg", "17.jpeg", "18.jpeg", "19.jpeg",
+const galleryItems = [
+  { type: "photo", src: "/csr/gallery/01.jpeg" },
+  { type: "logo", src: "/csr/present/Ambuja_neotia.png", alt: "Ambuja Neotia" },
+  { type: "photo", src: "/csr/gallery/02.jpeg" },
+  { type: "logo", src: "/csr/present/Balmer Lawrie.png", alt: "Balmer Lawrie" },
+  { type: "photo", src: "/csr/gallery/03.jpeg" },
+  { type: "logo", src: "/csr/present/mahanagar_gas.png", alt: "Mahanagar Gas" },
+  { type: "photo", src: "/csr/gallery/04.jpeg" },
+  { type: "logo", src: "/csr/present/indian_oil.png", alt: "Indian Oil" },
+  { type: "photo", src: "/csr/gallery/05.jpeg" },
+  { type: "logo", src: "/csr/present/Brahmaputra.png", alt: "Brahmaputra Cracker and Polymer" },
+  { type: "photo", src: "/csr/gallery/06.jpeg" },
+  { type: "logo", src: "/csr/present/Indraprastha gas.png", alt: "Indraprastha Gas" },
+  { type: "photo", src: "/csr/gallery/07.jpeg" },
+  { type: "logo", src: "/csr/present/aditya_birla.png", alt: "Aditya Birla" },
+  { type: "photo", src: "/csr/gallery/08.jpeg" },
+  { type: "logo", src: "/csr/past/jsw.png", alt: "JSW" },
+  { type: "photo", src: "/csr/gallery/09.jpeg" },
+  { type: "logo", src: "/csr/past/coal_india.png", alt: "Coal India" },
+  { type: "photo", src: "/csr/gallery/10.jpeg" },
+  { type: "photo", src: "/csr/gallery/11.jpeg" },
+  { type: "photo", src: "/csr/gallery/12.jpeg" },
+  { type: "photo", src: "/csr/gallery/13.jpeg" },
+  { type: "photo", src: "/csr/gallery/14.jpeg" },
+  { type: "photo", src: "/csr/gallery/15.jpeg" },
+  { type: "photo", src: "/csr/gallery/16.jpeg" },
+  { type: "photo", src: "/csr/gallery/17.jpeg" },
+  { type: "photo", src: "/csr/gallery/18.jpeg" },
+  { type: "photo", src: "/csr/gallery/19.jpeg" },
 ];
 
 export default function CSRGalleryStrip() {
@@ -110,7 +134,7 @@ export default function CSRGalleryStrip() {
           onMouseMove={onMouseMove}
           onMouseUp={stopDrag}
           onMouseLeave={stopDrag}
-          className="flex gap-3 overflow-x-auto pb-3 select-none"
+          className="flex gap-4 overflow-x-auto pb-4 select-none"
           style={{
             cursor: "grab",
             scrollbarWidth: "none",         /* Firefox */
@@ -121,18 +145,20 @@ export default function CSRGalleryStrip() {
           {/* Hide scrollbar in WebKit */}
           <style>{`.csr-track::-webkit-scrollbar{display:none}`}</style>
 
-          {images.map((img) => (
+          {galleryItems.map((item, idx) => (
             <div
-              key={img}
-              className="relative shrink-0 h-52 sm:h-64 lg:h-72 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
-              style={{ width: "clamp(180px, 22vw, 300px)" }}
+              key={idx}
+              className={`relative shrink-0 h-52 sm:h-64 lg:h-72 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-black/5 flex items-center justify-center ${
+                item.type === "logo" ? "bg-white p-6 sm:p-10" : "bg-black"
+              }`}
+              style={{ width: "clamp(200px, 24vw, 320px)" }}
             >
               <Image
-                src={`/csr/gallery/${img}`}
-                alt={`CSR Gallery – ${img}`}
+                src={item.src}
+                alt={item.type === "logo" ? `Corporate Partner - ${item.alt}` : `CSR Gallery Photo ${idx}`}
                 fill
-                className="object-cover pointer-events-none"
-                sizes="300px"
+                className={`${item.type === "logo" ? "object-contain p-8" : "object-cover"} pointer-events-none`}
+                sizes="(max-width: 640px) 200px, 320px"
                 draggable={false}
               />
             </div>
