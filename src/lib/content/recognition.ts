@@ -28,13 +28,14 @@ export const recognitionContent: RecognitionContent = {
   backgroundImage: "/recognised/bg_image.png",
   partnersSectionTitle: "OUR ACADEMIC & INSTITUTIONAL PARTNERS",
   partners: [
-    {
-      name: "Stanford",
-      location: "Stanford University",
-      logo: "/recognised/stanford_university.svg",
-      category: "Top 40 Global Changemakers",
-      categoryColor: "yellow",
-    },
+    //changesv1
+    // {
+    //   name: "Stanford",
+    //   location: "Stanford University",
+    //   logo: "/recognised/stanford_university.svg",
+    //   category: "Top 40 Global Changemakers",
+    //   categoryColor: "yellow",
+    // },
     {
       name: "IIT KGP",
       location: "IIT Kharagpur",

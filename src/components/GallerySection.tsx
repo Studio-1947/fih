@@ -170,7 +170,7 @@ export default function GallerySection() {
               >
                 <Images className="h-4 w-4" />
                 Photos
-                <span className={`ml-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${activeTab === "photos" ? "bg-primary" : "bg-black/10"}`}>
+                <span className={`ml-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${activeTab === "photos" ? "bg-primary-dark text-white" : "bg-black/10"}`}>
                   {photos.length}
                 </span>
               </button>
@@ -192,24 +192,35 @@ export default function GallerySection() {
 
           {/* ── Photos grid ──────────────────────────────────────────────── */}
           {activeTab === "photos" && (
-            <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 lg:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {photos.map((src, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => openPhoto(i)}
                   aria-label={`View photo ${i + 1}`}
-                  className="group relative mb-3 lg:mb-4 block w-full overflow-hidden rounded-xl cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="group relative block w-full overflow-hidden rounded-[1.5rem] cursor-zoom-in shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-gray-50 border border-black/5"
                 >
-                  <Image
-                    src={src}
-                    alt={`FIH Gallery photo ${i + 1}`}
-                    width={600}
-                    height={600}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+                  <div className="relative aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
+                    <Image
+                      src={src}
+                      alt={`FIH Gallery photo ${i + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                    {/* Soft gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Hover indicator icon */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
+                      <div className="bg-white/95 backdrop-blur-md text-black rounded-full p-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </button>
               ))}
             </div>
@@ -224,10 +235,10 @@ export default function GallerySection() {
                   type="button"
                   onClick={() => setActiveVideo(video.id)}
                   aria-label={`Play: ${video.title}`}
-                  className="group text-left flex flex-col overflow-hidden rounded-2xl border border-black/8 bg-white shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="group text-left flex flex-col overflow-hidden rounded-[1.5rem] border border-black/5 bg-white shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   {/* Thumbnail */}
-                  <div className="relative aspect-video overflow-hidden bg-gray-100">
+                  <div className="relative aspect-video overflow-hidden bg-gray-50">
                     <Image
                       src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                       alt={video.title}

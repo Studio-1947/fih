@@ -58,7 +58,7 @@ export default function AboutContentSection({
             {whatSetsUsApart.points.map((point, idx) => (
               <div key={idx} className="bg-white rounded-2xl p-6 shadow-sm border border-black/5 flex flex-col gap-4 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150" />
-                <CheckCircle2 className="h-8 w-8 text-primary relative z-10" />
+                <CheckCircle2 className="h-8 w-8 text-primary-dark relative z-10" />
                 <h4 className="text-lg font-bold text-black [font-family:var(--font-heading)] relative z-10">
                   {point.title}
                 </h4>
@@ -104,7 +104,7 @@ export default function AboutContentSection({
               {ourFoundation.quote.replace(/“|”|"/g, '')}
               <span className="absolute -bottom-10 text-6xl text-primary/30 ml-2">"</span>
             </blockquote>
-            <p className="text-base sm:text-lg leading-relaxed text-black/60 [font-family:var(--font-body)] border-l-4 border-primary pl-6 py-2">
+            <p className="text-base sm:text-lg leading-relaxed text-black/60 [font-family:var(--font-body)] border-l-4 border-primary-dark pl-6 py-2">
               {ourFoundation.conclusion}
             </p>
           </div>

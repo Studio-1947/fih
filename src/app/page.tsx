@@ -3,6 +3,7 @@ import WhatWeDoSection from "@/components/WhatWeDoSection";
 import RecognitionSection from "@/components/RecognitionSection";
 import SupportedBySection from "@/components/SupportedBySection";
 import StoriesAndMilestonesSection from "@/components/StoriesAndMilestonesSection";
+import EventsSection from "@/components/EventsSection";
 import PartnerWithUsSection from "@/components/PartnerWithUsSection";
 import {
   homeHeroContent,
@@ -20,6 +21,7 @@ export default function Home() {
       <RecognitionSection content={recognitionContent} />
       <SupportedBySection />
       <StoriesAndMilestonesSection content={storiesAndMilestonesContent} />
+      <EventsSection />
       <PartnerWithUsSection content={partnerWithUsContent} />
     </div>
   );

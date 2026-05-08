@@ -9,7 +9,7 @@ export default function TestimonialSection() {
     <section id="testimonials" className="py-32 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">Voice of the People</h2>
+          <h2 className="text-sm font-bold text-primary-dark uppercase tracking-[0.3em] mb-4">Voice of the People</h2>
           <h3 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Testimonials of Impact</h3>
           <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mt-6" />
         </div>
@@ -33,8 +33,8 @@ export default function TestimonialSection() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors">{item.name}</h4>
-                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider rounded-full mt-2">
+                  <h4 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-primary-dark transition-colors">{item.name}</h4>
+                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary-dark text-[10px] font-bold uppercase tracking-wider rounded-full mt-2">
                     Beneficiary
                   </span>
                 </div>
@@ -48,7 +48,7 @@ export default function TestimonialSection() {
               </div>
               
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between group-hover:border-primary/20 transition-colors duration-500">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 group-hover:text-primary transition-colors">Foundation for Innovations in Health</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 group-hover:text-primary-dark transition-colors">Foundation for Innovations in Health</span>
                 <div className="w-12 h-1 bg-gray-100 group-hover:bg-primary/30 rounded-full transition-all duration-500 group-hover:w-16" />
               </div>
             </div>

@@ -21,38 +21,38 @@ export default function StoriesOfChangePage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/85 z-10" />
-        <div className="absolute inset-0 scale-105 animate-subtle-zoom blur-[2px]">
+      <section className="absolute top-0 left-0 right-0 h-[85vh] lg:h-[95vh] flex flex-col justify-end overflow-hidden bg-black">
+        <div className="absolute inset-0">
           <Image
             src={hero.bgImagePath}
             alt={hero.title}
             fill
-            className="object-cover opacity-90"
+            className="object-cover object-bottom"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 pointer-events-none" />
         </div>
-        <div className="relative z-20 max-w-5xl mx-auto px-4 text-center">
-          <div className="animate-fade-in-up">
-            <span className="inline-block px-4 py-1.5 bg-primary text-black font-bold text-xs md:text-sm uppercase tracking-widest rounded-full mb-8 shadow-xl">
-              {hero.bannerHook}
-            </span>
-            <h1 className="text-4xl md:text-6xl lg:text-8xl font-black mb-8 leading-[1.1] text-white [text-shadow:0_8px_24px_rgba(0,0,0,0.8)] drop-shadow-2xl">
-              {hero.title}
-            </h1>
-            <p className="text-lg md:text-2xl text-white/95 max-w-4xl mx-auto leading-relaxed font-semibold [text-shadow:0_4px_16px_rgba(0,0,0,0.8)] drop-shadow-lg">
-              {hero.description}
-            </p>
+        
+        {/* Text Container aligned over the image */}
+        <div className="relative z-20 w-full pb-10 sm:pb-16 lg:pb-20 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto">
+            <div className="animate-fade-in-up max-w-3xl">
+              <span className="inline-block px-4 py-1.5 bg-primary-dark text-white font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] rounded-full mb-4 sm:mb-6 shadow-lg">
+                {hero.bannerHook}
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-[1.15] text-white [text-shadow:0_4px_12px_rgba(0,0,0,0.6)] drop-shadow-xl [font-family:var(--font-heading)]">
+                {hero.title}
+              </h1>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 leading-relaxed font-medium [text-shadow:0_2px_8px_rgba(0,0,0,0.6)] [font-family:var(--font-body)]">
+                {hero.description}
+              </p>
+            </div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        {/* <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-            <div className="w-1 h-2 bg-white rounded-full" />
-          </div>
-        </div> */}
       </section>
+
+      {/* Spacer to push content below the absolute hero */}
+      <div className="w-full h-[85vh] lg:h-[95vh] -mt-8" />
 
       {/* Narrative Sections */}
       <section className="py-32 relative">
@@ -66,7 +66,7 @@ export default function StoriesOfChangePage() {
                 {/* Text Content */}
                 <div className="flex-1 space-y-8 animate-fade-in">
                   <div className="flex items-center gap-6 mb-8">
-                    <div className="h-1.5 w-16 bg-primary rounded-full shadow-[0_0_15px_rgba(var(--color-primary),0.5)]" />
+                    <div className="h-1.5 w-16 bg-primary-dark rounded-full" />
                     <h3 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight [font-family:var(--font-heading)]">
                       {section.heading}
                     </h3>
@@ -75,7 +75,7 @@ export default function StoriesOfChangePage() {
                     {section.paragraphs.map((para, pIndex) => (
                       <p 
                         key={pIndex}
-                        className={pIndex === 0 ? "first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:mr-2 first-letter:float-left first-letter:leading-none" : ""}
+                        className={pIndex === 0 ? "first-letter:text-5xl first-letter:font-bold first-letter:text-primary-dark first-letter:mr-2 first-letter:float-left first-letter:leading-none" : ""}
                       >
                         {para}
                       </p>

@@ -99,13 +99,13 @@ function ProjectCard({
     <div className="flex flex-col bg-white rounded-2xl border border-black/8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden">
       {/* Logo header */}
       <div className="flex items-center justify-between gap-4 px-6 pt-6 pb-4 border-b border-black/6">
-        <div className="relative h-12 w-32 shrink-0">
+        <div className="relative h-16 w-40 sm:h-20 sm:w-48 shrink-0">
           <Image
             src={project.logo}
             alt={project.partner}
             fill
             className="object-contain object-left"
-            sizes="128px"
+            sizes="(max-width: 640px) 160px, 192px"
           />
         </div>
         <span
