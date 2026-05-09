@@ -35,18 +35,16 @@ export default function RecognitionSection({
               </span>
             </div>
 
-            {content.partners?.[0]?.logo && (
-              <div className="mt-6 sm:mt-8">
-                <div className="relative h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20">
-                  <Image
-                    src={content.partners[0].logo}
-                    alt="Stanford Seal"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+            <div className="mt-6 sm:mt-8">
+              <div className="relative h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20">
+                <Image
+                  src="/recognised/stanford_university.svg"
+                  alt="Stanford Seal"
+                  fill
+                  className="object-contain"
+                />
               </div>
-            )}
+            </div>
 
             <div className="mt-5 space-y-1.5 sm:space-y-2">
               <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-tight [font-family:var(--font-heading)]">
