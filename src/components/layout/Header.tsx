@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/stories-of-change", label: "Stories of Change" },
   { href: "/csr-projects", label: "CSR Projects" },
   { href: "/press-media", label: "Press & Media" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {

@@ -8,7 +8,7 @@ const quickLinks = [
   { label: "Stories of Change", href: "/stories-of-change" },
   { label: "CSR Projects", href: "/csr-projects" },
   { label: "Press & Media", href: "/press-media" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const legalLinks = [
