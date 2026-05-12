@@ -4,6 +4,7 @@ import { storiesOfChangeContent } from "@/lib/content/storiesOfChange";
 import { storiesAndMilestonesContent } from "@/lib/content/storiesAndMilestones";
 import TestimonialSection from "@/components/stories-of-change/TestimonialSection";
 import StorySectionItem from "@/components/stories-of-change/StorySectionItem";
+import QuoteSection from "@/components/stories-of-change/QuoteSection";
 
 export const metadata: Metadata = {
   title: "Stories of Change | Foundation for Innovations in Health",
@@ -22,7 +23,7 @@ export default function StoriesOfChangePage() {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section - Technical Grid Editorial */}
-      <section className="absolute top-0 left-0 right-0 h-[85vh] lg:h-[95vh] flex flex-col overflow-hidden bg-[#0A0A0B]">
+      <section className="absolute top-0 left-0 right-0 h-[85vh] lg:h-screen flex flex-col overflow-hidden bg-[#0A0A0B]">
         <div className="absolute inset-0 z-0">
           <Image
             src={hero.bgImagePath}
@@ -37,7 +38,7 @@ export default function StoriesOfChangePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/60 to-[#0A0A0B]/40 z-10" />
         </div>
         
-        <div className="relative z-20 flex-1 flex flex-col justify-center pt-36 pb-12 lg:pt-52 lg:pb-24">
+        <div className="relative z-20 flex-1 flex flex-col justify-center pt-36 pb-24 lg:pt-56 lg:pb-52">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-y-12">
             
             {/* Top Row: Hook & Metadata */}
@@ -84,12 +85,12 @@ export default function StoriesOfChangePage() {
       </section>
 
       {/* Spacer */}
-      <div className="w-full h-[85vh] lg:h-[95vh] -mt-8" />
+      <div className="w-full h-[85vh] lg:h-screen -mt-8" />
 
       {/* Narrative Sections */}
-      <section className="py-24 sm:py-32 lg:py-48 bg-white overflow-hidden">
+      <section className="py-20 sm:py-24 lg:py-28 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-32 sm:space-y-48 lg:space-y-64">
+          <div className="space-y-24 sm:space-y-32 lg:space-y-36">
             {sections.map((section, index) => (
               <StorySectionItem 
                 key={index} 
@@ -101,17 +102,7 @@ export default function StoriesOfChangePage() {
         </div>
       </section>
 
-      <section className="bg-primary py-32 overflow-hidden relative" style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
-        <div className="absolute top-0 right-0 text-[20rem] font-black text-black/5 leading-none translate-x-1/4 -translate-y-1/4 select-none">
-          “
-        </div>
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <p className="text-3xl md:text-5xl font-black text-black leading-tight mb-12">
-            "In the Sundarbans, where survival is a daily challenge, the Floating Digital Clinic is not just a service; it is a lifeline."
-          </p>
-          <div className="h-2 w-32 bg-black mx-auto rounded-full"></div>
-        </div>
-      </section>
+      <QuoteSection />
       {/* Milestones Section */}
       {/* <section className="py-32 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

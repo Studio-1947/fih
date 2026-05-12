@@ -3,48 +3,49 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Images, PlayCircle } from "lucide-react";
+import FadeIn from "@/components/ui/FadeIn";
 
 // ── Photos ──────────────────────────────────────────────────────────────────
 const photos = [
-  "/Press&media/gallery/photos/photo-gallery-01.jpg",
-  "/Press&media/gallery/photos/photo-gallery-02.jpeg",
-  "/Press&media/gallery/photos/photo-gallery-03.png",
-  "/Press&media/gallery/photos/photo-gallery-04.jpg",
-  "/Press&media/gallery/photos/photo-gallery-05.png",
-  "/Press&media/gallery/photos/photo-gallery-06.png",
-  "/Press&media/gallery/photos/photo-gallery-07.webp",
-  "/Press&media/gallery/photos/photo-gallery-08.webp",
-  "/Press&media/gallery/photos/photo-gallery-09.webp",
-  "/Press&media/gallery/photos/photo-gallery-10.webp",
-  "/Press&media/gallery/photos/photo-gallery-11.jpg",
-  "/Press&media/gallery/photos/photo-gallery-12.png",
-  "/Press&media/gallery/photos/photo-gallery-13.jpg",
-  "/Press&media/gallery/photos/photo-gallery-14.jpg",
-  "/Press&media/gallery/photos/photo-gallery-15.jpg",
-  "/Press&media/gallery/photos/photo-gallery-16.jpg",
-  "/Press&media/gallery/photos/photo-gallery-17.jpg",
-  "/Press&media/gallery/photos/photo-gallery-18.jpg",
-  "/Press&media/gallery/photos/photo-gallery-19.jpg",
-  "/Press&media/gallery/photos/photo-gallery-20.jpg",
-  "/Press&media/gallery/photos/photo-gallery-21.jpg",
-  "/Press&media/gallery/photos/photo-gallery-22.jpg",
-  "/Press&media/gallery/photos/photo-gallery-23.jpeg",
-  "/Press&media/gallery/photos/photo-gallery-24.jpeg",
-  "/Press&media/gallery/photos/photo-gallery-25.png",
-  "/Press&media/gallery/photos/photo-gallery-26.jpg",
-  "/Press&media/gallery/photos/photo-gallery-27.jpg",
-  "/Press&media/gallery/photos/photo-gallery-28.jpg",
-  "/Press&media/gallery/photos/photo-gallery-29.jpg",
-  "/Press&media/gallery/photos/photo-gallery-30.jpg",
-  "/Press&media/gallery/photos/photo-gallery-31.jpg",
-  "/Press&media/gallery/photos/photo-gallery-32.jpg",
-  "/Press&media/gallery/photos/DSC_0201.jpg",
-  "/Press&media/gallery/photos/DSC_0736.jpg",
-  "/Press&media/gallery/photos/DSC_0745.jpg",
-  "/Press&media/gallery/photos/IMG-20250224-WA0011.jpg",
-  "/Press&media/gallery/photos/IMG-20250402-WA0002.jpg",
-  "/Press&media/gallery/photos/WhatsApp Image 2025-06-04 at 18.53.47_dc85eaaf.jpg",
-  "/Press&media/gallery/photos/WhatsApp Image 2025-06-04 at 22.05.20_2bfc0ee9.jpg",
+  "/press-media/gallery/photos/photo-gallery-01.jpg",
+  "/press-media/gallery/photos/photo-gallery-02.jpeg",
+  "/press-media/gallery/photos/photo-gallery-03.png",
+  "/press-media/gallery/photos/photo-gallery-04.jpg",
+  "/press-media/gallery/photos/photo-gallery-05.png",
+  "/press-media/gallery/photos/photo-gallery-06.png",
+  "/press-media/gallery/photos/photo-gallery-07.webp",
+  "/press-media/gallery/photos/photo-gallery-08.webp",
+  "/press-media/gallery/photos/photo-gallery-09.webp",
+  "/press-media/gallery/photos/photo-gallery-10.webp",
+  "/press-media/gallery/photos/photo-gallery-11.jpg",
+  "/press-media/gallery/photos/photo-gallery-12.png",
+  "/press-media/gallery/photos/photo-gallery-13.jpg",
+  "/press-media/gallery/photos/photo-gallery-14.jpg",
+  "/press-media/gallery/photos/photo-gallery-15.jpg",
+  "/press-media/gallery/photos/photo-gallery-16.jpg",
+  "/press-media/gallery/photos/photo-gallery-17.jpg",
+  "/press-media/gallery/photos/photo-gallery-18.jpg",
+  "/press-media/gallery/photos/photo-gallery-19.jpg",
+  "/press-media/gallery/photos/photo-gallery-20.jpg",
+  "/press-media/gallery/photos/photo-gallery-21.jpg",
+  "/press-media/gallery/photos/photo-gallery-22.jpg",
+  "/press-media/gallery/photos/photo-gallery-23.jpeg",
+  "/press-media/gallery/photos/photo-gallery-24.jpeg",
+  "/press-media/gallery/photos/photo-gallery-25.png",
+  "/press-media/gallery/photos/photo-gallery-26.jpg",
+  "/press-media/gallery/photos/photo-gallery-27.jpg",
+  "/press-media/gallery/photos/photo-gallery-28.jpg",
+  "/press-media/gallery/photos/photo-gallery-29.jpg",
+  "/press-media/gallery/photos/photo-gallery-30.jpg",
+  "/press-media/gallery/photos/photo-gallery-31.jpg",
+  "/press-media/gallery/photos/photo-gallery-32.jpg",
+  "/press-media/gallery/photos/DSC_0201.jpg",
+  "/press-media/gallery/photos/DSC_0736.jpg",
+  "/press-media/gallery/photos/DSC_0745.jpg",
+  "/press-media/gallery/photos/IMG-20250224-WA0011.jpg",
+  "/press-media/gallery/photos/IMG-20250402-WA0002.jpg",
+  "/press-media/gallery/photos/WhatsApp%20Image%202025-06-04%20at%2018.53.47_dc85eaaf.jpg",
+  "/press-media/gallery/photos/WhatsApp%20Image%202025-06-04%20at%2022.05.20_2bfc0ee9.jpg",
 ];
 
 // ── Videos ──────────────────────────────────────────────────────────────────
@@ -90,6 +91,14 @@ export default function GallerySection() {
   const [activeTab, setActiveTab] = useState<Tab>("photos");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const PAGE_SIZE = 12;
+  const totalPages = Math.ceil(photos.length / PAGE_SIZE);
+  const paginatedPhotos = photos.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
 
   // Photo lightbox navigation
   const openPhoto = (i: number) => setLightboxIndex(i);
@@ -132,7 +141,7 @@ export default function GallerySection() {
     <>
       <section
         id="gallery"
-        className="relative py-16 sm:py-24 bg-white"
+        className="relative py-20 sm:py-32 bg-white"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -192,80 +201,126 @@ export default function GallerySection() {
 
           {/* ── Photos grid ──────────────────────────────────────────────── */}
           {activeTab === "photos" && (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              {photos.map((src, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => openPhoto(i)}
-                  aria-label={`View photo ${i + 1}`}
-                  className="group relative block w-full overflow-hidden rounded-[1.5rem] cursor-zoom-in shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-gray-50 border border-black/5"
-                >
-                  <div className="relative aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
-                    <Image
-                      src={src}
-                      alt={`FIH Gallery photo ${i + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    />
-                    {/* Soft gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {/* Hover indicator icon */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
-                      <div className="bg-white/95 backdrop-blur-md text-black rounded-full p-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                        </svg>
-                      </div>
-                    </div>
+            <>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                {paginatedPhotos.map((src, i) => {
+                  const globalIndex = (currentPage - 1) * PAGE_SIZE + i;
+                  return (
+                    <FadeIn key={globalIndex} delay={i * 0.05}>
+                      <button
+                        type="button"
+                        onClick={() => openPhoto(globalIndex)}
+                        aria-label={`View photo ${globalIndex + 1}`}
+                        className="group relative block w-full overflow-hidden rounded-[1.5rem] cursor-zoom-in shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-gray-50 border border-black/5"
+                      >
+                        <div className="relative aspect-[4/5] sm:aspect-square md:aspect-[4/3]">
+                          <Image
+                            src={src}
+                            alt={`FIH Gallery photo ${globalIndex + 1}`}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          />
+                          {/* Soft gradient overlay on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          
+                          {/* Hover indicator icon */}
+                          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
+                            <div className="bg-white/95 backdrop-blur-md text-black rounded-full p-3.5 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </FadeIn>
+                  );
+                })}
+              </div>
+
+              {/* Pagination Controls */}
+              {totalPages > 1 && (
+                <div className="mt-12 flex items-center justify-center gap-3">
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                    disabled={currentPage === 1}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/5 bg-white text-black shadow-sm transition-all hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Previous page"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  
+                  <div className="flex items-center gap-2">
+                    {Array.from({ length: totalPages }).map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentPage(i + 1)}
+                        className={`h-10 min-w-[2.5rem] rounded-xl text-sm font-bold transition-all ${
+                          currentPage === i + 1
+                            ? "bg-black text-white shadow-md scale-105"
+                            : "bg-gray-100 text-black/40 hover:bg-gray-200 hover:text-black"
+                        } [font-family:var(--font-heading)]`}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
                   </div>
-                </button>
-              ))}
-            </div>
+
+                  <button
+                    onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                    disabled={currentPage === totalPages}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-black/5 bg-white text-black shadow-sm transition-all hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Next page"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+              )}
+            </>
           )}
 
           {/* ── Videos grid ──────────────────────────────────────────────── */}
           {activeTab === "videos" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
-              {videos.map((video) => (
-                <button
-                  key={video.id}
-                  type="button"
-                  onClick={() => setActiveVideo(video.id)}
-                  aria-label={`Play: ${video.title}`}
-                  className="group text-left flex flex-col overflow-hidden rounded-[1.5rem] border border-black/5 bg-white shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                >
-                  {/* Thumbnail */}
-                  <div className="relative aspect-video overflow-hidden bg-gray-50">
-                    <Image
-                      src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-                      alt={video.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                    {/* Play overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-colors duration-300">
-                      <div className="flex h-13 w-13 items-center justify-center rounded-full bg-white/90 shadow-lg group-hover:scale-110 transition-transform duration-300" style={{ width: 52, height: 52 }}>
-                        {/* Triangle play icon */}
-                        <svg viewBox="0 0 24 24" className="h-6 w-6 ml-0.5" fill="black" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M8 5.14v14l11-7-11-7z" />
-                        </svg>
+              {videos.map((video, i) => (
+                <FadeIn key={video.id} delay={i * 0.1}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveVideo(video.id)}
+                    aria-label={`Play: ${video.title}`}
+                    className="group text-left flex flex-col overflow-hidden rounded-[1.5rem] border border-black/5 bg-white shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary h-full"
+                  >
+                    {/* Thumbnail */}
+                    <div className="relative aspect-video overflow-hidden bg-gray-50">
+                      <Image
+                        src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                        alt={video.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      {/* Play overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/35 transition-colors duration-300">
+                        <div className="flex h-13 w-13 items-center justify-center rounded-full bg-white/90 shadow-lg group-hover:scale-110 transition-transform duration-300" style={{ width: 52, height: 52 }}>
+                          {/* Triangle play icon */}
+                          <svg viewBox="0 0 24 24" className="h-6 w-6 ml-0.5" fill="black" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5.14v14l11-7-11-7z" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {/* Title */}
-                  <div className="flex flex-col flex-1 p-4">
-                    <p className="text-sm font-semibold [font-family:var(--font-heading)] text-black leading-snug line-clamp-3">
-                      {video.title}
-                    </p>
-                    <span className="mt-3 text-[11px] font-bold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
-                      Foundation for Innovations in Health
-                    </span>
-                  </div>
-                </button>
+                    {/* Title */}
+                    <div className="flex flex-col flex-1 p-4">
+                      <p className="text-sm font-semibold [font-family:var(--font-heading)] text-black leading-snug line-clamp-3">
+                        {video.title}
+                      </p>
+                      <span className="mt-3 text-[11px] font-bold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
+                        Foundation for Innovations in Health
+                      </span>
+                    </div>
+                  </button>
+                </FadeIn>
               ))}
             </div>
           )}
