@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeIn from "@/components/ui/FadeIn";
 
 const awards = [
   {
@@ -7,7 +8,7 @@ const awards = [
     body: "Stanford Graduate School of Business & Stanford Doerr School of Sustainability, Stanford University",
     description:
       "FIH's work recognised among the top 40 global changemakers by two world-leading schools at Stanford University — one of the highest global honours in impact-driven innovation.",
-    logo: "/Press&media/awards/stanford business.png",
+    logo: "/press-media/awards/stanford%20business.png",
     logoAlt: "Stanford University logo",
     featured: true,
   },
@@ -17,7 +18,7 @@ const awards = [
     body: "Department of Science & Technology, Govt. of India",
     description:
       "The 'COVID Severity Score' software, developed by FIH through collaboration, has been recognised by DST, Govt. of India.",
-    logo: "/Press&media/awards/department of science and tech.png",
+    logo: "/press-media/awards/department%20of%20science%20and%20tech.png",
     logoAlt: "Department of Science & Technology logo",
   },
   {
@@ -26,7 +27,7 @@ const awards = [
     body: "USAID Program",
     description:
       "Received grant from Millennium Alliance Round 6 (a USAID program) for a comprehensive livelihood and digital clinic programme at Sundarbans.",
-    logo: "/Press&media/awards/FICCI.png",
+    logo: "/press-media/awards/FICCI.png",
     logoAlt: "FICCI logo",
   },
   {
@@ -35,7 +36,7 @@ const awards = [
     body: "Ladies Study Group Charitable Trust",
     description:
       "Awarded for outstanding efforts in uplifting underprivileged sections of society.",
-    logo: "/Press&media/awards/lsg-logo.png",
+    logo: "/press-media/awards/lsg-logo.png",
     logoAlt: "Ladies Study Group Charitable Trust logo",
   },
   {
@@ -44,7 +45,7 @@ const awards = [
     body: "Dept. of Science & Technology, Govt. of India",
     description:
       "Received the 'IMPRINT' grant in collaboration with IIT Kharagpur, IIT Guwahati, IIT Hyderabad, and IIEST Shibpur from the Dept. of Science & Technology, Govt. of India.",
-    logo: "/Press&media/awards/imprint-logo.png",
+    logo: "/press-media/awards/imprint-logo.png",
     logoAlt: "IMPRINT logo",
   },
   {
@@ -53,7 +54,7 @@ const awards = [
     body: "Harvard US-India Initiative",
     description:
       "Recognised as First Runner-Up at the Harvard US-India Initiative 2016.",
-    logo: "/Press&media/awards/huii-logo.png",
+    logo: "/press-media/awards/huii-logo.png",
     logoAlt: "Harvard US-India Initiative logo",
   },
   {
@@ -62,7 +63,7 @@ const awards = [
     body: "Information Technology Research Academy, Govt. of India",
     description:
       "Awarded 'Best Outreach Model On Healthcare' by the Information Technology Research Academy (ITRA), Govt. of India.",
-    logo: "/Press&media/awards/itra-logo.png",
+    logo: "/press-media/awards/itra-logo.png",
     logoAlt: "ITRA logo",
   },
 ];
@@ -72,7 +73,7 @@ const regularAwards = awards.slice(1);
 
 export default function AwardsRecognitionSection() {
   return (
-    <section className="py-16 sm:py-24 bg-white" id="awards-recognition">
+    <section className="pt-16 pb-16 sm:pt-28 sm:pb-24 bg-white" id="awards-recognition">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
@@ -126,7 +127,7 @@ export default function AwardsRecognitionSection() {
 
           {/* Right — logo panel */}
           <div className="flex items-center justify-center border-t border-white/10 sm:border-t-0 sm:border-l p-8 sm:p-12 sm:w-[45%] bg-white/[0.03]">
-            <div className="relative w-full max-w-[220px] h-24 sm:h-32">
+            <div className="relative w-full max-w-[280px] h-32 sm:h-40">
               <Image
                 src={featuredAward.logo}
                 alt={featuredAward.logoAlt}
@@ -139,41 +140,42 @@ export default function AwardsRecognitionSection() {
 
         {/* Regular Awards Grid — 3×2 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {regularAwards.map((award, index) => (
-            <div
-              key={index}
-              className="group flex flex-col bg-gray-50 rounded-2xl border border-black/8 p-6 sm:p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-            >
-              {/* Year badge */}
-              <span className="inline-block self-start mb-5 rounded-full bg-primary px-3 py-1 text-[11px] font-bold tracking-wider uppercase [font-family:var(--font-heading)]">
-                {award.year}
-              </span>
+          {regularAwards.map((award, index) => {
+            return (
+              <FadeIn key={index} delay={index * 0.1}>
+                <div className="group h-full flex flex-col items-center text-center bg-gray-50 rounded-2xl border border-black/8 p-6 sm:p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                  {/* Year badge */}
+                  <span className="inline-block mb-5 rounded-full bg-primary px-3 py-1 text-[11px] font-bold tracking-wider uppercase [font-family:var(--font-heading)]">
+                    {award.year}
+                  </span>
 
-              {/* Logo */}
-              <div className="relative w-full h-14 mb-5">
-                <Image
-                  src={award.logo}
-                  alt={award.logoAlt}
-                  fill
-                  className="object-contain object-left opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-              </div>
+                  {/* Logo */}
+                  <div className="relative w-full h-20 sm:h-24 mb-6">
+                    <Image
+                      src={award.logo}
+                      alt={award.logoAlt}
+                      fill
+                      className="object-contain object-center opacity-80 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
 
-              {/* Divider */}
-              <div className="w-10 h-[2px] bg-primary/40 rounded-full mb-4 group-hover:bg-primary transition-colors" />
+                  {/* Divider */}
+                  <div className="w-10 h-[2px] bg-primary/40 rounded-full mb-4 group-hover:bg-primary transition-colors mx-auto" />
 
-              {/* Text */}
-              <h3 className="text-base sm:text-lg font-bold [font-family:var(--font-heading)] text-black leading-snug">
-                {award.title}
-              </h3>
-              <p className="mt-1 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
-                {award.body}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-black/60 [font-family:var(--font-body)] flex-grow">
-                {award.description}
-              </p>
-            </div>
-          ))}
+                  {/* Text */}
+                  <h3 className="text-base sm:text-lg font-bold [font-family:var(--font-heading)] text-black leading-snug">
+                    {award.title}
+                  </h3>
+                  <p className="mt-1 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
+                    {award.body}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-black/60 [font-family:var(--font-body)] flex-grow">
+                    {award.description}
+                  </p>
+                </div>
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>

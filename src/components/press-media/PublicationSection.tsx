@@ -3,60 +3,61 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Newspaper, ZoomIn, ZoomOut, Maximize2 } from "lucide-react";
+import FadeIn from "@/components/ui/FadeIn";
 
 const publications = [
   {
-    src: "/Press&media/Publication/Picsart_22-07-20_17-11-51-662.jpg",
+    src: "/press-media/Publication/Picsart_22-07-20_17-11-51-662.jpg",
     alt: "ET Healthworld – Floating Hospital takes digital healthcare to Sunderbans",
     caption: "ET Healthworld",
   },
   {
-    src: "/Press&media/Publication/IMG-20240906-WA0001.jpg",
+    src: "/press-media/Publication/IMG-20240906-WA0001.jpg",
     alt: "Hindi newspaper – Community health programme launch",
     caption: "Print Media",
   },
   {
-    src: "/Press&media/Publication/Awards and recognition_page-0002.jpg",
+    src: "/press-media/Publication/Awards%20and%20recognition_page-0002.jpg",
     alt: "Press clipping – Awards & Recognition coverage",
     caption: "Press Coverage",
   },
   {
-    src: "/Press&media/Publication/Awards and recognition_page-0003.jpg",
+    src: "/press-media/Publication/Awards%20and%20recognition_page-0003.jpg",
     alt: "Press clipping – Awards & Recognition coverage",
     caption: "Press Coverage",
   },
   {
-    src: "/Press&media/Publication/Awards and recognition_page-0004.jpg",
+    src: "/press-media/Publication/Awards%20and%20recognition_page-0004.jpg",
     alt: "Press clipping – Awards & Recognition coverage",
     caption: "Press Coverage",
   },
   {
-    src: "/Press&media/Publication/Awardsandrecognition.jpg",
+    src: "/press-media/Publication/Awardsandrecognition.jpg",
     alt: "Anandabazar Patrika – Awards & Recognition article",
     caption: "Anandabazar Patrika",
   },
   {
-    src: "/Press&media/Publication/DW DOT NEWS.jpeg",
+    src: "/press-media/Publication/DW%20DOT%20NEWS.jpeg",
     alt: "DW News – In Indian Sundarbans, tech enables health care for all",
     caption: "DW News",
   },
   {
-    src: "/Press&media/Publication/IIT Kharagpur Healthcare Training 2025 _ IIT Kharagpur will launch center for training rural youths in healthcare dgtl - Anandabazar.jpg",
+    src: "/press-media/Publication/IIT%20Kharagpur%20Healthcare%20Training%202025%20_%20IIT%20Kharagpur%20will%20launch%20center%20for%20training%20rural%20youths%20in%20healthcare%20dgtl%20-%20Anandabazar.jpg",
     alt: "Anandabazar Patrika – IIT Kharagpur healthcare training 2025",
     caption: "Anandabazar Patrika",
   },
   {
-    src: "/Press&media/Publication/1731041308866.jpg",
+    src: "/press-media/Publication/1731041308866.jpg",
     alt: "Press publication",
     caption: "Press Coverage",
   },
   {
-    src: "/Press&media/Publication/3tmodel.jpg",
+    src: "/press-media/Publication/3tmodel.jpg",
     alt: "3T Model publication",
     caption: "Publication",
   },
   {
-    src: "/Press&media/Publication/Picsart_22-07-20_17-15-10-540.jpg",
+    src: "/press-media/Publication/Picsart_22-07-20_17-15-10-540.jpg",
     alt: "Press publication",
     caption: "Press Coverage",
   },
@@ -161,7 +162,7 @@ export default function PublicationSection() {
       {/* Full-bleed section: escape max-w-7xl parent using viewport centering */}
       <section
         id="publications"
-        className="relative py-16 sm:py-24 bg-secondary"
+        className="relative py-20 sm:py-32 bg-secondary"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,34 +191,37 @@ export default function PublicationSection() {
 
           {/* Grid — 4 columns on lg, fills evenly with no orphan gap */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
-            {publications.map((pub, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => openLightbox(index)}
-                aria-label={`View: ${pub.alt}`}
-                className="group relative overflow-hidden rounded-xl border border-black/10 bg-white cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary aspect-[3/4]"
-              >
-                <Image
-                  src={pub.src}
-                  alt={pub.alt}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex flex-col items-start justify-end p-3">
-                  <div className="translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                    <span className="inline-block rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider [font-family:var(--font-heading)]">
-                      {pub.caption}
-                    </span>
-                    <p className="mt-1 flex items-center gap-1 text-[10px] text-white/80 [font-family:var(--font-body)]">
-                      <ZoomIn className="h-3 w-3" /> Click to zoom &amp; read
-                    </p>
-                  </div>
-                </div>
-              </button>
-            ))}
+            {publications.map((pub, index) => {
+              return (
+                <FadeIn key={index} delay={index * 0.1}>
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(index)}
+                    aria-label={`View: ${pub.alt}`}
+                    className="group relative block w-full overflow-hidden rounded-xl border border-black/10 bg-white cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary aspect-[3/4]"
+                  >
+                    <Image
+                      src={pub.src}
+                      alt={pub.alt}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex flex-col items-start justify-end p-3">
+                      <div className="translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        <span className="inline-block rounded-full bg-primary px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider [font-family:var(--font-heading)]">
+                          {pub.caption}
+                        </span>
+                        <p className="mt-1 flex items-center gap-1 text-[10px] text-white/80 [font-family:var(--font-body)]">
+                          <ZoomIn className="h-3 w-3" /> Click to zoom &amp; read
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>

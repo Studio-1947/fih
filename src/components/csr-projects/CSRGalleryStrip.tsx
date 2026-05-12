@@ -6,23 +6,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const galleryItems = [
   { type: "photo", src: "/csr/gallery/01.jpeg" },
-  { type: "logo", src: "/csr/present/Ambuja_neotia.png", alt: "Ambuja Neotia" },
   { type: "photo", src: "/csr/gallery/02.jpeg" },
-  { type: "logo", src: "/csr/present/Balmer Lawrie.png", alt: "Balmer Lawrie" },
   { type: "photo", src: "/csr/gallery/03.jpeg" },
-  { type: "logo", src: "/csr/present/mahanagar_gas.png", alt: "Mahanagar Gas" },
   { type: "photo", src: "/csr/gallery/04.jpeg" },
-  { type: "logo", src: "/csr/present/indian_oil.png", alt: "Indian Oil" },
   { type: "photo", src: "/csr/gallery/05.jpeg" },
-  { type: "logo", src: "/csr/present/Brahmaputra.png", alt: "Brahmaputra Cracker and Polymer" },
   { type: "photo", src: "/csr/gallery/06.jpeg" },
-  { type: "logo", src: "/csr/present/Indraprastha gas.png", alt: "Indraprastha Gas" },
   { type: "photo", src: "/csr/gallery/07.jpeg" },
-  { type: "logo", src: "/csr/present/aditya_birla.png", alt: "Aditya Birla" },
   { type: "photo", src: "/csr/gallery/08.jpeg" },
-  { type: "logo", src: "/csr/past/jsw.png", alt: "JSW" },
   { type: "photo", src: "/csr/gallery/09.jpeg" },
-  { type: "logo", src: "/csr/past/coal_india.png", alt: "Coal India" },
   { type: "photo", src: "/csr/gallery/10.jpeg" },
   { type: "photo", src: "/csr/gallery/11.jpeg" },
   { type: "photo", src: "/csr/gallery/12.jpeg" },
@@ -64,7 +55,10 @@ export default function CSRGalleryStrip() {
     const el = trackRef.current;
     if (!el) return;
     const amount = el.clientWidth * 0.75;
-    el.scrollBy({ left: dir === "right" ? amount : -amount, behavior: "smooth" });
+    el.scrollBy({
+      left: dir === "right" ? amount : -amount,
+      behavior: "smooth",
+    });
   };
 
   // Mouse drag handlers
@@ -89,7 +83,6 @@ export default function CSRGalleryStrip() {
   return (
     <section className="py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Header row */}
         <div className="flex items-end justify-between mb-6 gap-4">
           <div>
@@ -137,8 +130,8 @@ export default function CSRGalleryStrip() {
           className="flex gap-4 overflow-x-auto pb-4 select-none"
           style={{
             cursor: "grab",
-            scrollbarWidth: "none",         /* Firefox */
-            msOverflowStyle: "none",        /* IE/Edge */
+            scrollbarWidth: "none" /* Firefox */,
+            msOverflowStyle: "none" /* IE/Edge */,
             WebkitOverflowScrolling: "touch",
           }}
         >
@@ -148,16 +141,14 @@ export default function CSRGalleryStrip() {
           {galleryItems.map((item, idx) => (
             <div
               key={idx}
-              className={`relative shrink-0 h-52 sm:h-64 lg:h-72 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-black/5 flex items-center justify-center ${
-                item.type === "logo" ? "bg-white p-6 sm:p-10" : "bg-black"
-              }`}
+              className="relative shrink-0 h-52 sm:h-64 lg:h-72 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-black/5 flex items-center justify-center bg-black"
               style={{ width: "clamp(200px, 24vw, 320px)" }}
             >
               <Image
                 src={item.src}
-                alt={item.type === "logo" ? `Corporate Partner - ${item.alt}` : `CSR Gallery Photo ${idx}`}
+                alt={`CSR Gallery Photo ${idx}`}
                 fill
-                className={`${item.type === "logo" ? "object-contain p-8" : "object-cover"} pointer-events-none`}
+                className="object-cover pointer-events-none"
                 sizes="(max-width: 640px) 200px, 320px"
                 draggable={false}
               />
