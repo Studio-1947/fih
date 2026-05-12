@@ -18,7 +18,7 @@ export default function ContactPage() {
         intro={contactPageContent.intro} 
       />
       <ContactFormSection content={partnerWithUsContent} />
-      <MapSection />
+      {/* <MapSection /> */}
     </div>
   );
 }

@@ -8,11 +8,7 @@ interface ContactHeroProps {
 export default function ContactHero({ title, intro }: ContactHeroProps) {
   return (
     <section className="relative overflow-hidden bg-white py-16 lg:py-24">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="absolute -left-20 -top-20 h-96 w-96 rounded-full bg-primary blur-3xl" />
-        <div className="absolute -right-20 -bottom-20 h-96 w-96 rounded-full bg-black blur-3xl" />
-      </div>
+
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">

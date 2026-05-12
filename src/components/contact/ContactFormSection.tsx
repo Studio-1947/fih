@@ -9,7 +9,7 @@ interface ContactFormSectionProps {
 
 export default function ContactFormSection({ content }: ContactFormSectionProps) {
   return (
-    <section className="bg-[#FAFAFA] py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
           
@@ -166,7 +166,7 @@ export default function ContactFormSection({ content }: ContactFormSectionProps)
           </div>
         </div>
 
-        {/* FAQ Section */}
+{/* 
         <div className="mt-24 space-y-12">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-black [font-family:var(--font-heading)]">
@@ -212,6 +212,7 @@ export default function ContactFormSection({ content }: ContactFormSectionProps)
             </div>
           </div>
         </div>
+        */}
       </div>
     </section>
   );
