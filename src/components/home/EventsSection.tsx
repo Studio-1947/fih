@@ -159,7 +159,7 @@ export default function EventsSection() {
       {/* Detail Modal */}
       {selectedEvent && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 p-4"
           onClick={() => setSelectedEvent(null)}
         >
           <div 

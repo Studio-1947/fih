@@ -61,7 +61,7 @@ export default function BoardOfMembersSection() {
 
       {/* Modal */}
       {selectedMember && (
-        <div className="fixed inset-0 z-90 flex items-center justify-center p-4 sm:p-6" aria-modal="true" role="dialog">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6" aria-modal="true" role="dialog">
           {/* Backdrop */}
           <div 
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"

@@ -49,7 +49,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 px-4 text-black sm:px-6 lg:px-8 ${
+      className={`sticky top-0 z-[100] transition-all duration-300 px-4 text-black sm:px-6 lg:px-8 ${
         isScrolled ? "py-2" : "pt-6"
       } ${isGrantsPage ? "bg-[#fafafa]" : ""}`}
     >
