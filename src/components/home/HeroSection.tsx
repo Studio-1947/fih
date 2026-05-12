@@ -9,7 +9,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="bg-surface px-4 pt-8 lg:px-0 lg:py-0">
+    <section className="bg-surface px-4 pt-8 lg:px-0 lg:py-0 overflow-hidden">
       <div className="w-full grid items-end gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="space-y-6 flex flex-col items-center text-center lg:block lg:text-left">
           <div className="space-y-5 flex flex-col items-center lg:block">

@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased`}
+      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased overflow-x-clip`}
     >
       <body className="flex flex-col bg-surface text-black [font-family:var(--font-body)] overflow-x-clip">
         <Header />

@@ -19,7 +19,10 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
   const [headingMain, headingTail] = content.heading.split(headingAccent);
 
   return (
-    <section className="relative left-1/2 right-1/2 z-50 w-dvw -translate-x-1/2 overflow-hidden bg-secondary text-black">
+    <section 
+      className="relative z-50 overflow-hidden bg-secondary text-black"
+      style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-[56%] bg-linear-to-b from-black via-black/80 to-transparent"
