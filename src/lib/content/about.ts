@@ -18,6 +18,7 @@ export type AboutContent = {
   ourFoundation: {
     title: string;
     paragraphs: string[];
+    quoteIntro?: string;
     quote: string;
     conclusion: string;
     imagePath?: string;
@@ -90,11 +91,11 @@ export type AboutContent = {
 export const aboutContent: AboutContent = {
   hero: {
     bannerHook: "Reimagining Healthcare & Livelihoods for Rural India",
-    bgImagePath: "/AboutUs/FIH.jpg",
+    bgImagePath: "/AboutUs/about_us_fih.png",
   },
   intro: {
     heading: "About Foundation for Innovations in Health",
-    imagePath: "/AboutUs/IMG-20210611-WA0125.jpg",
+    imagePath: "/AboutUs/aboutus01.png",
     paragraphs: [
       "Foundation for Innovations in Health (FIH) is a not-for-profit organisation committed to addressing Multi-Dimensional Poverty (MDP) and building resilient rural communities across India. Our work is anchored in a dual-impact approach, combining employment-oriented education with data-driven, evidence-based frugal teach-enabled affordable primary healthcare on a digital delivery model, representing an advancement over conventional telemedicine.",
       "At FIH, we believe that sustainable change lies at the intersection of healthcare access and livelihood generation. By leveraging the democratisation of frugal healthtech innovations, we design and deploy scalable, cost-effective solutions that bring quality healthcare, including mental health and mitigation of climate change impacts, closer to underserved populations while creating meaningful employment opportunities.",
@@ -120,9 +121,9 @@ export const aboutContent: AboutContent = {
   ourFoundation: {
     title: "Our Foundation",
     paragraphs: [
-      "Established in 2013 by Prof. (Dr.) Satadal Saha, MS, FRCS (Eng.) and his colleagues, FIH is guided by a strong leadership vision, scientific rigour, citizen-centricity and social anthropological mooring. The organisation is mentored by Prof. Amitabha Ghosh, Emeritus Scientist at the Indian National Science Academy and Former Director of IIT Kharagpur.",
-      "Governed by a diverse group of eminent professionals and driven by domain experts across science, education, and technology, FIH operates with a unified purpose:"
+      "Established in 2013 by Prof. (Dr.) Satadal Saha, MS, FRCS (Eng.) and his colleagues, FIH is guided by a strong leadership vision, scientific rigour, citizen-centricity and social anthropological mooring. The organisation is mentored by Prof. Amitabha Ghosh, Emeritus Scientist at the Indian National Science Academy and Former Director of IIT Kharagpur."
     ],
+    quoteIntro: "Governed by a diverse group of eminent professionals and driven by domain experts across science, education, and technology, FIH operates with a unified purpose:",
     quote: "“Health for a Billion”",
     conclusion: "Through innovation, collaboration, and impact-driven execution, FIH continues to redefine how healthcare and skilling can work together to transform lives at scale.",
     imagePath: "/AboutUs/IMG20230331164856 (1).jpg",

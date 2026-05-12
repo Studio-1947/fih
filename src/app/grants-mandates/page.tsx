@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import GrantsAndMandateSection from "@/components/GrantsAndMandateSection";
+import GrantsAndMandateSection from "@/components/grants-mandates/GrantsAndMandateSection";
 
 export const metadata: Metadata = {
   title: "Grants & Mandates | Foundation for Innovations in Health",
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function GrantsAndMandatesPage() {
   return (
-    <main className="min-h-screen pt-24 bg-white">
+    <div className="min-h-screen bg-[#fafafa] -mt-8">
       <GrantsAndMandateSection />
-    </main>
+    </div>
   );
 }

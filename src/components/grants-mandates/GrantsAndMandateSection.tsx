@@ -5,9 +5,12 @@ export default function GrantsAndMandateSection() {
   const { grantsAndMandates } = aboutContent;
 
   return (
-    <section className="py-20 bg-[#FAFAFA]">
+    <section
+      className="pt-0 pb-24 bg-[#FAFAFA]"
+      style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 pt-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-6 [font-family:var(--font-heading)] leading-tight">
             {grantsAndMandates.title}
           </h2>
@@ -24,12 +27,12 @@ export default function GrantsAndMandateSection() {
               className="bg-white rounded-[2rem] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full border border-black/5 overflow-hidden group"
             >
               {/* Image/Logo Banner */}
-              <div className="relative w-full h-32 sm:h-40 bg-gradient-to-b from-[#F5F5F7] to-white border-b border-black/5 flex items-center justify-center overflow-hidden shrink-0">
+              <div className="relative w-full h-40 sm:h-48 bg-gradient-to-b from-[#F5F5F7] to-white border-b border-black/5 flex items-center justify-center overflow-hidden shrink-0">
                 <Image
                   src={item.imagePath}
                   alt={item.organization}
                   fill
-                  className="object-contain p-6 sm:p-8 transition-transform duration-500 group-hover:scale-110 mix-blend-multiply"
+                  className="object-contain p-4 sm:p-5 transition-transform duration-500 group-hover:scale-110 mix-blend-multiply"
                 />
               </div>
 

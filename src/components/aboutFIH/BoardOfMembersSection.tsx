@@ -66,10 +66,11 @@ export default function BoardOfMembersSection() {
           <div 
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
             onClick={() => setSelectedMember(null)}
-          ></div>
+          />
           
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col md:flex-row transform transition-all animate-in fade-in zoom-in-95 duration-200">
+          {/* Modal Content — fixed size, no overflow on the outer shell */}
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row transform transition-all animate-in fade-in zoom-in-95 duration-200"
+               style={{ height: "min(85vh, 560px)" }}>
             {/* Close Button */}
             <button 
               onClick={() => setSelectedMember(null)}
@@ -80,22 +81,28 @@ export default function BoardOfMembersSection() {
               </svg>
             </button>
 
-            {/* Image Section */}
-            <div className="relative w-full md:w-2/5 aspect-square md:aspect-auto h-64 md:h-auto bg-gray-100 shrink-0">
+            {/* Image Section — fixed width, fills full height, no cropping */}
+            <div className="relative w-full md:w-[300px] shrink-0 h-64 md:h-full rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none overflow-hidden bg-[#f4f4f5]">
               <Image
                 src={selectedMember.imagePath}
                 alt={selectedMember.name}
                 fill
-                className="object-cover object-top"
+                className="object-contain"
               />
             </div>
             
-            {/* Text Section */}
-            <div className="p-6 sm:p-8 md:p-10 flex-1 overflow-y-auto bg-white ">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{selectedMember.name}</h3>
-              <p className="text-md md:text-lg font-medium text-primary mb-6">{selectedMember.role}</p>
-              <div className="prose prose-sm md:prose-base text-gray-700 max-w-none">
-                {formatDescription(selectedMember.description)}
+            {/* Text Section — fills remaining width, scrolls only when needed */}
+            <div className="flex-1 min-w-0 flex flex-col overflow-hidden rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none">
+              {/* Fixed header */}
+              <div className="px-6 sm:px-8 md:px-10 pt-8 pb-4 shrink-0 border-b border-black/5">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{selectedMember.name}</h3>
+                <p className="text-sm md:text-base font-semibold text-primary uppercase tracking-wider">{selectedMember.role}</p>
+              </div>
+              {/* Scrollable body only when content is long */}
+              <div className="px-6 sm:px-8 md:px-10 py-6 overflow-y-auto flex-1">
+                <div className="prose prose-sm md:prose-base text-gray-700 max-w-none">
+                  {formatDescription(selectedMember.description)}
+                </div>
               </div>
             </div>
           </div>

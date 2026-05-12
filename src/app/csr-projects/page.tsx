@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle2, Clock } from "lucide-react";
-import CSRGalleryStrip from "@/components/CSRGalleryStrip";
+import CSRGalleryStrip from "@/components/csr-projects/CSRGalleryStrip";
 
 export const metadata: Metadata = {
   title: "CSR Projects | Foundation for Innovations in Health",

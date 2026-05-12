@@ -10,7 +10,10 @@ export default function StoriesAndMilestonesSection({
   content,
 }: StoriesAndMilestonesSectionProps) {
   return (
-    <section className="w-full bg-[#FAFAFA] py-12 sm:py-16 lg:py-24">
+    <section 
+      className="relative w-full bg-[#FAFAFA] py-12 sm:py-16 lg:py-24 overflow-hidden"
+      style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+    >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}

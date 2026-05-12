@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import AwardsRecognitionSection from "@/components/AwardsRecognitionSection";
-import PublicationSection from "@/components/PublicationSection";
-import GallerySection from "@/components/GallerySection";
+import AwardsRecognitionSection from "@/components/press-media/AwardsRecognitionSection";
+import PublicationSection from "@/components/press-media/PublicationSection";
+import GallerySection from "@/components/press-media/GallerySection";
 
 export const metadata: Metadata = {
   title: "Press & Media | Foundation for Innovations in Health",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Heart } from "lucide-react";
@@ -16,6 +17,8 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isGrantsPage = pathname === "/grants-mandates";
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -36,7 +39,7 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="relative z-100 px-4 pt-6 text-black sm:px-6 lg:px-8">
+    <header className={`relative z-50 px-4 pt-6 text-black sm:px-6 lg:px-8 ${isGrantsPage ? "bg-[#fafafa]" : ""}`}>
       <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
         <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">

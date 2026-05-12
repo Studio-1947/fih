@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import { aboutContent } from "@/lib/content/about";
-import AboutHeroSection from "@/components/AboutHeroSection";
-import AboutContentSection from "@/components/AboutContentSection";
-import VisionMissionSection from "@/components/VisionMissionSection";
-import ImpactSection from "@/components/ImpactSection";
-import BoardOfMembersSection from "@/components/BoardOfMembersSection";
-import StatutoryComplianceSection from "@/components/StatutoryComplianceSection";
+import AboutHeroSection from "@/components/aboutFIH/AboutHeroSection";
+import AboutContentSection from "@/components/aboutFIH/AboutContentSection";
+import VisionMissionSection from "@/components/aboutFIH/VisionMissionSection";
+import ImpactSection from "@/components/aboutFIH/ImpactSection";
+import BoardOfMembersSection from "@/components/aboutFIH/BoardOfMembersSection";
+import OurJourneySection from "@/components/aboutFIH/OurJourneySection";
+import StatutoryComplianceSection from "@/components/aboutFIH/StatutoryComplianceSection";
 
 export const metadata: Metadata = {
   title: "About Us | Foundation for Innovations in Health",
@@ -24,6 +25,7 @@ export default function AboutPage() {
       />
       <VisionMissionSection content={aboutContent.visionMission} />
       <ImpactSection content={aboutContent.impact} />
+      <OurJourneySection />
       <BoardOfMembersSection />
       <StatutoryComplianceSection />
     </div>

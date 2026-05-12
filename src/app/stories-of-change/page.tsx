@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { storiesOfChangeContent } from "@/lib/content/storiesOfChange";
 import { storiesAndMilestonesContent } from "@/lib/content/storiesAndMilestones";
-import TestimonialSection from "@/components/TestimonialSection";
+import TestimonialSection from "@/components/stories-of-change/TestimonialSection";
+import StorySectionItem from "@/components/stories-of-change/StorySectionItem";
 
 export const metadata: Metadata = {
   title: "Stories of Change | Foundation for Innovations in Health",
@@ -20,86 +21,81 @@ export default function StoriesOfChangePage() {
 
   return (
     <main className="bg-white min-h-screen">
-      {/* Hero Section */}
-      <section className="absolute top-0 left-0 right-0 h-[85vh] lg:h-[95vh] flex flex-col justify-end overflow-hidden bg-black">
-        <div className="absolute inset-0">
+      {/* Hero Section - Technical Grid Editorial */}
+      <section className="absolute top-0 left-0 right-0 h-[85vh] lg:h-[95vh] flex flex-col overflow-hidden bg-[#0A0A0B]">
+        <div className="absolute inset-0 z-0">
           <Image
             src={hero.bgImagePath}
             alt={hero.title}
             fill
-            className="object-cover object-bottom"
+            className="object-cover object-bottom animate-subtle-zoom opacity-80"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 pointer-events-none" />
+          {/* Subtle Technical Grid Overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+          {/* Deeper gradient for maximum readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/60 to-[#0A0A0B]/40 z-10" />
         </div>
         
-        {/* Text Container aligned over the image */}
-        <div className="relative z-20 w-full pb-10 sm:pb-16 lg:pb-20 pointer-events-none">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto">
-            <div className="animate-fade-in-up max-w-3xl">
-              <span className="inline-block px-4 py-1.5 bg-primary-dark text-white font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] rounded-full mb-4 sm:mb-6 shadow-lg">
-                {hero.bannerHook}
-              </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-[1.15] text-white [text-shadow:0_4px_12px_rgba(0,0,0,0.6)] drop-shadow-xl [font-family:var(--font-heading)]">
-                {hero.title}
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 leading-relaxed font-medium [text-shadow:0_2px_8px_rgba(0,0,0,0.6)] [font-family:var(--font-body)]">
-                {hero.description}
-              </p>
+        <div className="relative z-20 flex-1 flex flex-col justify-center pt-36 pb-12 lg:pt-52 lg:pb-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-y-12">
+            
+            {/* Top Row: Hook & Metadata */}
+            <div className="lg:col-span-12 flex flex-col sm:flex-row justify-between items-start border-b border-white/20 pb-6 lg:pb-8 mb-6 lg:mb-12 gap-4">
+              <div className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards]">
+                <span className="text-primary font-black text-[9px] sm:text-[10px] uppercase tracking-[0.5em] [font-family:var(--font-heading)] block mb-1">Platform</span>
+                <span className="text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest">{hero.bannerHook}</span>
+              </div>
+              <div className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:100ms] text-left sm:text-right">
+                <span className="text-white/60 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] font-bold block mb-1">Location</span>
+                <span className="text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest">Sundarbans, India</span>
+              </div>
             </div>
+
+            {/* Main Content Row */}
+            <div className="lg:col-span-8">
+              <h1 className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:200ms] text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem] font-black text-white leading-[0.9] tracking-tighter [font-family:var(--font-heading)] uppercase drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+                Floating<br/>
+                <span className="text-primary">Digital</span> Clinic
+              </h1>
+            </div>
+
+            <div className="lg:col-span-4 lg:self-end lg:pl-12">
+              <div className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:400ms] relative">
+                <div className="absolute -left-4 sm:-left-6 top-0 bottom-0 w-1 bg-primary" />
+                <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed font-medium [font-family:var(--font-body)] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)]">
+                  {hero.description}
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Row: Controls */}
+            <div className="lg:col-span-12 mt-8 lg:mt-20 flex items-center gap-6 lg:gap-8 opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:600ms]">
+              <div className="flex gap-2">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === 1 ? "w-8 sm:w-12 bg-primary" : "w-3 sm:w-4 bg-white/20"}`} />
+                ))}
+              </div>
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/30 font-bold">Documenting Change</span>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Spacer to push content below the absolute hero */}
+      {/* Spacer */}
       <div className="w-full h-[85vh] lg:h-[95vh] -mt-8" />
 
       {/* Narrative Sections */}
-      <section className="py-32 relative">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-40">
+      <section className="py-24 sm:py-32 lg:py-48 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-32 sm:space-y-48 lg:space-y-64">
             {sections.map((section, index) => (
-              <div 
+              <StorySectionItem 
                 key={index} 
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}
-              >
-                {/* Text Content */}
-                <div className="flex-1 space-y-8 animate-fade-in">
-                  <div className="flex items-center gap-6 mb-8">
-                    <div className="h-1.5 w-16 bg-primary-dark rounded-full" />
-                    <h3 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight [font-family:var(--font-heading)]">
-                      {section.heading}
-                    </h3>
-                  </div>
-                  <div className="space-y-6 text-lg md:text-xl text-gray-600 leading-relaxed font-light [font-family:var(--font-body)]">
-                    {section.paragraphs.map((para, pIndex) => (
-                      <p 
-                        key={pIndex}
-                        className={pIndex === 0 ? "first-letter:text-5xl first-letter:font-bold first-letter:text-primary-dark first-letter:mr-2 first-letter:float-left first-letter:leading-none" : ""}
-                      >
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Image Content */}
-                {section.imagePath && (
-                  <div className="flex-1 w-full relative">
-                    <div className="relative aspect-[4/3] rounded-[3.5rem] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.15)] group border-[12px] border-white ring-1 ring-gray-100">
-                      <Image
-                        src={section.imagePath}
-                        alt={section.heading}
-                        fill
-                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-                    </div>
-                    {/* Decorative Element */}
-                    <div className={`absolute -z-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl ${index % 2 === 0 ? '-top-10 -right-10' : '-bottom-10 -left-10'}`} />
-                  </div>
-                )}
-              </div>
+                section={section} 
+                index={index} 
+              />
             ))}
           </div>
         </div>
