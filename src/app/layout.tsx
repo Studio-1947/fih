@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lato, Merriweather, Poppins } from "next/font/google";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -66,7 +66,7 @@ export default function RootLayout({
     >
       <body className="min-h-full overflow-x-hidden flex flex-col bg-surface text-black [font-family:var(--font-body)]">
         <Header />
-        <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-8 pb-0 sm:px-6 lg:px-8">
           {children}
         </main>
         <Footer />

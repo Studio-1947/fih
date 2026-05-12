@@ -79,7 +79,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
                     </p>
                   </div>
 
-                  <ul className="grid gap-3 sm:grid-cols-2">
+                  {/* <ul className="grid gap-3 sm:grid-cols-2">
                     {card.programs.map((program, programIndex) => {
                       const icon = isHealthcare ? (
                         programIndex === 0 ? (
@@ -110,7 +110,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
                         </li>
                       );
                     })}
-                  </ul>
+                  </ul> */}
 
                   <Link
                     href={card.ctaHref}

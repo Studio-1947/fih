@@ -52,7 +52,7 @@ export const whatWeDoContent: WhatWeDoContent = {
         "Creating formal sector employment by training rural youth and visually impaired learners as allied health professionals and tech specialists.",
       imagePath: "/Technology usage (1).jpg",
       ctaLabel: "Explore Education Programs",
-      ctaHref: "/csr-projects#present-projects",
+      ctaHref: "https://schoolforskills.in/",
       programs: [
         {
           title: "IGL STEU Program",

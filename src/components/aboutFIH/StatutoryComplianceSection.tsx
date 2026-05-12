@@ -9,7 +9,10 @@ export default function StatutoryComplianceSection() {
   const rightColumn = statutoryCompliance.details.slice(midPoint);
 
   return (
-    <section className="py-20 bg-[#FAFAFA] border-t border-black/5">
+    <section
+      className="pt-20 pb-10 bg-[#FAFAFA] border-t border-black/5"
+      style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
