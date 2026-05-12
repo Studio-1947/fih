@@ -66,7 +66,7 @@ export default function RootLayout({
     >
       <body className="flex flex-col bg-surface text-black [font-family:var(--font-body)] overflow-x-clip">
         <Header />
-        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-8 pb-0 sm:px-6 lg:px-8">
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-0 pb-0 sm:px-6 lg:px-8">
           {children}
         </main>
         <Footer />

@@ -9,8 +9,8 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
-    <section className="bg-surface px-4 pt-8 lg:px-0 lg:py-0 overflow-hidden">
-      <div className="w-full grid items-end gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+    <section className="relative z-10 bg-surface px-4 pt-0 pb-12 lg:px-0 lg:pt-0 lg:pb-20">
+      <div className="w-full grid items-end gap-6 lg:grid-cols-[1.1fr_0.9fr] overflow-visible">
         <div className="space-y-6 flex flex-col items-center text-center lg:block lg:text-left">
           <div className="space-y-5 flex flex-col items-center lg:block">
             <h1 className="max-w-xl text-4xl font-bold leading-[0.92] tracking-tight uppercase [font-family:var(--font-heading)] sm:text-5xl lg:text-7xl">
@@ -72,7 +72,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 height={420}
                 unoptimized
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-10 left-[29%] lg:left-[35%] z-10 h-auto w-[90%] object-contain overflow-visible"
+                className="pointer-events-none absolute bottom-0 left-[29%] lg:left-[35%] z-10 h-auto w-[90%] object-contain"
                 priority
               />
 
@@ -81,7 +81,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 alt="Community member"
                 width={250}
                 height={360}
-                className="absolute -bottom-15 left-[20%] lg:left-[24%] z-20 h-auto w-[50%] object-contain overflow-visible"
+                className="absolute bottom-0 left-[20%] lg:left-[24%] z-20 h-auto w-[50%] object-contain"
                 priority
               />
 
@@ -90,7 +90,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 alt="Child beneficiary"
                 width={300}
                 height={500}
-                className="absolute -bottom-10 left-[6%] lg:left-[4%] z-40 h-auto w-[42%] object-contain overflow-visible"
+                className="absolute bottom-0 left-[6%] lg:left-[4%] z-40 h-auto w-[42%] object-contain"
                 priority
               />
 
@@ -99,7 +99,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 alt="Community member"
                 width={300}
                 height={420}
-                className="absolute -bottom-10 right-[-4%] lg:right-[-9%] z-30 h-auto w-[60%] object-contain overflow-visible"
+                className="absolute bottom-0 right-[-4%] lg:right-[-9%] z-30 h-auto w-[60%] object-contain"
                 priority
               />
             </div>

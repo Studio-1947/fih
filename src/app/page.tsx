@@ -16,7 +16,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-0">
       <HeroSection content={homeHeroContent} />
       <WhatWeDoSection content={whatWeDoContent} />
       <RecognitionSection content={recognitionContent} />
