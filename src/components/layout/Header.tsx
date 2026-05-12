@@ -17,8 +17,17 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isGrantsPage = pathname === "/grants-mandates";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -39,8 +48,12 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className={`relative z-50 px-4 pt-6 text-black sm:px-6 lg:px-8 ${isGrantsPage ? "bg-[#fafafa]" : ""}`}>
-      <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 px-4 text-black sm:px-6 lg:px-8 ${
+        isScrolled ? "py-2" : "pt-6"
+      } ${isGrantsPage ? "bg-[#fafafa]" : ""}`}
+    >
+      <div className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "scale-[0.98] shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}>
         <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <Image
