@@ -7,7 +7,7 @@ const quickLinks = [
   { label: "Grants & Mandates", href: "/grants-mandates" },
   { label: "Stories of Change", href: "/stories-of-change" },
   { label: "CSR Projects", href: "/csr-projects" },
-  { label: "Press & Media", href: "/press-media" },
+  { label: "News & Events", href: "/press-media" },
   { label: "Contact", href: "/contact" },
 ];
 

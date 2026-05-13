@@ -3,19 +3,19 @@ import Image from "next/image";
 const objectives = [
   {
     title: "Accessible & affordable primary care & public health",
-    image: "/Specific Objectives/Accessible & affordable primary care & public health.webp",
+    image: "/Specific%20Objectives/Accessible%20%26%20affordable%20primary%20care%20%26%20public%20health.webp",
   },
   {
     title: "Employment creation among rural youth",
-    image: "/Specific Objectives/Employment creation among rural youth.webp",
+    image: "/Specific%20Objectives/Employment%20creation%20among%20rural%20youth.webp",
   },
   {
     title: "Upliftment of marginalized community",
-    image: "/Specific Objectives/Upliftment of marginalized community.jpg",
+    image: "/Specific%20Objectives/Upliftment%20of%20marginalized%20community.jpg",
   },
   {
     title: "Empowering\nRural\nWomen",
-    image: "/Specific Objectives/Women’s Empowerment.webp",
+    image: "/Specific%20Objectives/Women%E2%80%99s%20Empowerment.webp",
   },
 ];
 

@@ -162,7 +162,7 @@ export default function PublicationSection() {
       {/* Full-bleed section: escape max-w-7xl parent using viewport centering */}
       <section
         id="publications"
-        className="relative py-20 sm:py-32 bg-secondary"
+        className="relative pt-20 sm:pt-32 pb-10 sm:pb-16 bg-secondary"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

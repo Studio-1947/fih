@@ -6,3 +6,4 @@ export * from "./whatWeDo";
 export * from "./recognition";
 export * from "./storiesAndMilestones";
 export * from "./partnerWithUs";
+export * from "./events";

@@ -141,7 +141,7 @@ export default function GallerySection() {
     <>
       <section
         id="gallery"
-        className="relative py-20 sm:py-32 bg-white"
+        className="relative pt-8 sm:pt-12 pb-20 sm:pb-32 bg-white"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
