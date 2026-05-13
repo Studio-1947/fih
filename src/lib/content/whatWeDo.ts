@@ -33,7 +33,7 @@ export const whatWeDoContent: WhatWeDoContent = {
         "Operating mobile, fixed, and innovative floating digital clinics to bring high-quality, data-driven healthcare directly to underserved communities.",
       imagePath: "/floating_image.jpg",
       ctaLabel: "Explore Healthcare Programs",
-      ctaHref: "/stories-of-change",
+      ctaHref: "/our-work",
       programs: [
         {
           title: "Floating Digital Clinic",
