@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { LogIn, LogOut, Info, ChevronRight } from "lucide-react";
 import type { OurWorkContent } from "@/lib/content/ourWork";
+import FadeIn from "@/components/ui/FadeIn";
 
 type ClinicWorkflowSectionProps = {
   workflow: OurWorkContent["clinicWorkflow"];
@@ -27,8 +28,8 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
   }, [totalSteps, isPaused]);
 
   // Unified radius for perfect alignment
-  const radius = "16rem";
-  const mobileRadius = "10rem";
+  const radius = "13.5rem";
+  const mobileRadius = "8rem";
 
   // All nodes separated by 360/totalSteps degrees. Starting at top (0 degrees).
   const angles = allSteps.map((_, i) => (i * 360) / totalSteps);
@@ -38,7 +39,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
 
   return (
     <section 
-      className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 bg-[#faf9f6] rounded-[4rem] my-20 overflow-hidden min-h-[90vh] flex flex-col items-center justify-center border border-black/5 shadow-2xl"
+      className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 bg-white my-12 overflow-hidden flex flex-col items-center justify-center"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -52,22 +53,25 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
         }}
       ></div>
 
-      <div className="text-center max-w-2xl mx-auto mb-8 space-y-4 relative z-20">
-        <p className="inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-primary [font-family:var(--font-heading)]">
-          <span className="h-px w-8 bg-primary" aria-hidden="true" />
-          INTERACTIVE PATIENT JOURNEY
-          <span className="h-px w-8 bg-primary" aria-hidden="true" />
-        </p>
-        <h2 className="text-3xl font-black tracking-tight text-[#1a1a1a] sm:text-4xl lg:text-5xl [font-family:var(--font-heading)]">
-          {workflow.title}
-        </h2>
-        <p className="text-[#666666] text-sm sm:text-base [font-family:var(--font-body)]">
-          Follow the complete cycle of care from arrival to departure.
-        </p>
-      </div>
+      <FadeIn className="w-full">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 space-y-4 relative z-20">
+          <p className="inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-primary [font-family:var(--font-heading)]">
+            <span className="h-px w-8 bg-primary" aria-hidden="true" />
+            INTERACTIVE PATIENT JOURNEY
+            <span className="h-px w-8 bg-primary" aria-hidden="true" />
+          </p>
+          <h2 className="text-4xl font-black tracking-tight text-[#1a1a1a] sm:text-5xl lg:text-6xl [font-family:var(--font-heading)]">
+            {workflow.title}
+          </h2>
+          <p className="text-[#666666] text-sm sm:text-lg [font-family:var(--font-body)] max-w-xl mx-auto">
+            Follow the complete cycle of care from arrival to departure.
+          </p>
+        </div>
+      </FadeIn>
 
       {/* Diagram Container */}
-      <div className="relative w-full max-w-4xl aspect-square mx-auto flex items-center justify-center mt-4 scale-90 sm:scale-100">
+      <FadeIn delay={0.2} className="w-full">
+        <div className="relative w-full max-w-[40rem] h-[26rem] sm:h-[38rem] mx-auto flex items-center justify-center mt-8 sm:mt-12">
         
         {/* Rotating Background Dashed Track Wrapper - Fixes misalignment */}
         <div className="absolute inset-0 animate-rotate-track pointer-events-none z-0">
@@ -178,6 +182,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
         })}
 
       </div>
+      </FadeIn>
 
       <style jsx global>{`
         .animate-blink-path {
@@ -198,14 +203,14 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
         
         @media (max-width: 639px) {
            .circular-node {
-             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-10rem) rotate(calc(var(--angle) * -1)) !important;
+             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-8rem) rotate(calc(var(--angle) * -1)) !important;
            }
            .path-arrow {
-             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-10rem) !important;
+             transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-8rem) !important;
            }
            .dashed-track {
-             width: 20rem !important;
-             height: 20rem !important;
+             width: 16rem !important;
+             height: 16rem !important;
            }
         }
       `}</style>

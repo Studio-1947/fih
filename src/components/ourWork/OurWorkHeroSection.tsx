@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { OurWorkContent } from "@/lib/content/ourWork";
+import BlurText from "@/components/ui/BlurText";
 
 type OurWorkHeroSectionProps = {
   content: OurWorkContent["hero"];
@@ -32,9 +33,13 @@ export default function OurWorkHeroSection({ content }: OurWorkHeroSectionProps)
 
       {/* Enhanced Content Layout */}
       <div className="relative z-10 w-full max-w-5xl px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center mt-8">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black text-white tracking-tight leading-[1.1] [font-family:var(--font-heading)] drop-shadow-2xl">
-          {content.bannerHook}
-        </h1>
+        <BlurText
+          text={content.bannerHook}
+          delay={150}
+          animateBy="words"
+          direction="bottom"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-black text-white tracking-tight leading-[1.1] [font-family:var(--font-heading)] drop-shadow-2xl justify-center"
+        />
         
         <div className="mt-10 sm:mt-12 h-1.5 w-24 bg-primary rounded-full shadow-[0_0_15px_rgba(208,160,21,0.5)]" />
       </div>
