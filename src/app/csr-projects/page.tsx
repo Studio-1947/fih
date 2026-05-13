@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import CSRImpactFlow from "@/components/csr-projects/CSRImpactFlow";
 import CSRGalleryStrip from "@/components/csr-projects/CSRGalleryStrip";
+import CSRHero from "@/components/csr-projects/CSRHero";
 import FadeIn from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
@@ -131,53 +132,18 @@ function ProjectCard({ project }: { project: (typeof presentProjects)[0] }) {
 }
 
 // ── Page ──────────────────────────────────────────────────────────────────────
+import BlurText from "@/components/ui/BlurText";
+
 export default function CSRProjectsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* ── Hero / Intro ─────────────────────────────────────────────────── */}
-      <FadeIn>
-        <section className="pt-16 pb-0 sm:pt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Eyebrow */}
-            <div className="mb-6 flex items-center gap-3">
-              <div className="h-1 w-10 rounded-full bg-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-black/40 [font-family:var(--font-heading)]">
-                Corporate Social Responsibility
-              </span>
-            </div>
-
-            {/* Heading + intro */}
-            <div className="max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black [font-family:var(--font-heading)] text-black leading-[1.05] mb-0">
-                Creating
-                <br />
-                Sustainable
-                <br />
-                <span className="text-primary">Change</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-black/65 [font-family:var(--font-body)] leading-relaxed mb-6 -mt-1">
-                Our integrated approach focuses on two key outcomes: building a
-                skilled health workforce and expanding access to primary care and
-                public health. Together, these create a self-sustaining ecosystem
-                of health and livelihood.
-              </p>
-              <p className="text-base text-black/55 [font-family:var(--font-body)] leading-relaxed">
-                By enabling rural youth to access stable employment and bringing
-                affordable healthcare closer to communities, we help increase
-                household incomes while significantly reducing long-term medical
-                expenses. The result is a meaningful reduction in
-                multi-dimensional poverty, alongside stronger, healthier, and more
-                productive communities.
-              </p>
-            </div>
-          </div>
-        </section>
-      </FadeIn>
+      <CSRHero />
 
       {/* ── Aligned with CSR Priorities (full-bleed primary) ─────────────── */}
       <FadeIn>
         <section
-          className="relative mt-16 py-16 sm:py-20 bg-primary overflow-hidden"
+          className="relative py-16 sm:py-20 bg-white overflow-hidden"
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
           {/* Decorative large quote mark */}
@@ -195,6 +161,24 @@ export default function CSRProjectsPage() {
               result, several leading companies have partnered with FIH to design
               and implement scalable, high-value CSR initiatives.
             </p>
+          </div>
+        </section>
+      </FadeIn>
+
+      {/* ── Value Statement (Primary BG with hero text effect) ─────────── */}
+      <FadeIn>
+        <section
+          className="relative py-16 sm:py-24 bg-primary overflow-hidden"
+          style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+            <BlurText 
+              text="CREATING LASTING VALUE AT THE INTERSECTION OF HEALTH, LIVELIHOODS, AND RESILIENCE."
+              animateBy="words"
+              direction="bottom"
+              delay={80}
+              className="text-4xl sm:text-5xl lg:text-7xl font-black uppercase tracking-tight [font-family:var(--font-heading)] leading-[1.1] text-black justify-center text-center"
+            />
           </div>
         </section>
       </FadeIn>

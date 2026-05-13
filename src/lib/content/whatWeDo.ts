@@ -50,7 +50,7 @@ export const whatWeDoContent: WhatWeDoContent = {
       title: "Employment-Oriented Education",
       description:
         "Creating formal sector employment by training rural youth and visually impaired learners as allied health professionals and tech specialists.",
-      imagePath: "/Technology usage (1).jpg",
+      imagePath: "/Technology%20usage%20(1).jpg",
       ctaLabel: "Explore Education Programs",
       ctaHref: "https://schoolforskills.in/",
       programs: [
