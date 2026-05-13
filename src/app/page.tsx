@@ -14,17 +14,40 @@ import {
   partnerWithUsContent,
 } from "@/lib/content";
 
+import FadeIn from "@/components/ui/FadeIn";
+
 export default function Home() {
   return (
     <div className="space-y-0">
       <HeroSection content={homeHeroContent} />
-      <WhatWeDoSection content={whatWeDoContent} />
-      <RecognitionSection content={recognitionContent} />
-      <SpecificObjectivesSection />
-      <SupportedBySection />
-      <StoriesAndMilestonesSection content={storiesAndMilestonesContent} />
-      <EventsSection />
-      <PartnerWithUsSection content={partnerWithUsContent} />
+      
+      <FadeIn>
+        <WhatWeDoSection content={whatWeDoContent} />
+      </FadeIn>
+      
+      <FadeIn>
+        <RecognitionSection content={recognitionContent} />
+      </FadeIn>
+      
+      <FadeIn>
+        <SpecificObjectivesSection />
+      </FadeIn>
+      
+      <FadeIn>
+        <SupportedBySection />
+      </FadeIn>
+      
+      <FadeIn>
+        <StoriesAndMilestonesSection content={storiesAndMilestonesContent} />
+      </FadeIn>
+      
+      <FadeIn>
+        <EventsSection />
+      </FadeIn>
+      
+      <FadeIn>
+        <PartnerWithUsSection content={partnerWithUsContent} />
+      </FadeIn>
     </div>
   );
 }
