@@ -26,7 +26,11 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
     return () => clearInterval(interval);
   }, [totalSteps, isPaused]);
 
-  // All 7 nodes separated by 360/7 degrees. Starting at top (0 degrees).
+  // Unified radius for perfect alignment
+  const radius = "16rem";
+  const mobileRadius = "10rem";
+
+  // All nodes separated by 360/totalSteps degrees. Starting at top (0 degrees).
   const angles = allSteps.map((_, i) => (i * 360) / totalSteps);
   
   // Arrows placed halfway between nodes.
@@ -65,10 +69,14 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
       {/* Diagram Container */}
       <div className="relative w-full max-w-4xl aspect-square mx-auto flex items-center justify-center mt-4 scale-90 sm:scale-100">
         
-        {/* Background Dashed Track */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[2.5px] border-dashed border-primary/30 pointer-events-none z-0 dashed-track" style={{ width: '32rem', height: '32rem' }}></div>
+        {/* Rotating Background Dashed Track Wrapper - Fixes misalignment */}
+        <div className="absolute inset-0 animate-rotate-track pointer-events-none z-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-dashed border-primary/50 dashed-track shadow-[0_0_20px_rgba(251,191,36,0.1)]" 
+               style={{ width: `calc(${radius} * 2)`, height: `calc(${radius} * 2)` }}>
+          </div>
+        </div>
 
-        {/* Central Hub - More Vibrant */}
+        {/* Central Hub */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-32 h-32 sm:w-44 sm:h-44 rounded-full bg-white shadow-[0_20px_60px_rgba(0,0,0,0.15)] flex items-center justify-center text-center p-6 border-8 border-primary/10 group transition-transform duration-500 hover:scale-105">
           <div className="space-y-1">
              <div className="w-10 h-1 bg-primary/40 mx-auto rounded-full mb-2 group-hover:w-16 transition-all"></div>
@@ -79,7 +87,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
           </div>
         </div>
 
-        {/* Path Arrows - More Vibrant & Blinking */}
+        {/* Path Arrows */}
         {arrowAngles.map((angle, idx) => {
           const isActive = activeIndex === idx;
           return (
@@ -88,7 +96,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
               className="absolute top-1/2 left-1/2 z-10 pointer-events-none path-arrow"
               style={{
                 '--angle': `${angle}deg`,
-                transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-16rem)`
+                transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-${radius})`
               } as React.CSSProperties}
             >
               <div 
@@ -114,7 +122,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
               className={`absolute top-1/2 left-1/2 z-20 transition-all duration-500 ${isActive ? 'scale-125 z-30' : 'hover:scale-110'} group circular-node`}
               style={{
                 '--angle': `${angle}deg`,
-                transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-16rem) rotate(-${angle}deg)`
+                transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-${radius}) rotate(-${angle}deg)`
               } as React.CSSProperties}
             >
               <div 
@@ -128,9 +136,9 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
                 onMouseEnter={() => setActiveIndex(idx)}
               >
                 {isStart ? (
-                  <LogIn className="w-4 h-4 mb-1" />
+                  <LogIn className="w-5 h-5 mb-1 rotate-90" />
                 ) : isEnd ? (
-                  <LogOut className="w-4 h-4 mb-1 rotate-180" />
+                  <LogOut className="w-5 h-5 mb-1 -rotate-90" />
                 ) : (
                   <span className={`text-[10px] font-black opacity-40 mb-0.5 group-hover:opacity-100 transition-opacity ${isActive ? 'opacity-100 text-primary' : ''}`}>0{idx}</span>
                 )}
@@ -148,7 +156,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
                   </div>
                 )}
 
-                {/* Tooltip Description - Visible on active or hover */}
+                {/* Tooltip Description */}
                 {step.description && (
                   <div className={`
                     absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-52 sm:w-72 bg-[#1a1a1a] text-white p-4 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.3)] transition-all duration-500 z-50 text-left border border-white/10
@@ -178,6 +186,14 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
         @keyframes blink-path {
           0%, 100% { opacity: 0.2; transform: scale(0.9); }
           50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(251,191,36,0.9)); }
+        }
+        
+        .animate-rotate-track {
+          animation: rotate-track 60s linear infinite;
+        }
+        @keyframes rotate-track {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
         
         @media (max-width: 639px) {

@@ -22,13 +22,13 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-0">
         {services.map((service, idx) => (
           <div 
             key={idx} 
-            className="flex flex-col bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 group"
+            className="break-inside-avoid mb-6 lg:mb-8 flex flex-col bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 group"
           >
-            <div className="flex-1 space-y-5">
+            <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold text-[#1a1a1a] [font-family:var(--font-heading)] group-hover:text-primary transition-colors">
                   {service.title}
@@ -48,7 +48,7 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                     Key Features
                   </h4>
                   <ul className="space-y-3">
-                    {service.features.slice(0, 6).map((feature, fIdx) => (
+                    {service.features.slice(0, 10).map((feature, fIdx) => (
                       <li key={fIdx} className="flex gap-3">
                         <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
                           <Check className="w-2.5 h-2.5 text-black" />
@@ -58,9 +58,9 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
                         </span>
                       </li>
                     ))}
-                    {service.features.length > 6 && (
+                    {service.features.length > 10 && (
                       <li className="text-xs text-primary font-medium [font-family:var(--font-body)]">
-                        + {service.features.length - 6} more features
+                        + {service.features.length - 10} more features
                       </li>
                     )}
                   </ul>
