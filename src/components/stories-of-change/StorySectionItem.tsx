@@ -24,7 +24,7 @@ export default function StorySectionItem({ section, index }: { section: StorySec
   return (
     <div 
       ref={ref}
-      className={`grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center transition-all duration-1000 ease-out ${
+      className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center transition-all duration-1000 ease-out ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
       }`}
     >
