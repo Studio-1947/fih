@@ -39,7 +39,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
 
   return (
     <section 
-      className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 bg-white my-12 overflow-hidden flex flex-col items-center justify-center"
+      className="relative z-[60] mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 bg-white my-12 overflow-hidden flex flex-col items-center justify-center"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -178,7 +178,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
                 {/* Tooltip Description - Desktop Only */}
                 {step.description && (
                   <div className={`
-                    hidden sm:block absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-72 bg-[#1a1a1a] text-white p-4 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.3)] transition-all duration-500 z-50 text-left border border-white/10
+                    hidden sm:block absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-72 bg-[#1a1a1a] text-white p-4 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.3)] transition-all duration-500 z-[100] text-left border border-white/10
                     ${isActive ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0"}
                   `}>
                     <div className="flex items-center gap-2 mb-2 border-b border-white/10 pb-2">
