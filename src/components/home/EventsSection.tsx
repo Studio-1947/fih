@@ -1,214 +1,195 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { X } from 'lucide-react';
-import { client } from '@/sanity/lib/client';
-import { urlFor } from '@/sanity/lib/image';
+import { useState } from "react";
+import Image from "next/image";
+import { X } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
-interface EventCard {
-  _id: string;
-  title: string;
-  description: string;
-  image: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-    hotspot?: {
-      x: number;
-      y: number;
-      height: number;
-      width: number;
-    };
-  };
-  date: string;
-}
+import { type EventItem, eventsContent as events } from "@/lib/content";
 
-interface SelectedEvent extends EventCard {
-  _id: string;
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
 }
 
 export default function EventsSection() {
-  const [events, setEvents] = useState<EventCard[]>([]);
-  const [selectedEvent, setSelectedEvent] = useState<SelectedEvent | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const query = `*[_type == "event"] | order(date desc) {
-          _id,
-          title,
-          description,
-          image,
-          date
-        }`;
-        
-        const data = await client.fetch(query);
-        setEvents(data);
-      } catch (err) {
-        setError('Failed to fetch events');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="w-full bg-white py-12 sm:py-16 lg:py-24">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center py-12">
-            <div className="h-8 w-8 animate-spin rounded-full border-4 border-black/10 border-t-black"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error) {
-    return null;
-  }
-
-  if (events.length === 0) {
-    return null;
-  }
+  const [selected, setSelected] = useState<EventItem | null>(null);
 
   return (
-    <section className="w-full bg-white py-12 sm:py-16 lg:py-24">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        
-        {/* Header Section */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8 lg:mb-16">
-          <div className="space-y-6">
+    <>
+      <style>{`
+        .events-marquee-track {
+          display: flex;
+          gap: 1.5rem;
+          width: max-content;
+        }
+        @media (min-width: 1024px) {
+          .events-marquee-track {
+            animation: marquee-events 60s linear infinite;
+          }
+          .events-marquee-track:hover {
+            animation-play-state: paused;
+          }
+        }
+        @keyframes marquee-events {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+
+      <section id="events" className="w-full bg-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12 overflow-hidden">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="mb-12 lg:mb-16 space-y-6"
+          >
             <div className="flex items-center gap-3">
               <div className="flex gap-1">
                 <span className="h-[3px] w-5 sm:w-6 bg-primary" />
                 <span className="h-[3px] w-5 sm:w-8 bg-black" />
               </div>
               <p className="text-xs font-bold uppercase tracking-[0.15em] text-black/80 [font-family:var(--font-heading)]">
-                Events
+                News & Events
               </p>
             </div>
 
             <h2 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.5rem] [font-family:var(--font-heading)]">
-              <span className="text-[#202020]">Upcoming </span>
-              <span className="text-black/40">Events & </span>
+              <span className="text-[#202020]">Latest Events </span>
+              <span className="text-black/40">&amp; </span>
               <br />
-              <span className="text-black/40">Workshops</span>
+              <span className="text-black/40">Milestones</span>
             </h2>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Scrollable Cards Container */}
-        <div className="overflow-x-auto pb-4">
-          <div className="flex gap-6 md:gap-8 min-w-min">
-            {events.map((event) => (
-              <button
-                key={event._id}
-                onClick={() => setSelectedEvent(event)}
-                className="flex-shrink-0 w-80 group cursor-pointer text-left transition-transform hover:scale-105"
-              >
-                {/* Image Container */}
-                <div className="relative h-64 w-full rounded-[1.5rem] overflow-hidden bg-black/5 mb-4">
-                  {event.image?.asset ? (
-                    <Image
-                      src={urlFor(event.image).url()}
-                      alt={event.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-black/10 to-black/5 flex items-center justify-center">
-                      <span className="text-black/20 text-sm">No Image</span>
-                    </div>
-                  )}
+          {/* Scrollable Cards - Marquee on desktop, manual on mobile */}
+          <div 
+            className="relative overflow-x-auto lg:overflow-x-hidden pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+            }}
+          >
+            <div className="events-marquee-track">
+              {[0, 1].map((groupIndex) => (
+                <div key={groupIndex} className="flex gap-6 pr-6 items-start">
+                  {events.map((event, i) => (
+                    <motion.button
+                      key={`${event.id}-${groupIndex}-${i}`}
+                      initial={{ opacity: 0, y: 32 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-60px" }}
+                      transition={{
+                        duration: 0.6,
+                        delay: i * 0.1,
+                        ease: [0.21, 0.47, 0.32, 0.98],
+                      }}
+                      onClick={() => setSelected(event)}
+                      className="group flex-shrink-0 w-72 sm:w-80 cursor-pointer text-left flex flex-col"
+                    >
+                      {/* Image */}
+                      <div className="relative h-52 sm:h-60 w-full rounded-[1.5rem] overflow-hidden bg-black/5 mb-4">
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          fill
+                          sizes="(max-width: 640px) 288px, 320px"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        {/* Subtle overlay on hover */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[1.5rem]" />
+                      </div>
+
+                      {/* Card Content */}
+                      <div className="space-y-2 px-1 flex-1">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/40 [font-family:var(--font-heading)]">
+                          {formatDate(event.date)}
+                        </p>
+                        <h3 className="text-base sm:text-lg font-bold leading-snug text-black line-clamp-2 [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-200 min-h-[2.8rem] sm:min-h-[3.2rem]">
+                          {event.title}
+                        </h3>
+                        <p className="text-sm leading-relaxed text-black/55 line-clamp-2 [font-family:var(--font-body)] mb-2">
+                          {event.description}
+                        </p>
+                        <span className="inline-block pt-1 text-xs font-bold text-black/40 group-hover:text-primary transition-colors duration-200 [font-family:var(--font-heading)] mt-auto">
+                          Read more →
+                        </span>
+                      </div>
+                    </motion.button>
+                  ))}
                 </div>
-
-                {/* Card Content */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-bold leading-snug text-black line-clamp-2 [font-family:var(--font-heading)] group-hover:text-primary transition-colors">
-                    {event.title}
-                  </h3>
-                  
-                  <p className="text-sm leading-[1.6] text-black/60 line-clamp-3 [font-family:var(--font-body)]">
-                    {event.description}
-                  </p>
-
-                  {event.date && (
-                    <div className="text-xs font-semibold text-black/40 [font-family:var(--font-heading)]">
-                      {new Date(event.date).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric',
-                      })}
-                    </div>
-                  )}
-                </div>
-              </button>
-            ))}
+              ))}
+            </div>
           </div>
+
         </div>
-      </div>
+      </section>
 
       {/* Detail Modal */}
-      {selectedEvent && (
-        <div 
-          className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 p-4"
-          onClick={() => setSelectedEvent(null)}
-        >
-          <div 
-            className="relative w-full max-w-2xl rounded-[2rem] bg-white max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            key="modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            onClick={() => setSelected(null)}
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedEvent(null)}
-              className="absolute top-6 right-6 z-10 rounded-full bg-black/5 p-2 hover:bg-black/10 transition-colors"
+            <motion.div
+              key="modal-card"
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="relative w-full max-w-2xl rounded-[2rem] bg-white shadow-2xl max-h-[90vh] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="h-6 w-6" />
-            </button>
+              {/* Close Button */}
+              <button
+                onClick={() => setSelected(null)}
+                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/8 hover:bg-black/14 transition-colors"
+              >
+                <X className="h-5 w-5 text-black" />
+              </button>
 
-            {/* Modal Image */}
-            {selectedEvent.image?.asset && (
-              <div className="relative h-80 w-full">
+              {/* Modal Image */}
+              <div className="relative h-64 sm:h-80 w-full rounded-t-[2rem] overflow-hidden bg-black/5">
                 <Image
-                  src={urlFor(selectedEvent.image).url()}
-                  alt={selectedEvent.title}
+                  src={selected.image}
+                  alt={selected.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, 672px"
                   className="object-cover"
                 />
               </div>
-            )}
 
-            {/* Modal Content */}
-            <div className="p-8 sm:p-10">
-              {selectedEvent.date && (
+              {/* Modal Content */}
+              <div className="p-7 sm:p-10">
                 <div className="mb-4 inline-block rounded-full bg-[#FEF8E6] px-3.5 py-1.5 text-[11px] font-bold text-[#D0A015] [font-family:var(--font-heading)]">
-                  {new Date(selectedEvent.date).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
+                  {formatDate(selected.date)}
                 </div>
-              )}
 
-              <h2 className="mb-6 text-3xl font-bold text-black [font-family:var(--font-heading)]">
-                {selectedEvent.title}
-              </h2>
+                <h2 className="mb-5 text-2xl sm:text-3xl font-bold leading-tight text-black [font-family:var(--font-heading)]">
+                  {selected.title}
+                </h2>
 
-              <p className="text-base leading-[1.8] text-black/70 [font-family:var(--font-body)] whitespace-pre-wrap">
-                {selectedEvent.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
+                <p className="text-base leading-[1.8] text-black/70 [font-family:var(--font-body)]">
+                  {selected.description}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

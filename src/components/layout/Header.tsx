@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/grants-mandates", label: "Grants & Mandates" },
   { href: "/stories-of-change", label: "Stories of Change" },
   { href: "/csr-projects", label: "CSR Projects" },
-  { href: "/press-media", label: "Press & Media" },
+  { href: "/press-media", label: "News & Events" },
   { href: "/contact", label: "Contact" },
 ];
 
