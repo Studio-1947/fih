@@ -32,8 +32,7 @@ export default function TestimonialSection() {
             headingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-sm font-bold text-primary-dark uppercase tracking-[0.3em] mb-4">Voice of the People</h2>
-          <h3 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Testimonials of Impact</h3>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">Stories of Change</h2>
           <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mt-6" />
         </div>
 

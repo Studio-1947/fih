@@ -211,7 +211,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
       {/* 3. The 3T Model in Action */}
       <div
         ref={model.ref}
-        className={`w-full bg-[#141416] pb-16 sm:pb-20 lg:pb-28 relative overflow-hidden text-white transition-all duration-700 ease-out ${model.visible ? "opacity-100" : "opacity-0"}`}
+        className={`w-full bg-[#141416] pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 lg:pb-28 relative overflow-hidden text-white transition-all duration-700 ease-out ${model.visible ? "opacity-100" : "opacity-0"}`}
       >
         <div className="absolute top-0 right-0 w-[80vw] h-[80vw] max-w-4xl max-h-4xl bg-primary/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
 

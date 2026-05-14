@@ -2,34 +2,18 @@ import { CheckCircle2 } from "lucide-react";
 import type { OurWorkContent } from "@/lib/content/ourWork";
 
 type OurWorkContentSectionProps = {
-  intro: OurWorkContent["intro"];
   benefits: OurWorkContent["benefits"];
   uniqueness: OurWorkContent["uniqueness"];
   pillars: OurWorkContent["pillars"];
 };
 
 export default function OurWorkContentSection({
-  intro,
   benefits,
   uniqueness,
   pillars,
 }: OurWorkContentSectionProps) {
   return (
     <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-      {/* Intro Section */}
-      <div className="max-w-4xl mx-auto text-center space-y-6 mb-20">
-        <h2 className="text-3xl font-bold tracking-tight text-[#1a1a1a] sm:text-4xl lg:text-5xl [font-family:var(--font-heading)]">
-          {intro.title}
-        </h2>
-        <div className="space-y-4 text-left sm:text-center text-[#666666] leading-relaxed [font-family:var(--font-body)]">
-          {intro.description.map((para, idx) => (
-            <p key={idx} className="text-base sm:text-lg">
-              {para}
-            </p>
-          ))}
-        </div>
-      </div>
-
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-24">
         {/* Benefits Section */}
         <div className="bg-[#f6f5f1] rounded-3xl p-8 sm:p-10 shadow-[0_18px_40px_rgba(0,0,0,0.08)] border border-black/5">
