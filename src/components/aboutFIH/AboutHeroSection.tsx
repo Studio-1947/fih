@@ -8,7 +8,7 @@ type AboutHeroSectionProps = {
 export default function AboutHeroSection({ content }: AboutHeroSectionProps) {
   return (
     <section 
-      className="relative w-full h-[60vh] min-h-[500px] lg:h-[75vh] lg:min-h-[650px] flex items-center justify-center bg-black overflow-hidden"
+      className="relative w-full h-[60vh] min-h-[500px] lg:h-[90vh] lg:min-h-[800px] flex items-center justify-center bg-black overflow-hidden"
       style={{ 
         width: "100vw", 
         marginLeft: "calc(-50vw + 50%)",

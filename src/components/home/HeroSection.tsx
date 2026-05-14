@@ -59,11 +59,8 @@ export default function HeroSection({ content }: HeroSectionProps) {
         </div>
 
         <div className="relative w-full max-w-none lg:mx-0 self-end">
-         
-
           <div className="relative overflow-visible bg-surface p-0 mt-8 lg:mt-0">
             <div className="relative aspect-5/5 bg-surface left-[-10%] sm:left-[-5%] lg:left-[-8%] scale-[1.1] sm:scale-100">
-
               <Image
                 src="/hero/Bbbb_5.gif"
                 alt=""
@@ -80,25 +77,25 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 alt="Community member"
                 width={250}
                 height={360}
-                className="absolute bottom-0 left-[20%] lg:left-[24%] z-20 h-auto w-[50%] object-contain"
+                className="absolute bottom-[-10%] left-[30%] lg:left-[34%] z-20 h-[80%] w-[50%] object-contain"
                 priority
               />
 
               <Image
                 src={content.heroChildPath}
                 alt="Child beneficiary"
-                width={300}
-                height={500}
-                className="absolute bottom-0 left-[6%] lg:left-[4%] z-40 h-auto w-[42%] object-contain"
+                width={250}
+                height={360}
+                className="absolute bottom-[-10%] left-[4%] lg:left-[6%] z-40 h-[78%] w-[55%] object-bottom"
                 priority
               />
 
               <Image
                 src={content.heroWomanPath}
                 alt="Community member"
-                width={300}
-                height={420}
-                className="absolute bottom-0 right-[-4%] lg:right-[-9%] z-30 h-auto w-[60%] object-contain"
+                width={250}
+                height={360}
+                className="absolute bottom-[-10%] right-[-8%] lg:right-[-12%] z-30 h-[76%] w-[55%] object-bottom"
                 priority
               />
             </div>

@@ -32,7 +32,7 @@ export const homeHeroContent: HomeHeroContent = {
     { value: "₹48", label: "Average Cost per Patient" },
   ],
   heroBackdropPath: "/hero/hero-main.svg",
-  heroManPath: "/hero/man_image.png",
-  heroWomanPath: "/hero/woman_image.png",
-  heroChildPath: "/hero/child_image.png",
+  heroManPath: "/hero/hero03.png",
+  heroWomanPath: "/hero/hero02.png",
+  heroChildPath: "/hero/hero01.png",
 };
