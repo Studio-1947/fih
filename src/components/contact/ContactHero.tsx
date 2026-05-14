@@ -1,4 +1,6 @@
 import React from "react";
+import BlurText from "@/components/ui/BlurText";
+import FadeIn from "@/components/ui/FadeIn";
 
 interface ContactHeroProps {
   title: string;
@@ -21,12 +23,18 @@ export default function ContactHero({ title, intro }: ContactHeroProps) {
               Get in Touch
             </p>
           </div>
-          <h1 className="mb-6 text-5xl font-bold tracking-tight text-black sm:text-6xl lg:text-7xl [font-family:var(--font-heading)]">
-            {title} <span className="text-black/30">Us</span>
-          </h1>
-          <p className="text-lg leading-relaxed text-black/60 [font-family:var(--font-body)] sm:text-xl lg:max-w-2xl">
-            {intro}
-          </p>
+          <BlurText
+            text={`${title} Us`}
+            delay={150}
+            animateBy="words"
+            direction="bottom"
+            className="mb-6 text-5xl font-bold tracking-tight text-black sm:text-6xl lg:text-7xl [font-family:var(--font-heading)]"
+          />
+          <FadeIn delay={0.4}>
+            <p className="text-lg leading-relaxed text-black/60 [font-family:var(--font-body)] sm:text-xl lg:max-w-2xl">
+              {intro}
+            </p>
+          </FadeIn>
         </div>
       </div>
     </section>
