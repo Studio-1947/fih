@@ -3,11 +3,11 @@ import TestimonialSection from "@/components/stories-of-change/TestimonialSectio
 
 export const metadata: Metadata = {
   title: "Stories of Change | Foundation for Innovations in Health",
-  description: "Discover how FIH is transforming lives through innovative healthcare solutions like the Floating Digital Clinic in the Sundarbans.",
+  description: "Real stories from communities transformed by FIH's healthcare initiatives — voices of patients, caregivers, and changemakers from the Sundarbans and beyond.",
   openGraph: {
-    title: "Stories of Change | FIH",
-    description: "Transforming lives through innovative healthcare solutions in the Sundarbans.",
-    images: ["/stories_of_change/floating digital clinic.jpg"],
+    title: "Stories of Change | Foundation for Innovations in Health",
+    description: "Real stories from communities transformed by FIH's healthcare initiatives — voices of patients, caregivers, and changemakers.",
+    images: ["/stories_of_change/floating%20digital%20clinic.jpg"],
   }
 };
 
