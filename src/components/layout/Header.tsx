@@ -92,7 +92,7 @@ export default function Header() {
 
           <Link
             href="/donate"
-            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex"
+            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex pointer-events-none"
           >
             Donate Now
             <Heart
@@ -170,7 +170,7 @@ export default function Header() {
               <Link
                 href="/donate"
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)]"
+                className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)] pointer-events-none"
               >
                 Donate Now
                 <Heart
