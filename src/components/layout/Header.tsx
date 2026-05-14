@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Heart } from "lucide-react";
+import NotificationBell from "@/components/layout/NotificationBell";
 
 const navLinks = [
   { href: "/aboutFIH", label: "About Us" },
@@ -89,6 +90,8 @@ export default function Header() {
               ))}
             </ul>
           </nav>
+
+          <NotificationBell />
 
           <Link
             href="/donate"

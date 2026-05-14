@@ -5,7 +5,17 @@ import Image from "next/image";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-import { type EventItem, eventsContent as events } from "@/lib/content";
+export interface EventItem {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  date: string;
+}
+
+interface EventsSectionProps {
+  events: EventItem[];
+}
 
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", {
@@ -14,8 +24,10 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function EventsSection() {
+export default function EventsSection({ events }: EventsSectionProps) {
   const [selected, setSelected] = useState<EventItem | null>(null);
+
+  if (!events.length) return null;
 
   return (
     <>
@@ -100,13 +112,12 @@ export default function EventsSection() {
                       {/* Image */}
                       <div className="relative h-52 sm:h-60 w-full rounded-[1.5rem] overflow-hidden bg-black/5 mb-4">
                         <Image
-                          src={event.image}
+                          src={event.imageUrl}
                           alt={event.title}
                           fill
                           sizes="(max-width: 640px) 288px, 320px"
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        {/* Subtle overlay on hover */}
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[1.5rem]" />
                       </div>
 
@@ -166,7 +177,7 @@ export default function EventsSection() {
               {/* Modal Image */}
               <div className="relative h-64 sm:h-80 w-full rounded-t-[2rem] overflow-hidden bg-black/5">
                 <Image
-                  src={selected.image}
+                  src={selected.imageUrl}
                   alt={selected.title}
                   fill
                   sizes="(max-width: 640px) 100vw, 672px"
