@@ -81,6 +81,7 @@ export default function OurWorkPage() {
               className="absolute inset-0 w-full h-full"
               src="https://www.youtube.com/embed/UcYSuH7m_Pc?si=SPrJ6CE7CZYp_yoO"
               title="YouTube video player"
+              loading="lazy"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
