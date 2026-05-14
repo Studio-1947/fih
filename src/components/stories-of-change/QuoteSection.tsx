@@ -15,7 +15,7 @@ export default function QuoteSection() {
   }, []);
 
   return (
-    <section className="bg-primary py-20 lg:py-24 overflow-hidden relative" style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
+    <section className="bg-primary pt-20 pb-32 lg:pt-24 lg:pb-36 overflow-hidden relative" style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
       <div className="absolute top-0 right-0 text-[20rem] font-black text-black/5 leading-none translate-x-1/4 -translate-y-1/4 select-none">
         &ldquo;
       </div>

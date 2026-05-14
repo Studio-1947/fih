@@ -12,18 +12,15 @@ type ClinicWorkflowSectionProps = {
 export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectionProps) {
   const allSteps = workflow.steps;
   const totalSteps = allSteps.length;
-  
+
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-cycling effect
   useEffect(() => {
     if (isPaused) return;
-    
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % totalSteps);
-    }, 2000); // 2 seconds per step
-    
+    }, 2000);
     return () => clearInterval(interval);
   }, [totalSteps, isPaused]);
 
@@ -33,8 +30,6 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
 
   // All nodes separated by 360/totalSteps degrees. Starting at top (0 degrees).
   const angles = allSteps.map((_, i) => (i * 360) / totalSteps);
-  
-  // Arrows placed halfway between nodes.
   const arrowAngles = allSteps.map((_, i) => ((i + 0.5) * 360) / totalSteps);
 
   return (
@@ -43,15 +38,15 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Dynamic Background Elements for Vibrancy */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] bg-primary/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
-      <div 
-        className="absolute inset-0 opacity-[0.04] pointer-events-none z-0" 
-        style={{ 
-          backgroundImage: `radial-gradient(circle at 2px 2px, #ca9a22 1px, transparent 0)`, 
-          backgroundSize: '32px 32px' 
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50rem] h-[50rem] bg-primary/10 blur-[120px] rounded-full pointer-events-none z-0" />
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none z-0"
+        style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, #ca9a22 1px, transparent 0)`,
+          backgroundSize: "32px 32px",
         }}
-      ></div>
+      />
 
       <FadeIn className="w-full">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 space-y-4 relative z-20">
@@ -90,9 +85,10 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
         
         {/* Rotating Background Dashed Track Wrapper - Fixes misalignment */}
         <div className="absolute inset-0 animate-rotate-track pointer-events-none z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-dashed border-primary/50 dashed-track shadow-[0_0_20px_rgba(251,191,36,0.1)]" 
-               style={{ width: `calc(${radius} * 2)`, height: `calc(${radius} * 2)` }}>
-          </div>
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-dashed border-primary/50 shadow-[0_0_20px_rgba(251,191,36,0.1)]"
+            style={{ width: `calc(${radius} * 2)`, height: `calc(${radius} * 2)` }}
+          />
         </div>
 
         {/* Central Hub */}
@@ -106,7 +102,7 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
           </div>
         </div>
 
-        {/* Path Arrows */}
+        {/* Path arrows */}
         {arrowAngles.map((angle, idx) => {
           const isActive = activeIndex === idx;
           return (
@@ -118,23 +114,20 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
                 transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(-1 * ${radius}))`
               } as React.CSSProperties}
             >
-              <div 
-                className={`text-primary ${isActive ? 'animate-pulse scale-125' : 'animate-blink-path'}`}
-                style={{ animationDelay: `${idx * (1.5 / totalSteps)}s` }}
-              >
-                <ChevronRight className="w-10 h-10 sm:w-12 sm:h-12 text-primary" strokeWidth={3} />
+              <div className={`text-primary ${isActive ? "animate-pulse scale-125" : "animate-blink-path"}`} style={{ animationDelay: `${idx * (1.5 / totalSteps)}s` }}>
+                <ChevronRight className="w-12 h-12 text-primary" strokeWidth={3} />
               </div>
             </div>
           );
         })}
 
-        {/* All Steps as Nodes */}
+        {/* Step nodes */}
         {allSteps.map((step, idx) => {
           const angle = angles[idx];
           const isStart = idx === 0;
           const isEnd = idx === totalSteps - 1;
           const isActive = activeIndex === idx;
-          
+
           return (
             <div
               key={`node-${idx}`}
@@ -168,9 +161,9 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
                 `}>
                   {step.title}
                 </h4>
-                
+
                 {!isStart && !isEnd && (
-                  <div className={`mt-1 sm:mt-2 text-primary transition-opacity ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                  <div className={`mt-2 text-primary transition-opacity ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                     <Info className="w-4 h-4" />
                   </div>
                 )}
@@ -195,7 +188,6 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
             </div>
           );
         })}
-
       </div>
       </FadeIn>
 
@@ -252,10 +244,6 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
         @keyframes blink-path {
           0%, 100% { opacity: 0.2; transform: scale(0.9); }
           50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(251,191,36,0.9)); }
-        }
-        
-        .animate-rotate-track {
-          animation: rotate-track 60s linear infinite;
         }
         @keyframes rotate-track {
           from { transform: rotate(0deg); }
