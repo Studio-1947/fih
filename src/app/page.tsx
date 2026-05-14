@@ -21,9 +21,7 @@ export default function Home() {
     <div className="space-y-0">
       <HeroSection content={homeHeroContent} />
       
-      <FadeIn>
-        <WhatWeDoSection content={whatWeDoContent} />
-      </FadeIn>
+      <WhatWeDoSection content={whatWeDoContent} />
       
       <FadeIn>
         <RecognitionSection content={recognitionContent} />
