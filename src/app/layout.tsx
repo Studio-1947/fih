@@ -24,7 +24,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fihindia.org"),
+  metadataBase: new URL("https://fih-zeta.vercel.app"),
   title: "Foundation for Innovations in Health",
   description:
     "Foundation for Innovations in Health (FIH) – Building a skilled health workforce and expanding access to primary care across rural India.",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Foundation for Innovations in Health",
     description:
       "Building a skilled health workforce and expanding access to primary care across rural India.",
-    url: "https://fihindia.org",
+    url: "https://fih-zeta.vercel.app",
     siteName: "Foundation for Innovations in Health",
     images: [
       {
