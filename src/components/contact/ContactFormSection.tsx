@@ -91,7 +91,7 @@ export default function ContactFormSection({ content }: ContactFormSectionProps)
                   </div>
                   <Link
                     href="/#donate"
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-black transition-transform hover:scale-[1.02] [font-family:var(--font-heading)]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-black [font-family:var(--font-heading)] pointer-events-none"
                   >
                     Make a Donation
                     <ArrowRight className="h-4 w-4" />

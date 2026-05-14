@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "motion/react";
 
 import { type EventItem, eventsContent as events } from "@/lib/content";
 
-
 function formatDate(dateStr: string) {
   return new Date(dateStr).toLocaleDateString("en-US", {
     month: "long",
@@ -40,9 +39,11 @@ export default function EventsSection() {
         }
       `}</style>
 
-      <section id="events" className="w-full bg-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12 overflow-hidden">
+      <section
+        id="events"
+        className="w-full bg-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12 overflow-hidden"
+      >
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -70,11 +71,13 @@ export default function EventsSection() {
           </motion.div>
 
           {/* Scrollable Cards - Marquee on desktop, manual on mobile */}
-          <div 
+          <div
             className="relative overflow-x-auto lg:overflow-x-hidden pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             style={{
-              maskImage: "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
-              WebkitMaskImage: "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+              maskImage:
+                "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
             }}
           >
             <div className="events-marquee-track">
@@ -128,7 +131,6 @@ export default function EventsSection() {
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -174,7 +176,7 @@ export default function EventsSection() {
 
               {/* Modal Content */}
               <div className="p-7 sm:p-10">
-                <div className="mb-4 inline-block rounded-full bg-[#FEF8E6] px-3.5 py-1.5 text-[11px] font-bold text-[#D0A015] [font-family:var(--font-heading)]">
+                <div className="mb-4 inline-block rounded-full bg-[#FEF8E6] px-3.5 py-1.5 text-[11px] font-bold text-primary [font-family:var(--font-heading)]">
                   {formatDate(selected.date)}
                 </div>
 

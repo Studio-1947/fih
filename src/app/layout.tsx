@@ -24,10 +24,23 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fihindia.org"), // Replace with actual domain when available
+  metadataBase: new URL("https://fihindia.org"),
   title: "Foundation for Innovations in Health",
   description:
     "Foundation for Innovations in Health (FIH) – Building a skilled health workforce and expanding access to primary care across rural India.",
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon.ico" },
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon_io/apple-touch-icon.png" },
+    ],
+    other: [
+      { rel: "manifest", url: "/favicon_io/site.webmanifest" },
+    ],
+  },
   openGraph: {
     title: "Foundation for Innovations in Health",
     description:
@@ -36,21 +49,21 @@ export const metadata: Metadata = {
     siteName: "Foundation for Innovations in Health",
     images: [
       {
-        url: "/logos/logo_nav.png",
-        width: 800,
-        height: 800,
-        alt: "FIH Logo",
+        url: "/favicon_io/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Foundation for Innovations in Health",
       },
     ],
     locale: "en_IN",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Foundation for Innovations in Health",
     description:
       "Building a skilled health workforce and expanding access to primary care across rural India.",
-    images: ["/logos/logo_nav.png"],
+    images: ["/favicon_io/android-chrome-512x512.png"],
   },
 };
 
