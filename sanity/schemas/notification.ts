@@ -21,8 +21,14 @@ export const notificationType = defineType({
       name: 'shortMessage',
       title: 'Short Message',
       type: 'text',
-      rows: 3,
-      validation: (rule) => rule.required().max(220),
+      rows: 6,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
     }),
   ],
 })
