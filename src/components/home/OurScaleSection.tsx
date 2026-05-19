@@ -80,7 +80,7 @@ export default function OurScaleSection() {
                   i % 2 === 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
                 }`}
               >
-                <div className="mb-2 text-3xl font-bold tracking-tighter text-primary sm:text-4xl lg:text-5xl [font-family:var(--font-heading)]">
+                <div className="mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
                   <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
                 </div>
                 <div className="text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
@@ -108,7 +108,7 @@ export default function OurScaleSection() {
                   i % 2 !== 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
                 }`}
               >
-                <div className="mb-2 text-3xl font-bold tracking-tighter text-primary sm:text-4xl lg:text-5xl [font-family:var(--font-heading)]">
+                <div className="mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
                   <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
                 </div>
                 <div className="text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
