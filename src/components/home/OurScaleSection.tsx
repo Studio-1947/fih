@@ -35,16 +35,16 @@ function Counter({
 }
 
 const scaleData1 = [
-  { value: 12, suffix: " +", label: "YEAR" },
-  { value: 6, suffix: "", label: "STATES" },
-  { value: 5000, suffix: " +", label: "TRAINED" },
-  { value: 80, suffix: " +", label: "HOSPITALS" },
+  { value: 12, prefix: "", suffix: " +", label: "YEAR" },
+  { value: 6, prefix: "", suffix: "", label: "STATES" },
+  { value: 5000, prefix: "", suffix: " +", label: "TRAINED" },
+  { value: 80, prefix: "", suffix: " +", label: "HOSPITALS" },
 ];
 
 const scaleData2 = [
-  { value: 15, suffix: "", label: "MOBILE & FIXED CLINICS" },
-  { value: 1, suffix: "", label: "MOTOR BOAT" },
-  { value: 55000, suffix: " +", label: "BENEFICIARIES" },
+  { value: 15, prefix: "", suffix: "", label: "MOBILE & FIXED CLINICS" },
+  { value: 1, prefix: "", suffix: "", label: "MOTOR BOAT" },
+  { value: 55000, prefix: "", suffix: " +", label: "BENEFICIARIES" },
   { value: 250, prefix: "₹ ", suffix: "", label: "AV. COST/PATIENT" },
 ];
 
