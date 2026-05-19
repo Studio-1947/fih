@@ -35,30 +35,30 @@ function TestimonialCard({ item, index }: { item: (typeof storiesOfChangeContent
       {/* Background Accent */}
       <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[5rem] -mr-8 -mt-8 transition-all duration-500 group-hover:scale-150 group-hover:bg-primary/10" />
 
-      <div className="flex items-center gap-5 mb-8 relative z-10">
-        <div className="relative w-28 h-28 rounded-3xl overflow-hidden shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all duration-500 shrink-0">
+      <div className="flex flex-col items-center text-center mb-4 relative z-10">
+        <div className="relative w-28 h-36 rounded-3xl overflow-hidden shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all duration-500 mb-2 border border-gray-100 group-hover:border-primary/20 shrink-0">
           <Image src={item.imagePath} alt={item.name} fill className="object-cover" />
         </div>
-        <div>
-          <h4 className="text-xl font-bold text-gray-900 leading-tight group-hover:text-primary-dark transition-colors">{item.name}</h4>
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary-dark text-[10px] font-bold uppercase tracking-wider rounded-full mt-2">
-            Beneficiary
-          </span>
-        </div>
+        <h4 className="text-lg font-bold text-gray-900 leading-tight group-hover:text-primary-dark transition-colors">
+          {item.name}
+        </h4>
+        <span className="inline-block px-2.5 py-0.5 bg-primary/10 text-black text-[9px] font-extrabold uppercase tracking-wider rounded-full mt-1">
+          Beneficiary
+        </span>
       </div>
 
-      <div className="relative grow z-10">
-        <Quote className="absolute -top-4 -left-4 w-16 h-16 text-primary/5 group-hover:text-primary/10 transition-all duration-700 -z-10 rotate-12" strokeWidth={1} />
-        <p className="text-gray-600 leading-relaxed text-[0.95rem] md:text-base relative">
-          {item.description}
+      <div className="relative grow z-10 text-left px-1 mt-1">
+        <Quote className="absolute -top-3 -left-3 w-8 h-8 text-primary/5 group-hover:text-primary/15 transition-all duration-700 -z-10 rotate-12" strokeWidth={2} />
+        <p className="text-gray-600 leading-relaxed text-[0.88rem] md:text-[0.94rem] relative pl-4 border-l-2 border-primary/25 italic font-medium">
+          &ldquo;{item.description}&rdquo;
         </p>
       </div>
 
-      <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between group-hover:border-primary/20 transition-colors duration-500">
-        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 group-hover:text-primary-dark transition-colors">
+      <div className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between group-hover:border-primary/20 transition-colors duration-500">
+        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 group-hover:text-primary-dark transition-colors">
           Foundation for Innovations in Health
         </span>
-        <div className="w-12 h-1 bg-gray-100 group-hover:bg-primary/30 rounded-full transition-all duration-500 group-hover:w-16" />
+        <div className="w-12 h-0.5 bg-gray-100 group-hover:bg-primary/30 rounded-full transition-all duration-500 group-hover:w-16" />
       </div>
     </div>
   );
