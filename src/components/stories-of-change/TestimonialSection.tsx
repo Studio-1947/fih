@@ -55,10 +55,10 @@ function TestimonialCard({ item, index }: { item: (typeof storiesOfChangeContent
       </div>
 
       <div className="mt-5 pt-3 border-t border-gray-100 flex items-center justify-between group-hover:border-primary/20 transition-colors duration-500">
-        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 group-hover:text-primary-dark transition-colors">
+        <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-wider text-gray-400 group-hover:text-primary-dark transition-colors whitespace-nowrap overflow-hidden text-ellipsis mr-3">
           Foundation for Innovations in Health
         </span>
-        <div className="w-12 h-0.5 bg-gray-100 group-hover:bg-primary/30 rounded-full transition-all duration-500 group-hover:w-16" />
+        <div className="w-12 h-0.5 bg-gray-100 group-hover:bg-primary/40 rounded-full transition-all duration-500 shrink-0 origin-right group-hover:scale-x-125" />
       </div>
     </div>
   );
