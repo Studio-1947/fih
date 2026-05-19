@@ -84,9 +84,7 @@ export default function RootLayout({
     >
       <body className="flex flex-col bg-surface text-black text-[16px] [font-family:var(--font-body)] overflow-x-hidden">
         <Header />
-        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-0 pb-0 sm:px-6 lg:px-8">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer />
         <SanityLive />
       </body>

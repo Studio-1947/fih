@@ -36,14 +36,10 @@ export default function EventsSection({ events }: EventsSectionProps) {
           display: flex;
           gap: 1.5rem;
           width: max-content;
+          animation: marquee-events 60s linear infinite;
         }
-        @media (min-width: 1024px) {
-          .events-marquee-track {
-            animation: marquee-events 60s linear infinite;
-          }
-          .events-marquee-track:hover {
-            animation-play-state: paused;
-          }
+        .events-marquee-track:hover {
+          animation-play-state: paused;
         }
         @keyframes marquee-events {
           0% { transform: translateX(0); }
@@ -79,19 +75,19 @@ export default function EventsSection({ events }: EventsSectionProps) {
             </h2>
           </motion.div>
 
-          {/* Scrollable Cards - Marquee on desktop, manual on mobile */}
+          {/* Scrollable Cards - Marquee */}
           <div
-            className="relative overflow-x-auto lg:overflow-x-hidden pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="relative overflow-visible pb-4"
             style={{
               maskImage:
-                "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+                "linear-gradient(to right, transparent, black 1%, black 95%, transparent)",
               WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 3%, black 97%, transparent)",
+                "linear-gradient(to right, transparent, black 1%, black 95%, transparent)",
             }}
           >
             <div className="events-marquee-track">
               {[0, 1].map((groupIndex) => (
-                <div key={groupIndex} className="flex gap-6 pr-6 items-start">
+                <div key={groupIndex} className="flex gap-6 items-start">
                   {events.map((event, i) => (
                     <motion.button
                       key={`${event.id}-${groupIndex}-${i}`}
@@ -104,7 +100,7 @@ export default function EventsSection({ events }: EventsSectionProps) {
                         ease: [0.21, 0.47, 0.32, 0.98],
                       }}
                       onClick={() => setSelected(event)}
-                      className="group flex-shrink-0 w-72 sm:w-80 cursor-pointer text-left flex flex-col"
+                      className="group flex-shrink-0 w-[280px] sm:w-80 cursor-pointer text-left flex flex-col"
                     >
                       {/* Image */}
                       <div className="relative h-52 sm:h-60 w-full rounded-[1.5rem] overflow-hidden bg-black/5 mb-4">
@@ -138,6 +134,16 @@ export default function EventsSection({ events }: EventsSectionProps) {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="flex justify-center gap-2 mt-8 lg:hidden">
+            {events.map((_, i) => (
+              <div
+                key={i}
+                className="h-2 rounded-full bg-black/20 transition-all duration-300 w-8"
+              />
+            ))}
           </div>
         </div>
       </section>

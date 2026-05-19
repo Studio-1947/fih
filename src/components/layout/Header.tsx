@@ -20,7 +20,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isGrantsPage = pathname === "/grants-mandates";
   const isCSRPage = pathname === "/csr-projects";
 
   useEffect(() => {
@@ -52,10 +51,12 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-100 transition-all duration-300 px-4 text-black sm:px-6 lg:px-8 ${
-        isScrolled ? "py-2" : "pt-6"
-      } ${isGrantsPage ? "bg-[#fafafa]" : ""} ${isCSRPage && !isScrolled ? "bg-transparent shadow-none" : ""}`}
+        isScrolled ? "py-2" : "pt-4"
+      } ${isCSRPage && !isScrolled ? "bg-transparent shadow-none" : ""}`}
     >
-      <div className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}>
+      <div
+        className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}
+      >
         <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <Image

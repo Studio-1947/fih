@@ -8,7 +8,7 @@ const awards = [
     body: "Stanford Graduate School of Business & Stanford Doerr School of Sustainability, Stanford University",
     description:
       "FIH's work recognised among the top 40 global changemakers by two world-leading schools at Stanford University — one of the highest global honours in impact-driven innovation.",
-    logo: "/press-media/awards/stanford%20business.png",
+    logo: "/press-media/awards/stanford business.png",
     logoAlt: "Stanford University logo",
     featured: true,
   },
@@ -18,7 +18,7 @@ const awards = [
     body: "Department of Science & Technology, Govt. of India",
     description:
       "The 'COVID Severity Score' software, developed by FIH through collaboration, has been recognised by DST, Govt. of India.",
-    logo: "/press-media/awards/department%20of%20science%20and%20tech.png",
+    logo: "/press-media/awards/department of science and tech.png",
     logoAlt: "Department of Science & Technology logo",
   },
   {
@@ -71,111 +71,104 @@ const awards = [
 const featuredAward = awards[0];
 const regularAwards = awards.slice(1);
 
-export default function AwardsRecognitionSection() {
+export function AwardsHero() {
   return (
-    <section className="pt-16 pb-16 sm:pt-28 sm:pb-24 bg-white" id="awards-recognition">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-tight [font-family:var(--font-heading)] text-black">
-            Awards &amp; Recognition
-          </h2>
-          <div className="mt-4 h-1 w-16 bg-primary rounded-full mx-auto" />
-          <p className="mt-6 text-base sm:text-lg leading-relaxed text-black/55 [font-family:var(--font-body)]">
-            Honours received from prestigious institutions, government bodies,
-            and global organisations recognising FIH&apos;s impact in healthcare
-            innovation.
-          </p>
-        </div>
+    <section
+      className="relative -mt-24 h-[90vh] flex flex-col items-center justify-center bg-white overflow-hidden"
+      id="awards-hero"
+    >
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Featured Award — Stanford 2025 */}
-        <div className="group mb-6 lg:mb-8 flex flex-col sm:flex-row overflow-hidden rounded-2xl border border-black/8 bg-gray-950 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-          {/* Left — branding accent */}
-          <div className="relative flex flex-col justify-between p-7 sm:p-10 sm:w-[55%]">
-            {/* Subtle grid pattern */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 1px 1px, rgba(255,217,102,0.08) 1px, transparent 0)",
-                backgroundSize: "28px 28px",
-              }}
-            />
+      <div className="w-[80%] mx-auto text-center">
+        <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs [font-family:var(--font-heading)]">
+          Recognitions
+        </span>
+        <h2 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight [font-family:var(--font-heading)] text-black">
+          Awards & Recognition
+        </h2>
+        <div className="mt-8 h-1 w-24 bg-primary rounded-full mx-auto" />
+        <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black/60 [font-family:var(--font-body)] max-w-4xl mx-auto">
+          Celebrating the honours received from prestigious institutions and
+          global organisations that recognise FIH&apos;s transformative impact
+          in healthcare innovation.
+        </p>
+      </div>
+    </section>
+  );
+}
 
-            <div className="relative z-10">
-              {/* Year badge */}
-              <span className="inline-block mb-6 rounded-full bg-primary px-3 py-1 text-[11px] font-bold tracking-wider uppercase [font-family:var(--font-heading)]">
-                {featuredAward.year}
-              </span>
-
-              <h3 className="text-2xl sm:text-3xl font-bold [font-family:var(--font-heading)] text-white leading-tight">
+export function FeaturedRecognition() {
+  return (
+    <section className="py-16 bg-gray-50" id="featured-recognition">
+      <div className="w-[80%] mx-auto">
+        <div className="group rounded-3xl border border-black/5 bg-white shadow-2xl shadow-black/5 overflow-hidden">
+          <div className="flex flex-col lg:flex-row">
+            <div className="p-8 sm:p-12 lg:w-[60%] flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="rounded-full bg-primary/10 text-primary px-4 py-1 text-xs font-bold tracking-widest uppercase [font-family:var(--font-heading)]">
+                  {featuredAward.year}
+                </span>
+                <span className="h-px w-8 bg-black/10" />
+              </div>
+              <h3 className="text-3xl sm:text-4xl font-bold [font-family:var(--font-heading)] text-black leading-tight">
                 {featuredAward.title}
               </h3>
-
-              <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
+              <p className="mt-3 text-sm font-semibold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
                 {featuredAward.body}
               </p>
-
-              <div className="mt-5 w-10 h-[2px] bg-primary/40 rounded-full" />
-
-              <p className="mt-5 text-sm sm:text-[15px] leading-relaxed text-white/60 [font-family:var(--font-body)]">
+              <p className="mt-6 text-base sm:text-lg leading-relaxed text-black/70 [font-family:var(--font-body)]">
                 {featuredAward.description}
               </p>
             </div>
-          </div>
-
-          {/* Right — logo panel */}
-          <div className="flex items-center justify-center border-t border-white/10 sm:border-t-0 sm:border-l p-8 sm:p-12 sm:w-[45%] bg-white/[0.03]">
-            <div className="relative w-full max-w-[280px] h-32 sm:h-40">
-              <Image
-                src={featuredAward.logo}
-                alt={featuredAward.logoAlt}
-                fill
-                className="object-contain opacity-85 group-hover:opacity-100 transition-opacity"
-              />
+            <div className="lg:w-[40%] bg-gray-50/50 flex items-center justify-center p-12 border-t lg:border-t-0 lg:border-l border-black/5 relative">
+              <div className="relative w-full max-w-[240px] h-40">
+                <Image
+                  src={featuredAward.logo}
+                  alt={featuredAward.logoAlt}
+                  fill
+                  className="object-contain filter grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Regular Awards Grid — 3×2 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {regularAwards.map((award, index) => {
-            return (
-              <FadeIn key={index} delay={index * 0.1}>
-                <div className="group h-full flex flex-col items-center text-center bg-gray-50 rounded-2xl border border-black/8 p-6 sm:p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                  {/* Year badge */}
-                  <span className="inline-block mb-5 rounded-full bg-primary px-3 py-1 text-[11px] font-bold tracking-wider uppercase [font-family:var(--font-heading)]">
-                    {award.year}
-                  </span>
-
-                  {/* Logo */}
-                  <div className="relative w-full h-20 sm:h-24 mb-6">
-                    <Image
-                      src={award.logo}
-                      alt={award.logoAlt}
-                      fill
-                      className="object-contain object-center opacity-80 group-hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-
-                  {/* Divider */}
-                  <div className="w-10 h-[2px] bg-primary/40 rounded-full mb-4 group-hover:bg-primary transition-colors mx-auto" />
-
-                  {/* Text */}
-                  <h3 className="text-base sm:text-lg font-bold [font-family:var(--font-heading)] text-black leading-snug">
-                    {award.title}
-                  </h3>
-                  <p className="mt-1 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-black [font-family:var(--font-heading)]">
-                    {award.body}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-black [font-family:var(--font-body)] flex-grow">
-                    {award.description}
-                  </p>
+export function RegularAwardsSection() {
+  return (
+    <section className="py-16 bg-gray-50" id="regular-awards">
+      <div className="w-[80%] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {regularAwards.map((award, index) => (
+            <FadeIn key={index} delay={index * 0.1}>
+              <div className="group h-full flex flex-col items-center text-center bg-white rounded-2xl border border-black/5 p-8 shadow-sm hover:shadow-lg transition-all duration-300">
+                <span className="inline-block mb-5 rounded-full bg-primary/10 text-primary px-3 py-1 text-[11px] font-bold tracking-wider uppercase">
+                  {award.year}
+                </span>
+                <div className="relative w-full h-24 mb-6">
+                  <Image
+                    src={award.logo}
+                    alt={award.logoAlt}
+                    fill
+                    className="object-contain object-center filter grayscale group-hover:grayscale-0 transition-all"
+                  />
                 </div>
-              </FadeIn>
-            );
-          })}
+                <div className="w-10 h-[2px] bg-primary/20 rounded-full mb-4" />
+                <h3 className="text-lg font-bold text-black leading-snug">
+                  {award.title}
+                </h3>
+                <p className="mt-1 text-xs font-semibold uppercase text-primary">
+                  {award.body}
+                </p>
+                <p className="mt-4 text-sm text-black/60 flex-grow">
+                  {award.description}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>
