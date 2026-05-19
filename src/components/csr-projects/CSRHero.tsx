@@ -33,8 +33,10 @@ export default function CSRHero() {
             key={img.src}
             className="absolute inset-0 w-full h-full transition-opacity duration-[2000ms] ease-in-out"
             style={{
+              // Always keep non-active slides below; active slide on top
+              // This prevents the "blank gap" when transitioning between slides
               opacity: currentImageIndex === index ? 1 : 0,
-              zIndex: currentImageIndex === index ? 10 : 0,
+              zIndex: currentImageIndex === index ? 2 : 1,
             }}
           >
             <Image
@@ -44,7 +46,9 @@ export default function CSRHero() {
               className={`object-cover ${img.position} transition-transform duration-[15000ms] ease-out ${
                 currentImageIndex === index ? "scale-110" : "scale-100"
               }`}
+              // priority on all images ensures they are all preloaded immediately
               priority
+              sizes="100vw"
             />
           </div>
         ))}
