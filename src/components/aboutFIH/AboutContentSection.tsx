@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { CheckCircle2, Building2 } from "lucide-react";
+import { HeartHandshake, Cpu, Building2 } from "lucide-react";
 import type { AboutContent } from "@/lib/content/about";
 import BlurText from "@/components/ui/BlurText";
 
@@ -38,88 +38,126 @@ export default function AboutContentSection({
   return (
     <section className="w-full bg-white">
       
-      {/* 1. Editorial Intro Section */}
+      {/* 1. Cinematic Editorial Intro Section - Full Background Image */}
       <div
         ref={a1.ref}
-        className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 mt-16 sm:mt-24 transition-all duration-700 ease-out ${a1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        className={`relative w-screen left-1/2 -translate-x-1/2 py-24 sm:py-32 bg-[#0A0A0B] overflow-hidden transition-all duration-1000 ease-out ${
+          a1.visible ? "opacity-100" : "opacity-0"
+        }`}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 relative">
-          
-          {/* Main Heading taking 5 columns */}
-          <div className="lg:col-span-5 flex flex-col pt-2 lg:pt-8">
-            <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-black leading-[1.05] text-[#141416] tracking-tight [font-family:var(--font-heading)]">
-              {intro.heading.split(' ').map((word, i) => (
-                <span key={i} className={i > 2 ? 'text-black/30' : ''}>{word} </span>
-              ))}
+        {/* Full Background Image */}
+        {intro.imagePath && (
+          <div className="absolute inset-0 z-0">
+            <Image
+              src={intro.imagePath}
+              alt={intro.heading}
+              fill
+              className="object-cover opacity-[0.88] transition-all duration-700"
+              sizes="100vw"
+              priority
+            />
+            {/* Cinematic dark gradients for absolute readability and smooth fade transitions */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0B] via-[#0A0A0B]/40 to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#0A0A0B] via-[#0A0A0B]/60 to-transparent z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-transparent to-[#0A0A0B]/10 z-10" />
+          </div>
+        )}
+
+        {/* Content Area */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-white">
+          {/* Title */}
+          <div className="max-w-5xl mb-12 sm:mb-16">
+            <h2 className="text-4xl sm:text-6xl lg:text-[4.5rem] font-black leading-[1.05] text-white tracking-tight [font-family:var(--font-heading)] uppercase">
+              About
+              <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(255,184,0,0.25)]">
+                Foundation for Innovations in Health
+              </span>
             </h2>
-            <div className="mt-8 h-1.5 w-24 bg-primary rounded-full" />
+            <div className="mt-8 h-1.5 w-20 bg-primary rounded-full shadow-[0_0_10px_rgba(255,184,0,0.4)]" />
           </div>
 
-          {/* Image and Text taking 7 columns */}
-          <div className="lg:col-span-7 space-y-12">
-            {intro.imagePath && (
-              <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-3xl overflow-hidden group cursor-pointer shadow-lg">
-                <Image
-                  src={intro.imagePath}
-                  alt={intro.heading}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-3xl" />
-              </div>
-            )}
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 text-[#141416]/70 text-[15px] sm:text-[17px] leading-[1.7] [font-family:var(--font-body)]">
-              {intro.paragraphs.map((p, idx) => (
-                <p key={idx} className={idx === 0 ? 'font-medium text-[#141416] text-lg' : ''}>
-                  {p}
-                </p>
-              ))}
-            </div>
+          {/* Paragraphs Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 [font-family:var(--font-body)] text-white/75 leading-relaxed text-[15px] sm:text-[17px]">
+            {intro.paragraphs.map((p, idx) => (
+              <p 
+                key={idx} 
+                className={idx === 0 ? 'text-lg sm:text-xl font-medium text-white leading-relaxed' : 'font-normal'}
+              >
+                {p}
+              </p>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* 2. What Sets Us Apart - Asymmetrical Bento Box */}
+      {/* 2. What Sets Us Apart - Premium Image Bento Card Grid */}
       <div
         ref={a2.ref}
-        className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 mt-24 sm:mt-40 transition-all duration-700 ease-out delay-100 ${a2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 mt-24 sm:mt-40 transition-all duration-1000 ease-out delay-100 ${
+          a2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+        }`}
       >
-        <div className="flex flex-col mb-10 gap-2 border-b border-black/10 pb-8 text-left">
-          <p className="text-xs font-bold text-black/40 uppercase tracking-[0.2em] [font-family:var(--font-heading)]">
-            Our Core Pillars
-          </p>
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#141416] [font-family:var(--font-heading)] tracking-tight">
+        {/* Section Header */}
+        <div className="flex flex-col mb-12 gap-3 pb-6 text-left relative">
+          <div className="flex items-center gap-3">
+            <div className="h-[2px] w-8 bg-primary animate-pulse" />
+            <span className="text-xs font-black uppercase tracking-[0.3em] text-primary">
+              Our Core Pillars
+            </span>
+          </div>
+          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#141416] [font-family:var(--font-heading)] tracking-tight uppercase">
             {whatSetsUsApart.title}
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {whatSetsUsApart.points.map((point, idx) => (
-            <div 
-              key={idx} 
-              className={`relative overflow-hidden rounded-[2rem] p-8 sm:p-10 flex flex-col h-full transition-all duration-500 hover:-translate-y-2
-                ${idx === 0 ? 'bg-[#141416] text-white shadow-xl' : 
-                  idx === 1 ? 'bg-primary text-[#141416] shadow-lg' : 
-                  'bg-[#F4F4F5] text-[#141416] shadow-sm'}
-              `}
-            >
-              <div className="flex justify-start items-start mb-8">
-                <div className={`h-12 w-12 rounded-full flex items-center justify-center backdrop-blur-md ${idx === 0 ? 'bg-white/10' : 'bg-black/5'}`}>
-                  <CheckCircle2 className={`h-5 w-5 ${idx === 0 ? 'text-primary' : 'text-[#141416]'}`} />
+        {/* 3-Column Layered Overlapping Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {whatSetsUsApart.points.map((point, idx) => {
+            const cardImages = [
+              "/csr/gallery/03.jpeg", // Integrated Model
+              "/csr/gallery/04.jpeg", // Technology-Driven
+              "/csr/gallery/07.jpeg"  // Collaborative Approach
+            ];
+
+            return (
+              <div 
+                key={idx} 
+                className="group relative flex flex-col text-left cursor-pointer transition-all duration-300 h-full"
+              >
+                {/* Visual Header: Wide 16:11 Image Box */}
+                <div className="relative w-full aspect-[16/11] rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-100/50 z-0">
+                  <Image 
+                    src={cardImages[idx]} 
+                    alt={point.title} 
+                    fill 
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 400px"
+                  />
+                </div>
+
+                {/* Overlapping White Sleek Card */}
+                <div className="relative z-10 mx-4 mt-[-48px] bg-white border border-gray-100/80 rounded-[2rem] p-5 sm:p-6 shadow-xl transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:border-primary/20 flex-1 flex flex-col min-h-[160px] sm:min-h-[170px] md:min-h-[220px] lg:min-h-[180px]">
+                  {/* Icon & Title */}
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="text-primary shrink-0 transition-transform duration-500 group-hover:rotate-6">
+                      {idx === 0 && <HeartHandshake className="h-4.5 w-4.5" />}
+                      {idx === 1 && <Cpu className="h-4.5 w-4.5" />}
+                      {idx === 2 && <Building2 className="h-4.5 w-4.5" />}
+                    </div>
+                    <h4 className="text-[14px] sm:text-[15px] lg:text-base font-black text-gray-900 uppercase tracking-tight [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-300">
+                      {point.title}
+                    </h4>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-[13px] sm:text-[14px] text-gray-500 leading-relaxed [font-family:var(--font-body)] font-medium">
+                    {point.description}
+                  </p>
                 </div>
               </div>
-              
-              <div className="relative z-10 flex flex-col flex-1">
-                <h4 className="text-2xl font-bold mb-4 [font-family:var(--font-heading)] leading-tight">
-                  {point.title}
-                </h4>
-                <p className={`text-[15px] leading-relaxed ${idx === 0 ? 'text-white/70' : 'text-[#141416]/70'} [font-family:var(--font-body)]`}>
-                  {point.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
@@ -164,11 +202,29 @@ export default function AboutContentSection({
 
             {/* Paragraphs */}
             <div className="space-y-6 text-lg sm:text-xl text-white/70 leading-relaxed [font-family:var(--font-body)] max-w-3xl">
-              {ourFoundation.paragraphs.map((p, idx) => (
-                <p key={idx} className={idx === 0 ? "text-white/90 font-medium text-xl sm:text-2xl" : ""}>
-                  {p}
-                </p>
-              ))}
+              {ourFoundation.paragraphs.map((p, idx) => {
+                const targetText = "Prof. (Dr.) Satadal Saha, MS, FRCS (Eng.)";
+                if (p.includes(targetText)) {
+                  const parts = p.split(targetText);
+                  return (
+                    <p key={idx} className={idx === 0 ? "text-white/90 font-medium text-xl sm:text-2xl text-left" : "text-left"}>
+                      {parts[0]}
+                      <a 
+                        href="#board-members" 
+                        className="underline hover:text-primary transition-all duration-300 font-bold decoration-primary/45 hover:decoration-primary decoration-[3px] underline-offset-4 text-white"
+                      >
+                        {targetText}
+                      </a>
+                      {parts[1]}
+                    </p>
+                  );
+                }
+                return (
+                  <p key={idx} className={idx === 0 ? "text-white/90 font-medium text-xl sm:text-2xl text-left" : "text-left"}>
+                    {p}
+                  </p>
+                );
+              })}
             </div>
 
           </div>

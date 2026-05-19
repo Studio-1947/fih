@@ -66,7 +66,7 @@ export default function Header() {
               className="h-12 w-12 rounded-full object-cover sm:h-14 sm:w-14"
               priority
             />
-            <span className="text-xs font-semibold leading-tight [font-family:var(--font-heading)] sm:text-sm lg:text-base">
+            <span className="text-xs font-semibold leading-tight [font-family:var(--font-heading)] sm:text-sm lg:text-sm xl:text-base">
               Foundation for
               <br />
               Innovations in Health
@@ -77,12 +77,12 @@ export default function Header() {
             aria-label="Primary navigation"
             className="hidden flex-1 min-[1120px]:block"
           >
-            <ul className="flex items-center justify-center gap-6 lg:gap-8">
+            <ul className="flex items-center justify-center gap-4 lg:gap-6">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-flex border-b-2 border-transparent pb-2 text-sm font-medium [font-family:var(--font-heading)] transition hover:border-primary"
+                    className="inline-flex border-y-2 border-transparent py-2 text-[13px] xl:text-sm font-medium [font-family:var(--font-heading)] transition hover:border-b-primary whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
@@ -95,7 +95,7 @@ export default function Header() {
 
           <Link
             href="https://fihruralhealth.org/donate/"
-            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex"
+            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-4 py-2.5 text-[13px] xl:text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex transition hover:scale-105"
           >
             Donate Now
             <Heart

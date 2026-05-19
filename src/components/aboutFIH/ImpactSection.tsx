@@ -42,7 +42,11 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
         className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 mb-32 sm:mb-48 pt-16 lg:pt-32 relative transition-all duration-700 ease-out ${intro.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         {/* Background Image Block (Shifted Right) */}
-        <div className="relative w-full lg:w-[65%] lg:ml-auto aspect-[4/3] sm:aspect-[4/3] rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border border-black/5 group">
+        <a 
+          href="#three-t-model"
+          className="relative w-full lg:w-[65%] lg:ml-auto aspect-[4/3] sm:aspect-[4/3] rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl border border-black/5 group block cursor-pointer"
+          aria-label="Scroll to 3T Model in Action"
+        >
           {content.imagePath && (
             <Image
               src={content.imagePath}
@@ -52,7 +56,8 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
             />
           )}
           <div className="absolute inset-0 bg-primary/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-1000" />
-        </div>
+        </a>
+
 
         {/* Foreground Typography Block */}
         <div className="relative lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:left-4 xl:left-8 mt-[-10%] lg:mt-0 w-[95%] mx-auto lg:mx-0 lg:w-[50%] z-10">
@@ -131,6 +136,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
 
       {/* 3. The 3T Model in Action */}
       <div
+        id="three-t-model"
         ref={model.ref}
         className={`w-full bg-[#141416] pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 lg:pb-28 relative overflow-hidden text-white transition-all duration-700 ease-out ${model.visible ? "opacity-100" : "opacity-0"}`}
       >
