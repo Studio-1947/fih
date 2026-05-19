@@ -75,10 +75,7 @@ export default function EventsSection({ events }: EventsSectionProps) {
             </div>
 
             <h2 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.5rem] [font-family:var(--font-heading)]">
-              <span className="text-[#202020]">Latest Events </span>
-              <span className="text-black/40">&amp; </span>
-              <br />
-              <span className="text-black/40">Milestones</span>
+              <span className="text-[#202020]">Latest Events</span>
             </h2>
           </motion.div>
 

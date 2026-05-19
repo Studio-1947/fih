@@ -3,14 +3,13 @@ import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 import RecognitionSection from "@/components/home/RecognitionSection";
 import SpecificObjectivesSection from "@/components/home/SpecificObjectivesSection";
 import SupportedBySection from "@/components/home/SupportedBySection";
-import StoriesAndMilestonesSection from "@/components/home/StoriesAndMilestonesSection";
+import OurScaleSection from "@/components/home/OurScaleSection";
 import EventsSection from "@/components/home/EventsSection";
 import PartnerWithUsSection from "@/components/home/PartnerWithUsSection";
 import {
   homeHeroContent,
   whatWeDoContent,
   recognitionContent,
-  storiesAndMilestonesContent,
   partnerWithUsContent,
 } from "@/lib/content";
 import { eventsContent } from "@/lib/content/events";
@@ -62,7 +61,7 @@ export default async function Home() {
       </FadeIn>
 
       <FadeIn>
-        <StoriesAndMilestonesSection content={storiesAndMilestonesContent} />
+        <OurScaleSection />
       </FadeIn>
 
       <FadeIn>
