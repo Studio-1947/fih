@@ -166,10 +166,10 @@ export default function AwardsRecognitionSection() {
                   <h3 className="text-base sm:text-lg font-bold [font-family:var(--font-heading)] text-black leading-snug">
                     {award.title}
                   </h3>
-                  <p className="mt-1 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-primary [font-family:var(--font-heading)]">
+                  <p className="mt-1 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-black [font-family:var(--font-heading)]">
                     {award.body}
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-black/60 [font-family:var(--font-body)] flex-grow">
+                  <p className="mt-3 text-sm leading-relaxed text-black [font-family:var(--font-body)] flex-grow">
                     {award.description}
                   </p>
                 </div>
