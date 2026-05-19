@@ -12,13 +12,16 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="space-y-0">
-      <ContactHero 
-        title={contactPageContent.title} 
-        intro={contactPageContent.intro} 
+    <div
+      className="bg-white"
+      style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+    >
+      <ContactHero
+        title={contactPageContent.title}
+        intro={contactPageContent.intro}
       />
       <ContactFormSection content={partnerWithUsContent} />
-      {/* <MapSection /> */}
+      <MapSection content={partnerWithUsContent} />
     </div>
   );
 }

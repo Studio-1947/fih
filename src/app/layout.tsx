@@ -32,15 +32,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon_io/favicon.ico" },
-      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      {
+        url: "/favicon_io/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon_io/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
     ],
-    apple: [
-      { url: "/favicon_io/apple-touch-icon.png" },
-    ],
-    other: [
-      { rel: "manifest", url: "/favicon_io/site.webmanifest" },
-    ],
+    apple: [{ url: "/favicon_io/apple-touch-icon.png" }],
+    other: [{ rel: "manifest", url: "/favicon_io/site.webmanifest" }],
   },
   openGraph: {
     title: "Foundation for Innovations in Health",
@@ -78,7 +82,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased overflow-x-clip`}
     >
-      <body className="flex flex-col bg-surface text-black [font-family:var(--font-body)] overflow-x-clip">
+      <body className="flex flex-col bg-surface text-black text-[16px] [font-family:var(--font-body)] overflow-x-clip">
         <Header />
         <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-0 pb-0 sm:px-6 lg:px-8">
           {children}
