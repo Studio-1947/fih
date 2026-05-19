@@ -6,10 +6,9 @@ import { motion, AnimatePresence } from "motion/react";
 import FadeIn from "@/components/ui/FadeIn";
 
 const csrImages = [
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_00_47%20PM.png", position: "object-top" },
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_02_45%20PM.png", position: "object-top" },
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_05_48%20PM.png", position: "object-center" },
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_07_13%20PM.png", position: "object-top" },
+  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_02_45%20PM.jpg", position: "object-top" },
+  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_05_48%20PM.jpg", position: "object-center" },
+  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_07_13%20PM.jpg", position: "object-top" },
 ];
 
 export default function CSRHero() {
