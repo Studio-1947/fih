@@ -19,6 +19,42 @@ const POSITIONS = [
   { top: "70%", left: "85%"  },
 ];
 
+function TriangleArrows() {
+  return (
+    <svg viewBox="0 0 100 100" className="absolute inset-0 z-10 w-full h-full" fill="none">
+      <defs>
+        {/* Half-arrow: upper branch only (/) */}
+        <marker id="fih-ha-up" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse">
+          <line x1="0" y1="4" x2="4" y2="2" stroke="#141416" strokeWidth="0.8" strokeLinecap="round"/>
+        </marker>
+        {/* Half-arrow: lower branch only (\) */}
+        <marker id="fih-ha-dn" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto" markerUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="4" y2="2" stroke="#141416" strokeWidth="0.8" strokeLinecap="round"/>
+        </marker>
+      </defs>
+
+      {/* T(50,8) ↔ BL(15,70): shorter — r=16 offset from each circle */}
+      <line x1="43.4" y1="22.6" x2="24.2" y2="56.8" stroke="#141416" strokeWidth="0.6" strokeOpacity="0.45" markerEnd="url(#fih-ha-up)"/>
+      <line x1="21.6" y1="55.4" x2="40.8" y2="21.2" stroke="#141416" strokeWidth="0.6" strokeOpacity="0.45" markerEnd="url(#fih-ha-dn)"/>
+
+      {/* T(50,8) ↔ BR(85,70): shorter — r=16 offset from each circle */}
+      <line x1="59.2" y1="21.2" x2="78.4" y2="55.4" stroke="#141416" strokeWidth="0.6" strokeOpacity="0.45" markerEnd="url(#fih-ha-dn)"/>
+      <line x1="75.8" y1="56.8" x2="56.6" y2="22.6" stroke="#141416" strokeWidth="0.6" strokeOpacity="0.45" markerEnd="url(#fih-ha-up)"/>
+
+      {/* BL(15,70) ↔ BR(85,70): shorter — r=16 offset from each circle */}
+      <line x1="31" y1="68.5" x2="69" y2="68.5" stroke="#141416" strokeWidth="0.6" strokeOpacity="0.45" markerEnd="url(#fih-ha-up)"/>
+      <line x1="69" y1="71.5" x2="31" y2="71.5" stroke="#141416" strokeWidth="0.6" strokeOpacity="0.45" markerEnd="url(#fih-ha-dn)"/>
+
+      {/* Center dotted circle at triangle centroid (50, 49) */}
+      <circle cx="50" cy="49" r="13" stroke="#141416" strokeOpacity="0.2" strokeWidth="0.5" strokeDasharray="2 2"/>
+
+      {/* 3T Model label */}
+      <text x="50" y="46.5" textAnchor="middle" fontSize="5.5" fontWeight="bold" fill="#141416" fillOpacity="0.45" letterSpacing="0.3">3T</text>
+      <text x="50" y="53" textAnchor="middle" fontSize="3" fill="#141416" fillOpacity="0.35" letterSpacing="1.5">MODEL</text>
+    </svg>
+  );
+}
+
 function RotatingCircles() {
   const [step, setStep] = useState(0);
 
@@ -175,7 +211,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
       {/* 3. The 3T Model in Action */}
       <div
         ref={model.ref}
-        className={`w-full bg-[#141416] pb-16 sm:pb-20 lg:pb-28 relative overflow-hidden text-white transition-all duration-700 ease-out ${model.visible ? "opacity-100" : "opacity-0"}`}
+        className={`w-full bg-[#141416] pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 lg:pb-28 relative overflow-hidden text-white transition-all duration-700 ease-out ${model.visible ? "opacity-100" : "opacity-0"}`}
       >
         <div className="absolute top-0 right-0 w-[80vw] h-[80vw] max-w-4xl max-h-4xl bg-primary/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
 
@@ -256,7 +292,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
                 key={idx}
                 className={`pb-12 sm:pb-16 ${idx === 0 ? "border-b border-black/10 mb-12 sm:mb-16" : ""} flex flex-col sm:flex-row gap-6 sm:gap-10 items-start group`}
               >
-                <div className="w-8 sm:w-12 h-[3px] bg-primary shrink-0 mt-4 group-hover:w-16 group-hover:bg-[#141416] transition-all duration-500 rounded-full" />
+                <div className="w-16 h-[3px] bg-primary shrink-0 mt-4 origin-left scale-x-50 sm:scale-x-75 group-hover:scale-x-100 group-hover:bg-[#141416] transition-all duration-500 rounded-full" />
                 <p className="text-2xl sm:text-3xl lg:text-4xl text-[#141416]/90 font-medium leading-tight tracking-tight [font-family:var(--font-body)] group-hover:text-[#141416] transition-colors duration-300">
                   {point}
                 </p>
@@ -290,7 +326,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
 
         <div className="relative w-full max-w-md mx-auto aspect-square">
           <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] opacity-60" />
-          <Image src={content.ourApproach.imagePath} alt="Our Approach" fill className="object-contain drop-shadow-2xl relative z-10" />
+          <TriangleArrows />
           <RotatingCircles />
         </div>
       </div>

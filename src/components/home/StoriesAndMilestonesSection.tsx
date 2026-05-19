@@ -10,12 +10,11 @@ export default function StoriesAndMilestonesSection({
   content,
 }: StoriesAndMilestonesSectionProps) {
   return (
-    <section 
+    <section
       className="relative w-full bg-[#FAFAFA] py-12 sm:py-16 lg:py-24 overflow-hidden"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        
         {/* Header Section */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8 lg:mb-16">
           <div className="space-y-6">
@@ -56,7 +55,7 @@ export default function StoriesAndMilestonesSection({
               className="flex flex-col rounded-[2rem] border border-black/5 bg-white p-6 shadow-sm transition-all hover:shadow-md sm:p-8"
             >
               <div className="mb-8 flex items-center justify-between">
-                <span className="rounded-full bg-[#FEF8E6] px-3.5 py-1.5 text-[11px] font-bold text-[#D0A015] [font-family:var(--font-heading)]">
+                <span className="rounded-full bg-[#FEF8E6] px-3.5 py-1.5 text-[11px] font-bold text-primary [font-family:var(--font-heading)]">
                   {milestone.tag}
                 </span>
                 <span className="text-xs font-semibold tracking-wide text-black/40 [font-family:var(--font-heading)]">
@@ -71,14 +70,13 @@ export default function StoriesAndMilestonesSection({
               <h3 className="mb-3 pr-4 text-xl font-bold leading-snug text-black [font-family:var(--font-heading)]">
                 {milestone.title}
               </h3>
-              
+
               <p className="text-sm leading-[1.6] text-black/60 [font-family:var(--font-body)]">
                 {milestone.description}
               </p>
             </div>
           ))}
         </div>
-        
       </div>
     </section>
   );

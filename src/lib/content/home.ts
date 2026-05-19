@@ -23,7 +23,7 @@ export const homeHeroContent: HomeHeroContent = {
   titleBottom: "",
   description:
     "Mitigating multi-dimensional poverty and building rural resilience through data-driven healthcare and employment-oriented education.",
-  primaryCta: { label: "Support Our Mission", href: "/#contact" },
+  primaryCta: { label: "Support Our Mission", href: "/contact" },
   secondaryCta: { label: "Discover Our Work", href: "/stories-of-change" },
   stats: [
     { value: "10,450+", label: "Beneficiaries Reached" },
@@ -32,7 +32,7 @@ export const homeHeroContent: HomeHeroContent = {
     { value: "₹48", label: "Average Cost per Patient" },
   ],
   heroBackdropPath: "/hero/hero-main.svg",
-  heroManPath: "/hero/man_image.png",
-  heroWomanPath: "/hero/woman_image.png",
-  heroChildPath: "/hero/child_image.png",
+  heroManPath: "/hero/hero03.png",
+  heroWomanPath: "/hero/hero02.png",
+  heroChildPath: "/hero/hero01.png",
 };

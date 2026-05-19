@@ -5,20 +5,31 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Heart } from "lucide-react";
+import NotificationBell from "@/components/layout/NotificationBell";
 
 const navLinks = [
   { href: "/aboutFIH", label: "About Us" },
   { href: "/grants-mandates", label: "Grants & Mandates" },
   { href: "/stories-of-change", label: "Stories of Change" },
   { href: "/csr-projects", label: "CSR Projects" },
-  { href: "/press-media", label: "Press & Media" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/press-media", label: "News & Events" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isGrantsPage = pathname === "/grants-mandates";
+  const isCSRPage = pathname === "/csr-projects";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -39,8 +50,12 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className={`relative z-50 px-4 pt-6 text-black sm:px-6 lg:px-8 ${isGrantsPage ? "bg-[#fafafa]" : ""}`}>
-      <div className="mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)]">
+    <header
+      className={`sticky top-0 z-100 transition-all duration-300 px-4 text-black sm:px-6 lg:px-8 ${
+        isScrolled ? "py-2" : "pt-6"
+      } ${isGrantsPage ? "bg-[#fafafa]" : ""} ${isCSRPage && !isScrolled ? "bg-transparent shadow-none" : ""}`}
+    >
+      <div className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}>
         <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <Image
@@ -76,8 +91,10 @@ export default function Header() {
             </ul>
           </nav>
 
+          <NotificationBell />
+
           <Link
-            href="/donate"
+            href="https://fihruralhealth.org/donate/"
             className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex"
           >
             Donate Now
@@ -99,43 +116,76 @@ export default function Header() {
             {isMenuOpen ? "Close" : "Menu"}
           </button>
         </div>
+      </div>
 
-        {isMenuOpen ? (
-          <nav
-            id="mobile-nav-panel"
-            aria-label="Mobile navigation"
-            className="fixed inset-0 z-30 h-[100dvh] w-screen overflow-hidden bg-white pt-28 touch-none min-[1120px]:hidden"
-          >
-            <ul className="mx-auto grid w-full max-w-sm gap-3 px-4">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li>
+      {/* Mobile nav panel — fixed to viewport, contains its own header row so sticky issues don't matter */}
+      {isMenuOpen ? (
+        <nav
+          id="mobile-nav-panel"
+          aria-label="Mobile navigation"
+          className="fixed inset-0 z-200 h-dvh w-screen overflow-y-auto bg-white touch-none min-[1120px]:hidden"
+        >
+          {/* Header row inside the panel */}
+          <div className="flex items-center justify-between px-4 py-4 border-b border-black/5">
+            <Link
+              href="/"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex min-w-0 items-center gap-3"
+            >
+              <Image
+                src="/logos/logo_nav.png"
+                alt="Foundation for Innovations in Health logo"
+                width={52}
+                height={52}
+                className="h-12 w-12 rounded-full object-cover"
+                priority
+              />
+              <span className="text-xs font-semibold leading-tight [font-family:var(--font-heading)]">
+                Foundation for
+                <br />
+                Innovations in Health
+              </span>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(false)}
+              className="inline-flex cursor-pointer items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-black [font-family:var(--font-heading)]"
+              aria-label="Close navigation menu"
+            >
+              Close
+            </button>
+          </div>
+
+          {/* Nav links */}
+          <ul className="mx-auto grid w-full max-w-sm gap-3 px-4 pt-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
                 <Link
-                  href="/donate"
+                  href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)]"
+                  className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
                 >
-                  Donate Now
-                  <Heart
-                    aria-hidden="true"
-                    className="h-4 w-4 fill-black text-black"
-                    strokeWidth={2.2}
-                  />
+                  {link.label}
                 </Link>
               </li>
-            </ul>
-          </nav>
-        ) : null}
-      </div>
+            ))}
+            <li>
+              <Link
+                href="https://fihruralhealth.org/donate/"
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)]"
+              >
+                Donate Now
+                <Heart
+                  aria-hidden="true"
+                  className="h-4 w-4 fill-black text-black"
+                  strokeWidth={2.2}
+                />
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      ) : null}
     </header>
   );
 }

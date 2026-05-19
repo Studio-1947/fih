@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato, Merriweather, Poppins } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { SanityLive } from "@/sanity/lib/live";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -24,33 +25,50 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://fihindia.org"), // Replace with actual domain when available
+  metadataBase: new URL("https://fih-zeta.vercel.app"),
   title: "Foundation for Innovations in Health",
   description:
     "Foundation for Innovations in Health (FIH) – Building a skilled health workforce and expanding access to primary care across rural India.",
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon.ico" },
+      {
+        url: "/favicon_io/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon_io/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+    apple: [{ url: "/favicon_io/apple-touch-icon.png" }],
+    other: [{ rel: "manifest", url: "/favicon_io/site.webmanifest" }],
+  },
   openGraph: {
     title: "Foundation for Innovations in Health",
     description:
       "Building a skilled health workforce and expanding access to primary care across rural India.",
-    url: "https://fihindia.org",
+    url: "https://fih-zeta.vercel.app",
     siteName: "Foundation for Innovations in Health",
     images: [
       {
-        url: "/logos/logo_nav.png",
-        width: 800,
-        height: 800,
-        alt: "FIH Logo",
+        url: "/favicon_io/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
+        alt: "Foundation for Innovations in Health",
       },
     ],
     locale: "en_IN",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Foundation for Innovations in Health",
     description:
       "Building a skilled health workforce and expanding access to primary care across rural India.",
-    images: ["/logos/logo_nav.png"],
+    images: ["/favicon_io/android-chrome-512x512.png"],
   },
 };
 
@@ -62,14 +80,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} h-full overflow-x-hidden antialiased`}
+      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased overflow-x-clip`}
     >
-      <body className="min-h-full overflow-x-hidden flex flex-col bg-surface text-black [font-family:var(--font-body)]">
+      <body className="flex flex-col bg-surface text-black text-[16px] [font-family:var(--font-body)] overflow-x-clip">
         <Header />
-        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-8 pb-0 sm:px-6 lg:px-8">
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 pt-0 pb-0 sm:px-6 lg:px-8">
           {children}
         </main>
         <Footer />
+        <SanityLive />
       </body>
     </html>
   );

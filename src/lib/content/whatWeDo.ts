@@ -33,7 +33,7 @@ export const whatWeDoContent: WhatWeDoContent = {
         "Operating mobile, fixed, and innovative floating digital clinics to bring high-quality, data-driven healthcare directly to underserved communities.",
       imagePath: "/floating_image.jpg",
       ctaLabel: "Explore Healthcare Programs",
-      ctaHref: "/stories-of-change",
+      ctaHref: "/our-work",
       programs: [
         {
           title: "Floating Digital Clinic",
@@ -50,7 +50,7 @@ export const whatWeDoContent: WhatWeDoContent = {
       title: "Employment-Oriented Education",
       description:
         "Creating formal sector employment by training rural youth and visually impaired learners as allied health professionals and tech specialists.",
-      imagePath: "/Technology usage (1).jpg",
+      imagePath: "/Technology%20usage%20(1).jpg",
       ctaLabel: "Explore Education Programs",
       ctaHref: "https://schoolforskills.in/",
       programs: [

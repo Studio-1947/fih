@@ -1,155 +1,20 @@
 import { Metadata } from "next";
-import Image from "next/image";
-import { storiesOfChangeContent } from "@/lib/content/storiesOfChange";
-import { storiesAndMilestonesContent } from "@/lib/content/storiesAndMilestones";
 import TestimonialSection from "@/components/stories-of-change/TestimonialSection";
-import StorySectionItem from "@/components/stories-of-change/StorySectionItem";
 
 export const metadata: Metadata = {
   title: "Stories of Change | Foundation for Innovations in Health",
-  description: "Discover how FIH is transforming lives through innovative healthcare solutions like the Floating Digital Clinic in the Sundarbans.",
+  description: "Real stories from communities transformed by FIH's healthcare initiatives — voices of patients, caregivers, and changemakers from the Sundarbans and beyond.",
   openGraph: {
-    title: "Stories of Change | FIH",
-    description: "Transforming lives through innovative healthcare solutions in the Sundarbans.",
-    images: ["/stories_of_change/floating digital clinic.jpg"],
+    title: "Stories of Change | Foundation for Innovations in Health",
+    description: "Real stories from communities transformed by FIH's healthcare initiatives — voices of patients, caregivers, and changemakers.",
+    images: ["/stories_of_change/floating%20digital%20clinic.jpg"],
   }
 };
 
 export default function StoriesOfChangePage() {
-  const { hero, sections } = storiesOfChangeContent;
-  const { milestones } = storiesAndMilestonesContent;
-
   return (
     <main className="bg-white min-h-screen">
-      {/* Hero Section - Technical Grid Editorial */}
-      <section className="absolute top-0 left-0 right-0 h-[85vh] lg:h-[95vh] flex flex-col overflow-hidden bg-[#0A0A0B]">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={hero.bgImagePath}
-            alt={hero.title}
-            fill
-            className="object-cover object-bottom animate-subtle-zoom opacity-80"
-            priority
-          />
-          {/* Subtle Technical Grid Overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-          {/* Deeper gradient for maximum readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0B] via-[#0A0A0B]/60 to-[#0A0A0B]/40 z-10" />
-        </div>
-        
-        <div className="relative z-20 flex-1 flex flex-col justify-center pt-36 pb-12 lg:pt-52 lg:pb-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-y-8 lg:gap-y-12">
-            
-            {/* Top Row: Hook & Metadata */}
-            <div className="lg:col-span-12 flex flex-col sm:flex-row justify-between items-start border-b border-white/20 pb-6 lg:pb-8 mb-6 lg:mb-12 gap-4">
-              <div className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards]">
-                <span className="text-primary font-black text-[9px] sm:text-[10px] uppercase tracking-[0.5em] [font-family:var(--font-heading)] block mb-1">Platform</span>
-                <span className="text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest">{hero.bannerHook}</span>
-              </div>
-              <div className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:100ms] text-left sm:text-right">
-                <span className="text-white/60 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] font-bold block mb-1">Location</span>
-                <span className="text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest">Sundarbans, India</span>
-              </div>
-            </div>
-
-            {/* Main Content Row */}
-            <div className="lg:col-span-8">
-              <h1 className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:200ms] text-4xl sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-[8.5rem] font-black text-white leading-[0.9] tracking-tighter [font-family:var(--font-heading)] uppercase drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
-                Floating<br/>
-                <span className="text-primary">Digital</span> Clinic
-              </h1>
-            </div>
-
-            <div className="lg:col-span-4 lg:self-end lg:pl-12">
-              <div className="opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:400ms] relative">
-                <div className="absolute -left-4 sm:-left-6 top-0 bottom-0 w-1 bg-primary" />
-                <p className="text-base sm:text-lg lg:text-xl text-white leading-relaxed font-medium [font-family:var(--font-body)] [text-shadow:0_2px_10px_rgba(0,0,0,0.5)]">
-                  {hero.description}
-                </p>
-              </div>
-            </div>
-
-            {/* Bottom Row: Controls */}
-            <div className="lg:col-span-12 mt-8 lg:mt-20 flex items-center gap-6 lg:gap-8 opacity-0 animate-fade-in-up [animation-fill-mode:forwards] [animation-delay:600ms]">
-              <div className="flex gap-2">
-                {[1, 2, 3].map(i => (
-                  <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === 1 ? "w-8 sm:w-12 bg-primary" : "w-3 sm:w-4 bg-white/20"}`} />
-                ))}
-              </div>
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-white/30 font-bold">Documenting Change</span>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Spacer */}
-      <div className="w-full h-[85vh] lg:h-[95vh] -mt-8" />
-
-      {/* Narrative Sections */}
-      <section className="py-24 sm:py-32 lg:py-48 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-32 sm:space-y-48 lg:space-y-64">
-            {sections.map((section, index) => (
-              <StorySectionItem 
-                key={index} 
-                section={section} 
-                index={index} 
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-primary py-32 overflow-hidden relative" style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
-        <div className="absolute top-0 right-0 text-[20rem] font-black text-black/5 leading-none translate-x-1/4 -translate-y-1/4 select-none">
-          “
-        </div>
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <p className="text-3xl md:text-5xl font-black text-black leading-tight mb-12">
-            "In the Sundarbans, where survival is a daily challenge, the Floating Digital Clinic is not just a service; it is a lifeline."
-          </p>
-          <div className="h-2 w-32 bg-black mx-auto rounded-full"></div>
-        </div>
-      </section>
-      {/* Milestones Section */}
-      {/* <section className="py-32 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-sm font-bold text-primary uppercase tracking-[0.3em] mb-4">Timeline of Impact</h2>
-            <h3 className="text-4xl md:text-5xl font-black text-gray-900">Recent Milestones</h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {milestones.map((milestone, index) => (
-              <div key={index} className="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
-                <div className="flex justify-between items-start mb-6">
-                  <span className="text-xs font-bold text-primary px-3 py-1 bg-primary/10 rounded-full">{milestone.tag}</span>
-                  <span className="text-2xl font-black text-gray-200 group-hover:text-primary/20 transition-colors">{milestone.year}</span>
-                </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors">{milestone.title}</h4>
-                <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Testimonials Section */}
       <TestimonialSection />
-
-      {/* Quote Section */}
-      {/* <section className="bg-primary py-32 overflow-hidden relative">
-        <div className="absolute top-0 right-0 text-[20rem] font-black text-black/5 leading-none translate-x-1/4 -translate-y-1/4 select-none">
-          “
-        </div>
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
-          <p className="text-3xl md:text-5xl font-black text-black leading-tight mb-12">
-            "In the Sundarbans, where survival is a daily challenge, the Floating Digital Clinic is not just a service; it is a lifeline."
-          </p>
-          <div className="h-2 w-32 bg-black mx-auto rounded-full"></div>
-        </div>
-      </section> */}
     </main>
   );
 }

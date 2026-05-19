@@ -3,28 +3,74 @@ import WhatWeDoSection from "@/components/home/WhatWeDoSection";
 import RecognitionSection from "@/components/home/RecognitionSection";
 import SpecificObjectivesSection from "@/components/home/SpecificObjectivesSection";
 import SupportedBySection from "@/components/home/SupportedBySection";
-import StoriesAndMilestonesSection from "@/components/home/StoriesAndMilestonesSection";
+import OurScaleSection from "@/components/home/OurScaleSection";
 import EventsSection from "@/components/home/EventsSection";
 import PartnerWithUsSection from "@/components/home/PartnerWithUsSection";
 import {
   homeHeroContent,
   whatWeDoContent,
   recognitionContent,
-  storiesAndMilestonesContent,
   partnerWithUsContent,
 } from "@/lib/content";
+import { eventsContent } from "@/lib/content/events";
+import { sanityFetch } from "@/sanity/lib/live";
+import { urlFor } from "@/sanity/lib/image";
+import { EVENTS_QUERY } from "@/sanity/lib/queries";
+import type { EventItem } from "@/components/home/EventsSection";
 
-export default function Home() {
+import FadeIn from "@/components/ui/FadeIn";
+
+export default async function Home() {
+  const { data: sanityEvents } = await sanityFetch({ query: EVENTS_QUERY });
+
+  const events: EventItem[] =
+    sanityEvents && sanityEvents.length > 0
+      ? sanityEvents.map(
+          (e: {
+            _id: string;
+            title: string;
+            description: string;
+            image: Parameters<typeof urlFor>[0];
+            date: string;
+          }) => ({
+            id: e._id,
+            title: e.title,
+            description: e.description,
+            imageUrl: urlFor(e.image).width(900).auto("format").url(),
+            date: e.date,
+          })
+        )
+      : eventsContent.map((e) => ({ ...e, imageUrl: e.image }));
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-0">
       <HeroSection content={homeHeroContent} />
+
       <WhatWeDoSection content={whatWeDoContent} />
-      <RecognitionSection content={recognitionContent} />
-      <SpecificObjectivesSection />
-      <SupportedBySection />
-      <StoriesAndMilestonesSection content={storiesAndMilestonesContent} />
-      <EventsSection />
-      <PartnerWithUsSection content={partnerWithUsContent} />
+
+      <FadeIn>
+        <RecognitionSection content={recognitionContent} />
+      </FadeIn>
+
+      <FadeIn>
+        <SpecificObjectivesSection />
+      </FadeIn>
+
+      <FadeIn>
+        <SupportedBySection />
+      </FadeIn>
+
+      <FadeIn>
+        <OurScaleSection />
+      </FadeIn>
+
+      <FadeIn>
+        <EventsSection events={events} />
+      </FadeIn>
+
+      <FadeIn>
+        <PartnerWithUsSection content={partnerWithUsContent} />
+      </FadeIn>
     </div>
   );
 }

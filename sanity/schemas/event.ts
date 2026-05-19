@@ -12,15 +12,6 @@ export const eventType = defineType({
       validation: (rule) => rule.required().min(3),
     }),
     defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-      },
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
       name: "date",
       title: "Event Date",
       type: "datetime",
@@ -39,16 +30,6 @@ export const eventType = defineType({
       type: "image",
       options: { hotspot: true },
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: "location",
-      title: "Event Location",
-      type: "string",
-    }),
-    defineField({
-      name: "registrationLink",
-      title: "Registration Link",
-      type: "url",
     }),
   ],
   preview: {

@@ -7,8 +7,8 @@ const quickLinks = [
   { label: "Grants & Mandates", href: "/grants-mandates" },
   { label: "Stories of Change", href: "/stories-of-change" },
   { label: "CSR Projects", href: "/csr-projects" },
-  { label: "Press & Media", href: "/press-media" },
-  { label: "Contact", href: "/#contact" },
+  { label: "News & Events", href: "/press-media" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const legalLinks = [
@@ -31,7 +31,7 @@ export default function Footer() {
                 alt="Foundation for Innovations in Health logo"
                 width={52}
                 height={52}
-                className="h-12 w-12 rounded-full object-cover sm:h-14 sm:w-14 bg-white"
+                className="h-12 w-12 object-contain p-0.5 sm:h-14 sm:w-14 bg-white rounded-md"
               />
               <span className="text-sm font-semibold leading-tight text-white [font-family:var(--font-heading)] lg:text-base">
                 Foundation for
@@ -40,35 +40,14 @@ export default function Footer() {
               </span>
             </Link>
 
-            <p className="text-[26px] leading-snug text-white/65 [font-family:var(--font-body)] sm:text-lg">
+            <p className="text-sm leading-snug text-white/65 [font-family:var(--font-body)] sm:text-lg">
               Foundation for Innovations in Health - mitigating multi-dimensional poverty through
               data-driven healthcare and employment-oriented education since 2013.
             </p>
 
             <div className="flex items-center gap-3">
               <Link
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/75 transition hover:bg-white/20 hover:text-white"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </Link>
-              <Link
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/company/foundation-for-innovations-in-health/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -91,10 +70,10 @@ export default function Footer() {
                 </svg>
               </Link>
               <Link
-                href="https://www.youtube.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="YouTube"
+                aria-label="Facebook"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/75 transition hover:bg-white/20 hover:text-white"
               >
                 <svg
@@ -108,8 +87,30 @@ export default function Footer() {
                   strokeLinejoin="round"
                   className="h-4 w-4"
                 >
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.86 23 12 23 12s0-3.86-.46-5.58z" />
-                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </Link>
+              <Link
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/75 transition hover:bg-white/20 hover:text-white"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                 </svg>
               </Link>
             </div>
