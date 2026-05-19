@@ -55,7 +55,7 @@ export default function Header() {
         isScrolled ? "py-2" : "pt-6"
       } ${isGrantsPage ? "bg-[#fafafa]" : ""} ${isCSRPage && !isScrolled ? "bg-transparent shadow-none" : ""}`}
     >
-      <div className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "scale-[0.98] shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}>
+      <div className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}>
         <div className="relative z-40 flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <Image
@@ -94,8 +94,8 @@ export default function Header() {
           <NotificationBell />
 
           <Link
-            href="/donate"
-            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex pointer-events-none"
+            href="https://fihruralhealth.org/donate/"
+            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-5 py-3 text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex"
           >
             Donate Now
             <Heart
@@ -171,9 +171,9 @@ export default function Header() {
             ))}
             <li>
               <Link
-                href="/donate"
+                href="https://fihruralhealth.org/donate/"
                 onClick={() => setIsMenuOpen(false)}
-                className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)] pointer-events-none"
+                className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-black/20 bg-white px-3 py-3 text-sm font-semibold [font-family:var(--font-heading)]"
               >
                 Donate Now
                 <Heart

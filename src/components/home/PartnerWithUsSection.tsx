@@ -115,7 +115,7 @@ export default function PartnerWithUsSection({
                 </div>
 
                 <Link
-                  href="#"
+                  href="https://fihruralhealth.org/donate/"
                   className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[#141416] px-6 py-3 text-[13px] font-bold text-white transition-opacity hover:opacity-90 [font-family:var(--font-heading)]"
                 >
                   Donate Now
