@@ -1,4 +1,5 @@
 import { Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import type { OurWorkContent } from "@/lib/content/ourWork";
 import FadeIn from "@/components/ui/FadeIn";
 
@@ -8,71 +9,87 @@ type ServicesSectionProps = {
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
   return (
-    <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-24 bg-[#f6f5f1]/50 rounded-[3rem] mb-16">
-      <FadeIn>
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary [font-family:var(--font-heading)]">
-            <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
-            OUR SERVICES
-            <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight text-[#1a1a1a] sm:text-4xl lg:text-5xl [font-family:var(--font-heading)]">
-            Comprehensive Care for Every Need
-          </h2>
-          <p className="text-[#666666] [font-family:var(--font-body)] text-base max-w-2xl mx-auto">
-            We provide a wide range of specialized healthcare services to rural communities through our innovative digital clinics and partnerships.
-          </p>
-        </div>
-      </FadeIn>
+    <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-24 bg-[#0A0A0B] rounded-[3.5rem] mb-16 overflow-hidden border border-white/5">
+      
+      {/* Immersive Medical Tech Background Image & Overlay */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <Image 
+          src="/floating_image.jpg" 
+          alt="Comprehensive Healthcare Services" 
+          fill 
+          className="object-cover object-center opacity-15 saturate-[0.8]" 
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B]/90 via-transparent to-[#0A0A0B]/95 z-10" />
+      </div>
 
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-0">
-        {services.map((service, idx) => (
-          <FadeIn key={idx} delay={idx * 0.05} className="break-inside-avoid mb-6 lg:mb-8">
-            <div 
-              className="flex flex-col bg-white rounded-3xl p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-black/5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-300 group"
-            >
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-bold text-[#1a1a1a] [font-family:var(--font-heading)] group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <div className="w-10 h-10 rounded-full bg-surface flex items-center justify-center group-hover:bg-primary transition-colors">
-                    <ArrowRight className="w-5 h-5 text-black/30 group-hover:text-black" />
+      <div className="relative z-20">
+        <FadeIn>
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary [font-family:var(--font-heading)]">
+              <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
+              OUR SERVICES
+              <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
+            </p>
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl [font-family:var(--font-heading)] uppercase">
+              Comprehensive Care for Every Need
+            </h2>
+            <p className="text-white/60 [font-family:var(--font-body)] text-base max-w-2xl mx-auto font-medium leading-relaxed">
+              We provide a wide range of specialized healthcare services to rural communities through our innovative digital clinics and partnerships.
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-0">
+          {services.map((service, idx) => (
+            <FadeIn key={idx} delay={idx * 0.05} className="break-inside-avoid mb-6 lg:mb-8">
+              <div 
+                className="flex flex-col bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white hover:border-transparent hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 ease-out group cursor-pointer"
+              >
+                <div className="space-y-5">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold text-white [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                      <ArrowRight className="w-5 h-5 text-white/50 group-hover:text-[#0A0A0B] transition-colors" />
+                    </div>
                   </div>
+                  
+                  <p className="text-white/70 group-hover:text-gray-600 leading-relaxed text-sm [font-family:var(--font-body)] transition-colors duration-300">
+                    {service.description}
+                  </p>
+                  
+                  {service.features && service.features.length > 0 && (
+                    <div className="pt-4 border-t border-white/10 group-hover:border-black/5 transition-colors duration-300">
+                      <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 group-hover:text-gray-400 mb-4 [font-family:var(--font-heading)] transition-colors">
+                        Key Features
+                      </h4>
+                      <ul className="space-y-3">
+                        {service.features.slice(0, 10).map((feature, fIdx) => (
+                          <li key={fIdx} className="flex gap-3">
+                            <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-white/10 text-primary group-hover:bg-primary/20 group-hover:text-primary-dark flex items-center justify-center transition-colors">
+                              <Check className="w-2.5 h-2.5" />
+                            </div>
+                            <span className="text-xs text-white/80 group-hover:text-gray-600 [font-family:var(--font-body)] transition-colors">
+                              {feature}
+                            </span>
+                          </li>
+                        ))}
+                        {service.features.length > 10 && (
+                          <li className="text-xs text-primary font-bold uppercase tracking-wider [font-family:var(--font-body)]">
+                            + {service.features.length - 10} more features
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-                
-                <p className="text-[#666666] leading-relaxed text-sm [font-family:var(--font-body)]">
-                  {service.description}
-                </p>
-                
-                {service.features && service.features.length > 0 && (
-                  <div className="pt-4 border-t border-black/5">
-                    <h4 className="text-xs font-bold uppercase tracking-widest text-black/40 mb-4 [font-family:var(--font-heading)]">
-                      Key Features
-                    </h4>
-                    <ul className="space-y-3">
-                      {service.features.slice(0, 10).map((feature, fIdx) => (
-                        <li key={fIdx} className="flex gap-3">
-                          <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
-                            <Check className="w-2.5 h-2.5 text-black" />
-                          </div>
-                          <span className="text-xs text-[#4a4a4a] [font-family:var(--font-body)]">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                      {service.features.length > 10 && (
-                        <li className="text-xs text-primary font-medium [font-family:var(--font-body)]">
-                          + {service.features.length - 10} more features
-                        </li>
-                      )}
-                    </ul>
-                  </div>
-                )}
               </div>
-            </div>
-          </FadeIn>
-        ))}
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

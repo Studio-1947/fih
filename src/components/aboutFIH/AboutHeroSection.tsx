@@ -111,11 +111,15 @@ export default function AboutHeroSection({ content }: AboutHeroSectionProps) {
           </div>
 
           {/* Right Side (Bottom on Mobile): 3T Model */}
-          <div className="relative w-full max-w-md mx-auto aspect-square lg:mt-0 mt-4">
-            <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] opacity-60" />
+          <a
+            href="#three-t-model"
+            className="relative w-full max-w-md mx-auto aspect-square lg:mt-0 mt-4 block group cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-transform duration-500"
+            aria-label="Scroll to The 3T Model in Action"
+          >
+            <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] opacity-60 group-hover:opacity-85 transition-opacity duration-500" />
             <TriangleArrows />
             <RotatingCircles />
-          </div>
+          </a>
 
         </div>
       </div>
