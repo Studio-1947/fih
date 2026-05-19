@@ -25,12 +25,12 @@ function Orb({ title, Icon, tone, delay }: OrbConfig & { delay: number }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className={`flex h-56 w-56 sm:h-64 sm:w-64 lg:h-44 lg:w-44 xl:h-52 xl:w-52 flex-none flex-col items-center justify-center rounded-full border shadow-sm ${tone}`}
+      className={`flex h-56 w-56 sm:h-64 sm:w-64 lg:h-48 lg:w-48 xl:h-56 xl:w-56 flex-none flex-col items-center justify-center rounded-full border shadow-sm ${tone}`}
     >
-      <div className="flex h-12 w-12 lg:h-10 lg:w-10 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm">
-        <Icon className="h-6 w-6 lg:h-5 lg:w-5 text-black" />
+      <div className="flex h-12 w-12 lg:h-12 lg:w-12 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm">
+        <Icon className="h-6 w-6 lg:h-6 lg:w-6 text-black" />
       </div>
-      <span className="mt-3 max-w-28 lg:max-w-22 xl:max-w-26 px-2 text-center text-[15px] lg:text-[11px] xl:text-[13px] font-bold leading-tight text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.55)] [font-family:var(--font-heading)]">
+      <span className="mt-3 lg:mt-4 max-w-28 lg:max-w-32 xl:max-w-36 px-2 text-center text-[15px] lg:text-[13px] xl:text-[14px] font-bold leading-tight text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.55)] [font-family:var(--font-heading)]">
         {title}
       </span>
     </motion.div>
@@ -52,7 +52,7 @@ function MergedPair({
         <div className="relative z-10">
           <Orb {...first} delay={baseDelay} />
         </div>
-        <div className="relative -mt-12 sm:-mt-14 lg:mt-0 lg:-ml-8 xl:-ml-10">
+        <div className="relative -mt-12 sm:-mt-14 lg:mt-0 lg:-ml-10 xl:-ml-12">
           <Orb {...second} delay={baseDelay + 0.12} />
         </div>
       </div>
@@ -95,9 +95,9 @@ function Connector({
 
 export default function CSRImpactFlow() {
   return (
-    <div className="relative overflow-hidden bg-black p-5 text-white sm:p-8 lg:px-8 lg:py-12 xl:px-16">
-      <div className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-primary/35 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-10 -left-10 h-36 w-36 rounded-full bg-primary/20 blur-3xl" />
+    <div className="relative overflow-hidden bg-black p-5 text-white sm:p-8 lg:px-8 lg:py-24 xl:py-32 xl:px-16 flex items-center justify-center min-h-[400px] lg:min-h-[500px]">
+      <div className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 rounded-full bg-primary/30 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl" />
 
       {/* Single straight line on lg+, stacked column on mobile */}
       <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:justify-center lg:gap-2 xl:gap-4">
