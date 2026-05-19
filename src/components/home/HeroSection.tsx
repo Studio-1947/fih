@@ -10,7 +10,7 @@ type HeroSectionProps = {
 export default function HeroSection({ content }: HeroSectionProps) {
   return (
     <section className="relative z-10 bg-surface px-4 pt-0 lg:px-0 lg:pt-0">
-      <div className="w-full grid items-stretch gap-6 lg:grid-cols-[1.1fr_0.9fr] overflow-visible">
+      <div className="w-[80%] mx-auto grid items-stretch gap-6 lg:grid-cols-[1.1fr_0.9fr] overflow-visible">
         <div className="space-y-8 flex flex-col items-center text-center lg:block lg:text-left py-10 lg:py-16 self-center">
           <div className="space-y-6 flex flex-col items-center lg:block">
             <h1 className="max-w-2xl text-5xl font-bold leading-[1.0] tracking-tight uppercase [font-family:var(--font-heading)] sm:text-6xl lg:text-[5.5rem]">

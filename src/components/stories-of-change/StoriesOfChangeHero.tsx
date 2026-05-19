@@ -4,16 +4,45 @@ import Image from "next/image";
 import { storiesOfChangeContent } from "@/lib/content/storiesOfChange";
 import FadeIn from "@/components/ui/FadeIn";
 
-export default function StoriesOfChangeHero() {
-  const { testimonials } = storiesOfChangeContent;
+type HeroMarqueeItem = {
+  imagePath: string;
+  name?: string;
+  alt?: string;
+};
+
+type StoriesOfChangeHeroProps = {
+  kicker?: string;
+  title?: string;
+  highlight?: string;
+  description?: string;
+  items?: HeroMarqueeItem[];
+  tileClassName?: string;
+  imageClassName?: string;
+};
+
+export default function StoriesOfChangeHero({
+  kicker = "Voices of Resilience",
+  title = "Stories",
+  highlight = "of Change.",
+  description =
+    "Real stories from communities transformed by our primary healthcare, education, and livelihood initiatives. Meet the individuals driving sustainable change.",
+  items = storiesOfChangeContent.testimonials,
+  tileClassName = "",
+  imageClassName = "object-cover",
+}: StoriesOfChangeHeroProps) {
 
   // Split testimonials into 2 rows and repeat them 3 times for a mathematically perfect, seamless marquee
-  const halfLength = Math.ceil(testimonials.length / 2);
-  const firstHalf = testimonials.slice(0, halfLength);
-  const secondHalf = testimonials.slice(halfLength);
+  const halfLength = Math.ceil(items.length / 2);
+  const firstHalf = items.slice(0, halfLength);
+  const secondHalf = items.slice(halfLength);
 
   const row1Items = [...firstHalf, ...firstHalf, ...firstHalf];
   const row2Items = [...secondHalf, ...secondHalf, ...secondHalf];
+  const tileBaseClass =
+    "relative w-36 h-48 sm:w-44 sm:h-56 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shrink-0";
+  const tileClass = tileClassName
+    ? `${tileBaseClass} ${tileClassName}`
+    : tileBaseClass;
 
   return (
     <section 
@@ -27,14 +56,14 @@ export default function StoriesOfChangeHero() {
           <div className="flex w-max gap-4 sm:gap-6 py-1 animate-marquee-left">
             {row1Items.map((item, index) => (
               <div 
-                key={`row1-${item.name}-${index}`} 
-                className="relative w-36 h-48 sm:w-44 sm:h-56 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shrink-0"
+                key={`row1-${item.imagePath}-${index}`} 
+                className={tileClass}
               >
                 <Image 
                   src={item.imagePath} 
-                  alt={item.name} 
+                  alt={item.alt ?? item.name ?? "Hero image"} 
                   fill 
-                  className="object-cover" 
+                  className={imageClassName} 
                   sizes="(max-width: 640px) 144px, 176px"
                 />
               </div>
@@ -45,14 +74,14 @@ export default function StoriesOfChangeHero() {
           <div className="flex w-max gap-4 sm:gap-6 py-1 animate-marquee-right">
             {row2Items.map((item, index) => (
               <div 
-                key={`row2-${item.name}-${index}`} 
-                className="relative w-36 h-48 sm:w-44 sm:h-56 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shrink-0"
+                key={`row2-${item.imagePath}-${index}`} 
+                className={tileClass}
               >
                 <Image 
                   src={item.imagePath} 
-                  alt={item.name} 
+                  alt={item.alt ?? item.name ?? "Hero image"} 
                   fill 
-                  className="object-cover" 
+                  className={imageClassName} 
                   sizes="(max-width: 640px) 144px, 176px"
                 />
               </div>
@@ -73,17 +102,17 @@ export default function StoriesOfChangeHero() {
             <div className="flex items-center gap-4 mb-6 sm:mb-8">
               <div className="h-1 w-12 bg-primary rounded-full shadow-[0_0_10px_rgba(255,184,0,0.5)]" />
               <span className="inline-block text-[12px] sm:text-[14px] font-bold uppercase tracking-[0.3em] text-white/90 [font-family:var(--font-heading)] drop-shadow-md">
-                Voices of Resilience
+                {kicker}
               </span>
             </div>
             
             <h1 className="text-5xl sm:text-7xl lg:text-[100px] font-black text-white leading-[0.95] tracking-tighter [font-family:var(--font-heading)] uppercase drop-shadow-2xl mb-8">
-              Stories <br />
-              <span className="text-primary drop-shadow-[0_0_20px_rgba(255,184,0,0.3)]">of Change.</span>
+              {title} <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(255,184,0,0.3)]">{highlight}</span>
             </h1>
 
             <p className="text-lg sm:text-xl text-white/70 max-w-2xl font-medium leading-relaxed [font-family:var(--font-body)] [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
-              Real stories from communities transformed by our primary healthcare, education, and livelihood initiatives. Meet the individuals driving sustainable change.
+              {description}
             </p>
           </FadeIn>
         </div>

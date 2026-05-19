@@ -1,5 +1,9 @@
 import { Metadata } from "next";
-import AwardsRecognitionSection from "@/components/press-media/AwardsRecognitionSection";
+import {
+  AwardsHero,
+  FeaturedRecognition,
+  RegularAwardsSection,
+} from "@/components/press-media/AwardsRecognitionSection";
 import PublicationSection from "@/components/press-media/PublicationSection";
 import EventsSection from "@/components/home/EventsSection";
 import GallerySection from "@/components/press-media/GallerySection";
@@ -33,13 +37,15 @@ export default async function PressAndMediaPage() {
             description: e.description,
             imageUrl: urlFor(e.image).width(900).auto("format").url(),
             date: e.date,
-          })
+          }),
         )
       : eventsContent.map((e) => ({ ...e, imageUrl: e.image }));
 
   return (
     <main className="min-h-screen pt-0 bg-white">
-      <AwardsRecognitionSection />
+      <AwardsHero />
+      <FeaturedRecognition />
+      <RegularAwardsSection />
       <PublicationSection />
       <EventsSection events={events} />
       <GallerySection />
