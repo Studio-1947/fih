@@ -35,17 +35,17 @@ function Counter({
 }
 
 const scaleData1 = [
-  { value: 12, prefix: "", suffix: " +", label: "YEAR" },
-  { value: 6, prefix: "", suffix: "", label: "STATES" },
-  { value: 5000, prefix: "", suffix: " +", label: "TRAINED" },
-  { value: 80, prefix: "", suffix: " +", label: "HOSPITALS" },
+  { value: 12, prefix: "", suffix: " +", label: "YEAR", bgImage: "/press-media/gallery/photos/photo-gallery-01.jpg" },
+  { value: 6, prefix: "", suffix: "", label: "STATES", bgImage: "/press-media/gallery/photos/photo-gallery-02.jpeg" },
+  { value: 5000, prefix: "", suffix: " +", label: "TRAINED", bgImage: "/press-media/gallery/photos/photo-gallery-04.jpg" },
+  { value: 80, prefix: "", suffix: " +", label: "HOSPITALS", bgImage: "/press-media/gallery/photos/photo-gallery-07.webp" },
 ];
 
 const scaleData2 = [
-  { value: 15, prefix: "", suffix: "", label: "MOBILE & FIXED CLINICS" },
-  { value: 1, prefix: "", suffix: "", label: "MOTOR BOAT" },
-  { value: 55000, prefix: "", suffix: " +", label: "BENEFICIARIES" },
-  { value: 250, prefix: "₹ ", suffix: "", label: "AV. COST/PATIENT" },
+  { value: 15, prefix: "", suffix: "", label: "MOBILE & FIXED CLINICS", bgImage: "/press-media/gallery/photos/photo-gallery-11.jpg" },
+  { value: 1, prefix: "", suffix: "", label: "MOTOR BOAT", bgImage: "/press-media/gallery/photos/photo-gallery-13.jpg" },
+  { value: 55000, prefix: "", suffix: " +", label: "BENEFICIARIES", bgImage: "/press-media/gallery/photos/photo-gallery-14.jpg" },
+  { value: 250, prefix: "₹ ", suffix: "", label: "AV. COST/PATIENT", bgImage: "/press-media/gallery/photos/photo-gallery-08.webp" },
 ];
 
 export default function OurScaleSection() {
@@ -76,14 +76,23 @@ export default function OurScaleSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ type: "spring", stiffness: 100, damping: 15, delay: i * 0.1 }}
                 key={item.label}
-                className={`flex aspect-square w-[160px] flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-[220px] sm:p-6 lg:w-[260px] lg:p-8 ${
+                className={`group relative overflow-hidden flex aspect-square w-[160px] flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-[220px] sm:p-6 lg:w-[260px] lg:p-8 ${
                   i % 2 === 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
                 }`}
               >
-                <div className="mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
+                {/* Subtle background image from gallery */}
+                <div 
+                  className="absolute inset-0 z-0 rounded-full bg-cover bg-center opacity-[0.22] transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.34] pointer-events-none filter grayscale brightness-[0.85]" 
+                  style={{ backgroundImage: `url(${item.bgImage})` }} 
+                />
+                
+                {/* Visual dark overlay overlaying the bg image for maximum legibility */}
+                <div className="absolute inset-0 z-0 bg-[#141416]/25 rounded-full pointer-events-none" />
+
+                <div className="relative z-10 mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
                   <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
+                <div className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
                   {item.label}
                 </div>
               </motion.div>
@@ -104,14 +113,23 @@ export default function OurScaleSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ type: "spring", stiffness: 100, damping: 15, delay: i * 0.1 }}
                 key={item.label}
-                className={`flex aspect-square w-[160px] flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-[220px] sm:p-6 lg:w-[260px] lg:p-8 ${
+                className={`group relative overflow-hidden flex aspect-square w-[160px] flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-[220px] sm:p-6 lg:w-[260px] lg:p-8 ${
                   i % 2 !== 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
                 }`}
               >
-                <div className="mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
+                {/* Subtle background image from gallery */}
+                <div 
+                  className="absolute inset-0 z-0 rounded-full bg-cover bg-center opacity-[0.22] transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.34] pointer-events-none filter grayscale brightness-[0.85]" 
+                  style={{ backgroundImage: `url(${item.bgImage})` }} 
+                />
+                
+                {/* Visual dark overlay overlaying the bg image for maximum legibility */}
+                <div className="absolute inset-0 z-0 bg-[#141416]/25 rounded-full pointer-events-none" />
+
+                <div className="relative z-10 mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
                   <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
+                <div className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
                   {item.label}
                 </div>
               </motion.div>

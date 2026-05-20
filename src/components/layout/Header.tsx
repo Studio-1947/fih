@@ -11,7 +11,14 @@ const navLinks = [
   { href: "/aboutFIH", label: "About Us" },
   { href: "/grants-mandates", label: "Grants & Mandates" },
   { href: "/stories-of-change", label: "Stories of Change" },
-  { href: "/csr-projects", label: "CSR Projects" },
+  { 
+    href: "/csr-projects", 
+    label: "CSR Projects",
+    dropdownItems: [
+      { href: "/csr-projects", label: "CSR Projects V1" },
+      { href: "/csr-projects-v2", label: "CSR Projects V2" }
+    ]
+  },
   { href: "/press-media", label: "News & Events" },
   { href: "/contact", label: "Contact" },
 ];
@@ -20,7 +27,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isCSRPage = pathname === "/csr-projects";
+  const isCSRPage = pathname === "/csr-projects" || pathname === "/csr-projects-v2";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,13 +87,28 @@ export default function Header() {
           >
             <ul className="flex items-center justify-center gap-4 lg:gap-6">
               {navLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="relative group">
                   <Link
                     href={link.href}
                     className="inline-flex border-y-2 border-transparent py-2 text-[13px] xl:text-sm font-medium [font-family:var(--font-heading)] transition hover:border-b-primary whitespace-nowrap"
                   >
                     {link.label}
                   </Link>
+                  {link.dropdownItems && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+                      <div className="bg-white rounded-2xl shadow-xl border border-black/5 py-1.5 min-w-[170px] flex flex-col overflow-hidden mt-1">
+                        {link.dropdownItems.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            className="px-4 py-2 text-xs font-semibold [font-family:var(--font-heading)] text-black/70 hover:text-black hover:bg-primary/10 transition-colors whitespace-nowrap text-center animate-fadeIn"
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -159,17 +181,38 @@ export default function Header() {
 
           {/* Nav links */}
           <ul className="mx-auto grid w-full max-w-sm gap-3 px-4 pt-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              if (link.dropdownItems) {
+                return (
+                  <li key={link.href} className="flex flex-col gap-2">
+                    <span className="text-center text-xs font-bold uppercase tracking-wider text-black/40 mt-1">
+                      {link.label}
+                    </span>
+                    {link.dropdownItems.map((subItem) => (
+                      <Link
+                        key={subItem.href}
+                        href={subItem.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </li>
+                );
+              }
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
             <li>
               <Link
                 href="https://fihruralhealth.org/donate/"
