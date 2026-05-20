@@ -77,6 +77,40 @@ export function AwardsHero() {
       className="relative -mt-24 min-h-[60vh] sm:h-[80vh] lg:h-[90vh] py-20 sm:py-0 flex flex-col items-center justify-center bg-white overflow-hidden"
       id="awards-hero"
     >
+      {/* Subtle Grid of Gallery Images in Background */}
+      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-4 opacity-[0.12] filter grayscale pointer-events-none select-none">
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-01.jpg" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-02.jpeg" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-03.png" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-04.jpg" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-05.png" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-06.png" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-11.jpg" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+          <Image src="/press-media/gallery/photos/photo-gallery-13.jpg" alt="" fill className="object-cover" sizes="25vw" />
+        </div>
+      </div>
+
+      {/* Premium Blending Overlays */}
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.2px] pointer-events-none" />
+      {/* White radial glow in the center to completely mask the collage behind the text */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_15%,_transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
+      
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full px-6 sm:w-[85%] md:w-[80%] mx-auto text-center z-10">
@@ -87,7 +121,7 @@ export function AwardsHero() {
           Awards & Recognition
         </h2>
         <div className="mt-6 h-1 w-20 bg-primary rounded-full mx-auto" />
-        <p className="mt-6 text-sm min-[360px]:text-base sm:text-xl lg:text-2xl leading-relaxed text-black/60 [font-family:var(--font-body)] max-w-3xl mx-auto">
+        <p className="mt-6 text-sm min-[360px]:text-base sm:text-xl lg:text-2xl leading-relaxed text-black/80 [font-family:var(--font-body)] max-w-3xl mx-auto">
           Celebrating the honours received from prestigious institutions and
           global organisations that recognise FIH&apos;s transformative impact
           in healthcare innovation.
