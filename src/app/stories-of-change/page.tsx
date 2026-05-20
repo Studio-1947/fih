@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import TestimonialSection from "@/components/stories-of-change/TestimonialSection";
 import StoriesOfChangeHero from "@/components/stories-of-change/StoriesOfChangeHero";
+import StoryScrollCards from "@/components/stories-of-change/StoryScrollCards";
 
 export const metadata: Metadata = {
   title: "Stories of Change | Foundation for Innovations in Health",
@@ -17,6 +18,7 @@ export default function StoriesOfChangePage() {
     <main className="bg-white min-h-screen">
       <StoriesOfChangeHero />
       <TestimonialSection />
+      <StoryScrollCards />
     </main>
   );
 }
