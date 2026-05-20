@@ -77,39 +77,79 @@ export function AwardsHero() {
       className="relative -mt-24 min-h-[60vh] sm:h-[80vh] lg:h-[90vh] py-20 sm:py-0 flex flex-col items-center justify-center bg-white overflow-hidden"
       id="awards-hero"
     >
-      {/* Subtle Grid of Gallery Images in Background */}
-      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-4 p-4 opacity-[0.12] filter grayscale pointer-events-none select-none">
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-01.jpg" alt="" fill className="object-cover" sizes="25vw" />
+      {/* Subtle Grid of Gallery Images in Background (45 degree split, no spaces) */}
+      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-0 p-0 opacity-[0.26] filter grayscale pointer-events-none select-none">
+        
+        {/* Column 1 */}
+        <div className="relative w-full h-full overflow-hidden">
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-01.jpg" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-02.jpeg" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
         </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-02.jpeg" alt="" fill className="object-cover" sizes="25vw" />
+
+        {/* Column 2 */}
+        <div className="relative w-full h-full overflow-hidden">
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-03.png" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-04.jpg" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
         </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-03.png" alt="" fill className="object-cover" sizes="25vw" />
+
+        {/* Column 3 */}
+        <div className="relative w-full h-full overflow-hidden">
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-05.png" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-06.png" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
         </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-04.jpg" alt="" fill className="object-cover" sizes="25vw" />
+
+        {/* Column 4 */}
+        <div className="relative w-full h-full overflow-hidden">
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-11.jpg" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
+          <div 
+            className="absolute inset-0 w-full h-full"
+            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
+          >
+            <Image src="/press-media/gallery/photos/photo-gallery-13.jpg" alt="" fill className="object-cover" sizes="25vw" />
+          </div>
         </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-05.png" alt="" fill className="object-cover" sizes="25vw" />
-        </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-06.png" alt="" fill className="object-cover" sizes="25vw" />
-        </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-11.jpg" alt="" fill className="object-cover" sizes="25vw" />
-        </div>
-        <div className="relative w-full h-full rounded-2xl overflow-hidden">
-          <Image src="/press-media/gallery/photos/photo-gallery-13.jpg" alt="" fill className="object-cover" sizes="25vw" />
-        </div>
+
       </div>
 
       {/* Premium Blending Overlays */}
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.2px] pointer-events-none" />
-      {/* White radial glow in the center to completely mask the collage behind the text */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_15%,_transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-white/10 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_white_70%)] pointer-events-none" />
       
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
