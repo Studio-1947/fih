@@ -57,17 +57,17 @@ export default function Header() {
       <div
         className={`mx-auto w-full max-w-7xl rounded-[2rem] bg-surface px-4 py-4 shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-all duration-300 ${isScrolled ? "shadow-[0_4px_20px_rgba(0,0,0,0.1)]" : ""}`}
       >
-        <div className="relative z-40 flex items-center justify-between gap-3">
-          <Link href="/" className="flex min-w-0 items-center gap-3">
+        <div className="relative z-40 flex items-center justify-between gap-1.5 min-[360px]:gap-2 sm:gap-3">
+          <Link href="/" className="flex min-w-0 items-center gap-1.5 min-[360px]:gap-2 sm:gap-3">
             <Image
               src="/logos/logo_nav.png"
               alt="Foundation for Innovations in Health logo"
               width={52}
               height={52}
-              className="h-12 w-12 rounded-full object-cover sm:h-14 sm:w-14"
+              className="h-9 w-9 rounded-full object-cover min-[360px]:h-10 min-[360px]:w-10 sm:h-14 sm:w-14"
               priority
             />
-            <span className="text-xs font-semibold leading-tight [font-family:var(--font-heading)] sm:text-sm lg:text-sm xl:text-base">
+            <span className="text-[9px] min-[360px]:text-[10px] min-[400px]:text-[11px] font-semibold leading-[1.15] [font-family:var(--font-heading)] sm:text-sm lg:text-sm xl:text-base">
               Foundation for
               <br />
               Innovations in Health
@@ -131,17 +131,17 @@ export default function Header() {
             <Link
               href="/"
               onClick={() => setIsMenuOpen(false)}
-              className="flex min-w-0 items-center gap-3"
+              className="flex min-w-0 items-center gap-1.5 min-[360px]:gap-2"
             >
               <Image
                 src="/logos/logo_nav.png"
                 alt="Foundation for Innovations in Health logo"
                 width={52}
                 height={52}
-                className="h-12 w-12 rounded-full object-cover"
+                className="h-9 w-9 rounded-full object-cover min-[360px]:h-10 min-[360px]:w-10"
                 priority
               />
-              <span className="text-xs font-semibold leading-tight [font-family:var(--font-heading)]">
+              <span className="text-[9px] min-[360px]:text-[10px] min-[400px]:text-[11px] font-semibold leading-[1.15] [font-family:var(--font-heading)]">
                 Foundation for
                 <br />
                 Innovations in Health
