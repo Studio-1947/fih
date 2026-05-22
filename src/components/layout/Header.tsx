@@ -125,30 +125,32 @@ export default function Header() {
             </ul>
           </nav>
 
-          <NotificationBell />
+          <div className="flex items-center gap-2">
+            <NotificationBell />
 
-          <Link
-            href="https://fihruralhealth.org/donate/"
-            className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-4 py-2.5 text-[13px] xl:text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex transition hover:scale-105"
-          >
-            Donate Now
-            <Heart
-              aria-hidden="true"
-              className="h-4 w-4 fill-black text-black"
-              strokeWidth={2.2}
-            />
-          </Link>
+            <Link
+              href="https://fihruralhealth.org/donate/"
+              className="hidden shrink-0 items-center gap-2 rounded-2xl bg-primary px-4 py-2.5 text-[13px] xl:text-sm font-semibold [font-family:var(--font-heading)] min-[1120px]:inline-flex transition hover:scale-105"
+            >
+              Donate Now
+              <Heart
+                aria-hidden="true"
+                className="h-4 w-4 fill-black text-black"
+                strokeWidth={2.2}
+              />
+            </Link>
 
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((value) => !value)}
-            className="inline-flex cursor-pointer items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-black [font-family:var(--font-heading)] min-[1120px]:hidden"
-            aria-label="Toggle navigation menu"
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-nav-panel"
-          >
-            {isMenuOpen ? "Close" : "Menu"}
-          </button>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((value) => !value)}
+              className="inline-flex cursor-pointer items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-black [font-family:var(--font-heading)] min-[1120px]:hidden"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav-panel"
+            >
+              {isMenuOpen ? "Close" : "Menu"}
+            </button>
+          </div>
         </div>
       </div>
 
