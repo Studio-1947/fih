@@ -29,6 +29,13 @@ export default function Header() {
   const pathname = usePathname();
   const isCSRPage = pathname === "/csr-projects" || pathname === "/csr-projects-v2";
 
+  function isActivePath(href: string): boolean {
+    if (href === "/csr-projects") {
+      return pathname === "/csr-projects" || pathname === "/csr-projects-v2";
+    }
+    return pathname === href;
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -90,7 +97,11 @@ export default function Header() {
                 <li key={link.href} className="relative group">
                   <Link
                     href={link.href}
-                    className="inline-flex border-y-2 border-transparent py-2 text-[13px] xl:text-sm font-medium [font-family:var(--font-heading)] transition hover:border-b-primary whitespace-nowrap"
+                    className={`inline-flex border-y-2 border-transparent py-2 text-[13px] xl:text-sm font-medium [font-family:var(--font-heading)] transition whitespace-nowrap ${
+                      isActivePath(link.href)
+                        ? "border-b-primary font-semibold"
+                        : "hover:border-b-primary"
+                    }`}
                   >
                     {link.label}
                   </Link>
@@ -193,7 +204,11 @@ export default function Header() {
                         key={subItem.href}
                         href={subItem.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
+                        className={`flex w-full items-center justify-center rounded-lg border px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)] ${
+                          pathname === subItem.href
+                            ? "border-primary bg-primary/10 font-semibold"
+                            : "border-black/20 bg-white"
+                        }`}
                       >
                         {subItem.label}
                       </Link>
@@ -206,7 +221,11 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="flex w-full items-center justify-center rounded-lg border border-black/20 bg-white px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)]"
+                    className={`flex w-full items-center justify-center rounded-lg border px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)] ${
+                      isActivePath(link.href)
+                        ? "border-primary bg-primary/10 font-semibold"
+                        : "border-black/20 bg-white"
+                    }`}
                   >
                     {link.label}
                   </Link>

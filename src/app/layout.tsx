@@ -80,9 +80,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased overflow-x-hidden`}
+      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased overflow-x-clip`}
     >
-      <body className="flex flex-col bg-surface text-black text-[16px] [font-family:var(--font-body)] overflow-x-hidden">
+      <body className="flex flex-col bg-surface text-black text-[16px] [font-family:var(--font-body)] overflow-x-clip">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
