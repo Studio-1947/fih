@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(Get-ChildItem -Path \"d:\\\\downloadss\\\\fihh\\\\fih\\\\src\\\\app\" -Recurse -Filter \"page.tsx\")",
+      "Bash(Select-Object FullName)"
+    ]
+  }
+}

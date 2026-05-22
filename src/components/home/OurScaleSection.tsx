@@ -50,25 +50,25 @@ const scaleData2 = [
 
 export default function OurScaleSection() {
   return (
-    <section className="w-full bg-white py-20 sm:py-32 overflow-hidden">
+    <section className="w-full bg-white py-20 sm:py-32">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-20 flex flex-col items-center text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="h-[2px] w-12 bg-primary"></span>
+            <span className="h-0.5 w-12 bg-primary"></span>
             <h2 className="text-4xl font-bold tracking-tight text-[#141416] sm:text-5xl lg:text-6xl [font-family:var(--font-heading)]">
               Our Scale
             </h2>
-            <span className="h-[2px] w-12 bg-primary"></span>
+            <span className="h-0.5 w-12 bg-primary"></span>
           </div>
         </div>
 
-        {/* Group 1 */}
-        <div className="mb-32">
+        {/* Group 1 — circles */}
+        <div className="mb-20 overflow-x-clip">
           <h3 className="mb-8 text-center text-xl font-medium text-[#141416]/80 sm:text-2xl [font-family:var(--font-heading)]">
             AHP education and training programme
           </h3>
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-12 pb-12 sm:gap-8 lg:gap-10">
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-12 pb-12 lg:pb-24 sm:gap-8 lg:gap-10">
             {scaleData1.map((item, i) => (
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -80,15 +80,11 @@ export default function OurScaleSection() {
                   i % 2 === 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
                 }`}
               >
-                {/* Subtle background image from gallery */}
-                <div 
-                  className="absolute inset-0 z-0 rounded-full bg-cover bg-center opacity-[0.22] transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.34] pointer-events-none filter grayscale brightness-[0.85]" 
-                  style={{ backgroundImage: `url(${item.bgImage})` }} 
+                <div
+                  className="absolute inset-0 z-0 rounded-full bg-cover bg-center opacity-[0.22] transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.34] pointer-events-none filter grayscale brightness-[0.85]"
+                  style={{ backgroundImage: `url(${item.bgImage})` }}
                 />
-                
-                {/* Visual dark overlay overlaying the bg image for maximum legibility */}
                 <div className="absolute inset-0 z-0 bg-[#141416]/25 rounded-full pointer-events-none" />
-
                 <div className="relative z-10 mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
                   <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
                 </div>
@@ -100,42 +96,38 @@ export default function OurScaleSection() {
           </div>
         </div>
 
-        {/* Group 2 */}
-        <div>
-          <h3 className="mb-8 text-center text-xl font-medium text-[#141416]/80 sm:text-2xl [font-family:var(--font-heading)]">
-            Primary care &amp; public health delivery program
-          </h3>
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-12 pb-12 sm:gap-8 lg:gap-10">
-            {scaleData2.map((item, i) => (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ type: "spring", stiffness: 100, damping: 15, delay: i * 0.1 }}
-                key={item.label}
-                className={`group relative overflow-hidden flex aspect-square w-[160px] flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-[220px] sm:p-6 lg:w-[260px] lg:p-8 ${
-                  i % 2 !== 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
-                }`}
-              >
-                {/* Subtle background image from gallery */}
-                <div 
-                  className="absolute inset-0 z-0 rounded-full bg-cover bg-center opacity-[0.22] transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.34] pointer-events-none filter grayscale brightness-[0.85]" 
-                  style={{ backgroundImage: `url(${item.bgImage})` }} 
-                />
-                
-                {/* Visual dark overlay overlaying the bg image for maximum legibility */}
-                <div className="absolute inset-0 z-0 bg-[#141416]/25 rounded-full pointer-events-none" />
+        {/* Group 2 heading */}
+        <h3 className="mb-8 text-center text-xl font-medium text-[#141416]/80 sm:text-2xl [font-family:var(--font-heading)]">
+          Primary care &amp; public health delivery program
+        </h3>
+      </div>
 
-                <div className="relative z-10 mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
-                  <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
-                </div>
-                <div className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
-                  {item.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      {/* Group 2 — full-bleed boxes */}
+      <div className="grid grid-cols-2 lg:grid-cols-4">
+        {scaleData2.map((item, i) => (
+          <motion.div
+            key={item.label}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="group relative h-64 sm:h-80 lg:h-96 overflow-hidden"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style={{ backgroundImage: `url(${item.bgImage})` }}
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary [font-family:var(--font-heading)]">
+                <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
+              </div>
+              <div className="mt-3 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-white/80 [font-family:var(--font-heading)]">
+                {item.label}
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

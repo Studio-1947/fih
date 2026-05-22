@@ -74,11 +74,11 @@ const regularAwards = awards.slice(1);
 export function AwardsHero() {
   return (
     <section
-      className="relative -mt-24 min-h-[60vh] sm:h-[80vh] lg:h-[90vh] py-20 sm:py-0 flex flex-col items-center justify-center bg-white overflow-hidden"
+      className="relative -mt-24 min-h-[60vh] sm:h-[80vh] lg:h-[90vh] py-20 sm:py-0 flex flex-col items-center justify-center bg-black overflow-x-clip"
       id="awards-hero"
     >
       {/* Subtle Grid of Gallery Images in Background (45 degree split, no spaces) */}
-      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-0 p-0 opacity-[0.26] filter grayscale pointer-events-none select-none">
+      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-0 p-0 opacity-[0.75] pointer-events-none select-none">
         
         {/* Column 1 */}
         <div className="relative w-full h-full overflow-hidden">
@@ -146,22 +146,25 @@ export function AwardsHero() {
 
       </div>
 
+      {/* Cover any gap above the -mt-24 section (header height varies by breakpoint) */}
+      <div className="absolute inset-x-0 top-[-200px] h-[200px] bg-black pointer-events-none" />
+
       {/* Premium Blending Overlays */}
-      <div className="absolute inset-0 bg-white/10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_white_70%)] pointer-events-none" />
-      
+      <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,black_70%)] pointer-events-none" />
+
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full px-6 sm:w-[85%] md:w-[80%] mx-auto text-center z-10">
         <span className="text-primary font-bold tracking-[0.2em] uppercase text-[11px] sm:text-xs [font-family:var(--font-heading)]">
           Recognitions
         </span>
-        <h2 className="mt-4 text-3xl min-[360px]:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight [font-family:var(--font-heading)] text-black leading-tight">
+        <h2 className="mt-4 text-3xl min-[360px]:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight [font-family:var(--font-heading)] text-white leading-tight">
           Awards & Recognition
         </h2>
         <div className="mt-6 h-1 w-20 bg-primary rounded-full mx-auto" />
-        <p className="mt-6 text-sm min-[360px]:text-base sm:text-xl lg:text-2xl leading-relaxed text-black/80 [font-family:var(--font-body)] max-w-3xl mx-auto">
+        <p className="mt-6 text-sm min-[360px]:text-base sm:text-xl lg:text-2xl leading-relaxed text-white/70 [font-family:var(--font-body)] max-w-3xl mx-auto">
           Celebrating the honours received from prestigious institutions and
           global organisations that recognise FIH&apos;s transformative impact
           in healthcare innovation.
