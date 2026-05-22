@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { storiesOfChangeContent } from "@/lib/content/storiesOfChange";
 
 // Rich custom metadata for each of the beneficiaries in the storiesOfChangeContent
@@ -165,9 +165,6 @@ export default function StoryScrollCards() {
         <div className="mb-16 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-8 bg-primary" />
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-primary-dark [font-family:var(--font-heading)] flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> Interactive Gallery
-            </span>
             <div className="h-px w-8 bg-primary" />
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight [font-family:var(--font-heading)]">
@@ -181,7 +178,7 @@ export default function StoryScrollCards() {
         {/* 1. Scrolling Small Thumbnail Row - Separated on mobile, overlapping on desktop */}
         <div
           ref={imageContainerRef}
-          className="relative z-30 flex gap-4 justify-start md:justify-center overflow-x-auto pt-6 pb-6 mb-5 md:mb-[-4rem] snap-x snap-mandatory no-scrollbar scroll-smooth select-none max-w-full px-4"
+          className="relative z-30 flex gap-4 justify-start md:justify-center overflow-x-auto pt-6 pb-4 mb-6 snap-x snap-mandatory no-scrollbar scroll-smooth select-none max-w-full px-4"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",

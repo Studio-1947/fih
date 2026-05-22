@@ -141,24 +141,30 @@ export default function CSRProjectsPage() {
       <CSRHero />
 
       {/* ── Intro Text (Typography & Collage Layout) ────────────────────────── */}
-      <section className="relative bg-[#FAFAFA] py-20 sm:py-32 overflow-hidden border-b border-black/5" style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}>
+      <section
+        className="relative bg-[#FAFAFA] py-20 sm:py-32 overflow-hidden border-b border-black/5"
+        style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
-          
           {/* Paragraph 1 */}
           <FadeIn>
             <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
-              
               {/* Text Side */}
               <div className="w-full lg:w-[60%] lg:pr-12">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="h-0.5 w-8 bg-primary rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#141416]/50 [font-family:var(--font-heading)]">Integrated Approach</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#141416]/50 [font-family:var(--font-heading)]">
+                    Integrated Approach
+                  </span>
                 </div>
                 <h3 className="text-3xl sm:text-4xl lg:text-[40px] text-[#141416] font-black [font-family:var(--font-heading)] leading-[1.15] tracking-tighter mb-6">
-                  Our integrated approach focuses on two key outcomes: building a skilled health workforce and expanding access to primary care and public health.
+                  Our integrated approach focuses on two key outcomes: building
+                  a skilled health workforce and expanding access to primary
+                  care and public health.
                 </h3>
                 <p className="text-lg sm:text-xl text-[#141416]/60 font-medium leading-relaxed [font-family:var(--font-body)]">
-                  Together, these create a self-sustaining ecosystem of health and livelihood.
+                  Together, these create a self-sustaining ecosystem of health
+                  and livelihood.
                 </p>
               </div>
 
@@ -166,33 +172,47 @@ export default function CSRProjectsPage() {
               <div className="w-full lg:w-[40%] flex justify-center lg:justify-end relative h-[300px] sm:h-[350px]">
                 {/* Back image */}
                 <div className="absolute right-[40%] sm:right-[35%] lg:right-[45%] top-12 w-40 h-48 sm:w-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border-[6px] border-white -rotate-6 z-10 group">
-                  <Image src="/csr/gallery/04.jpeg" alt="CSR" fill className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700" />
+                  <Image
+                    src="/csr/gallery/04.jpeg"
+                    alt="CSR"
+                    fill
+                    className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700"
+                  />
                   <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700" />
                 </div>
                 {/* Front image */}
                 <div className="absolute right-4 sm:right-12 lg:right-0 top-0 w-44 h-56 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-[8px] border-white rotate-3 z-20 group hover:rotate-1 transition-transform duration-500">
-                  <Image src="/csr/gallery/01.jpeg" alt="CSR" fill className="object-cover saturate-[0.75] group-hover:saturate-100 transition-all duration-700" />
+                  <Image
+                    src="/csr/gallery/01.jpeg"
+                    alt="CSR"
+                    fill
+                    className="object-cover saturate-[0.75] group-hover:saturate-100 transition-all duration-700"
+                  />
                 </div>
               </div>
-
             </div>
           </FadeIn>
 
           {/* Paragraph 2 */}
           <FadeIn>
             <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-12">
-              
               {/* Text Side */}
               <div className="w-full lg:w-[60%] lg:pl-12">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="h-0.5 w-8 bg-primary rounded-full" />
-                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#141416]/50 [font-family:var(--font-heading)]">Measurable Impact</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#141416]/50 [font-family:var(--font-heading)]">
+                    Measurable Impact
+                  </span>
                 </div>
                 <h3 className="text-3xl sm:text-4xl lg:text-[40px] text-[#141416] font-black [font-family:var(--font-heading)] leading-[1.15] tracking-tighter mb-6">
-                  By enabling rural youth to access stable employment and bringing affordable healthcare closer to communities, we help increase household incomes while significantly reducing long-term medical expenses.
+                  By enabling rural youth to access stable employment and
+                  bringing affordable healthcare closer to communities, we help
+                  increase household incomes while significantly reducing
+                  long-term medical expenses.
                 </h3>
                 <p className="text-lg sm:text-xl text-[#141416]/60 font-medium leading-relaxed [font-family:var(--font-body)]">
-                  The result is a meaningful reduction in multi-dimensional poverty.
+                  The result is a meaningful reduction in multi-dimensional
+                  poverty.
                 </p>
               </div>
 
@@ -200,18 +220,26 @@ export default function CSRProjectsPage() {
               <div className="w-full lg:w-[40%] flex justify-center lg:justify-start relative h-[300px] sm:h-[350px]">
                 {/* Back image */}
                 <div className="absolute left-[40%] sm:left-[35%] lg:left-[45%] top-12 w-40 h-48 sm:w-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border-[6px] border-white rotate-6 z-10 group">
-                  <Image src="/csr/gallery/03.jpeg" alt="CSR" fill className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700" />
+                  <Image
+                    src="/csr/gallery/03.jpeg"
+                    alt="CSR"
+                    fill
+                    className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700"
+                  />
                   <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700" />
                 </div>
                 {/* Front image */}
                 <div className="absolute left-4 sm:left-12 lg:left-0 top-0 w-44 h-56 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-[8px] border-white -rotate-3 z-20 group hover:-rotate-1 transition-transform duration-500">
-                  <Image src="/csr/gallery/08.jpeg" alt="CSR" fill className="object-cover saturate-[0.75] group-hover:saturate-100 transition-all duration-700" />
+                  <Image
+                    src="/csr/gallery/08.jpeg"
+                    alt="CSR"
+                    fill
+                    className="object-cover saturate-[0.75] group-hover:saturate-100 transition-all duration-700"
+                  />
                 </div>
               </div>
-
             </div>
           </FadeIn>
-
         </div>
       </section>
 
@@ -223,11 +251,11 @@ export default function CSRProjectsPage() {
         >
           {/* Image Side (Left 50%) */}
           <div className="w-full lg:w-1/2 min-h-[400px] lg:min-h-0 relative overflow-hidden">
-            <Image 
-              src="/csr/gallery/07.jpeg" 
-              alt="CSR Priorities" 
-              fill 
-              className="object-cover transition-transform duration-[10000ms] hover:scale-110 saturate-[0.85]" 
+            <Image
+              src="/csr/gallery/07.jpeg"
+              alt="CSR Priorities"
+              fill
+              className="object-cover transition-transform duration-[10000ms] hover:scale-110 saturate-[0.85]"
             />
             {/* Subtle gradient overlay to blend into the black text side */}
             <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#141416] to-transparent hidden lg:block z-10" />
@@ -238,7 +266,7 @@ export default function CSRProjectsPage() {
           <div className="w-full lg:w-1/2 flex items-center p-8 sm:p-16 lg:p-24 relative z-20">
             {/* Decorative background glow */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
-            
+
             <div className="max-w-xl relative z-10">
               <div className="flex items-center gap-4 mb-8">
                 <div className="h-1 w-12 bg-primary rounded-full shadow-[0_0_10px_rgba(255,184,0,0.5)]" />
@@ -248,19 +276,24 @@ export default function CSRProjectsPage() {
               </div>
 
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black [font-family:var(--font-heading)] text-white mb-8 leading-[1.05] tracking-tighter">
-                Aligned with <span className="text-primary drop-shadow-[0_0_15px_rgba(255,184,0,0.3)]">core CSR</span> objectives.
+                Aligned with{" "}
+                <span className="text-primary drop-shadow-[0_0_15px_rgba(255,184,0,0.3)]">
+                  core CSR
+                </span>{" "}
+                objectives.
               </h2>
-              
+
               <div className="space-y-6">
                 <p className="text-lg sm:text-xl text-white/80 [font-family:var(--font-body)] leading-relaxed font-medium">
-                  This model closely aligns with the core CSR priorities of various
-                  organisations, delivering measurable social impact, sustainable
-                  livelihood generation, and improved community well-being.
+                  This model closely aligns with the core CSR priorities of
+                  various organisations, delivering measurable social impact,
+                  sustainable livelihood generation, and improved community
+                  well-being.
                 </p>
-                
+
                 <p className="text-lg sm:text-xl text-white/80 [font-family:var(--font-body)] leading-relaxed font-medium">
-                  As a result, several leading companies have partnered with FIH to design
-                  and implement scalable, high-value CSR initiatives.
+                  As a result, several leading companies have partnered with FIH
+                  to design and implement scalable, high-value CSR initiatives.
                 </p>
               </div>
             </div>
@@ -275,7 +308,7 @@ export default function CSRProjectsPage() {
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-            <BlurText 
+            <BlurText
               text="CREATING LASTING VALUE AT THE INTERSECTION OF HEALTH, LIVELIHOODS, AND RESILIENCE."
               animateBy="words"
               direction="bottom"
@@ -299,15 +332,14 @@ export default function CSRProjectsPage() {
             </div>
 
             <div className="grid gap-6 lg:grid-cols-3 lg:items-stretch">
-              
               {/* Strategy 1: Education */}
               <div className="rounded-[2.5rem] border border-black/5 bg-white p-4 shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
                 <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden mb-6">
-                  <Image 
-                    src="/csr/gallery/04.jpeg" 
-                    alt="Educating rural youth" 
-                    fill 
-                    className="object-cover transition-transform duration-[5000ms] group-hover:scale-110" 
+                  <Image
+                    src="/csr/gallery/04.jpeg"
+                    alt="Educating rural youth"
+                    fill
+                    className="object-cover transition-transform duration-[5000ms] group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] shadow-sm flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
@@ -319,8 +351,8 @@ export default function CSRProjectsPage() {
                     Educating rural youth
                   </h3>
                   <p className="text-black/60 [font-family:var(--font-body)] leading-relaxed font-medium">
-                    Build health human resources from rural communities and
-                    generate stable employment for them.
+                    Educating health human resources from among rural youth and
+                    generating stable employment for them
                   </p>
                 </div>
               </div>
@@ -328,11 +360,11 @@ export default function CSRProjectsPage() {
               {/* Strategy 2: Healthcare */}
               <div className="rounded-[2.5rem] border border-black/5 bg-white p-4 shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
                 <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden mb-6">
-                  <Image 
-                    src="/csr/gallery/06.jpeg" 
-                    alt="Expanding access to care" 
-                    fill 
-                    className="object-cover transition-transform duration-[5000ms] group-hover:scale-110" 
+                  <Image
+                    src="/csr/gallery/06.jpeg"
+                    alt="Expanding access to care"
+                    fill
+                    className="object-cover transition-transform duration-[5000ms] group-hover:scale-110"
                   />
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] shadow-sm flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-black" />
@@ -344,8 +376,7 @@ export default function CSRProjectsPage() {
                     Expanding access to care
                   </h3>
                   <p className="text-black/60 [font-family:var(--font-body)] leading-relaxed font-medium">
-                    Improve primary care reach and health education so
-                    families can avoid preventable medical expenses.
+                    Enhancing access to primary care and health education,
                   </p>
                 </div>
               </div>
@@ -353,37 +384,36 @@ export default function CSRProjectsPage() {
               {/* Box 3: Resulting Impact */}
               <div className="relative flex flex-col justify-between rounded-[2.5rem] border border-black/5 p-8 text-white shadow-sm overflow-hidden group">
                 {/* Background Image */}
-                <Image 
-                  src="/csr/gallery/08.jpeg" 
-                  alt="Impact" 
-                  fill 
-                  className="object-cover transition-transform duration-[15000ms] group-hover:scale-110 saturate-50" 
+                <Image
+                  src="/csr/gallery/08.jpeg"
+                  alt="Impact"
+                  fill
+                  className="object-cover transition-transform duration-[15000ms] group-hover:scale-110 saturate-50"
                 />
                 <div className="absolute inset-0 bg-black/80 transition-colors duration-700 group-hover:bg-black/70" />
-                
+
                 <div className="relative z-10">
                   <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-4 drop-shadow-md">
                     Resulting impact
                   </p>
                   <h3 className="text-3xl font-black [font-family:var(--font-heading)] leading-[1.1] mb-5 tracking-tighter">
-                    Higher household income, lower health expenditure, and reduced
-                    multi-dimensional poverty.
+                    Higher household income, lower health expenditure, and
+                    reduced multi-dimensional poverty.
                   </h3>
                   <p className="text-white/70 [font-family:var(--font-body)] leading-relaxed font-medium">
-                    The combined effect also improves health outcomes and overall
-                    societal productivity.
+                    The combined effect also improves health outcomes and
+                    overall societal productivity.
                   </p>
                 </div>
 
                 <div className="relative z-10 mt-8 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md p-6">
                   <p className="text-sm leading-relaxed text-white/90 [font-family:var(--font-body)] font-medium">
-                    This aligns closely with CSR priorities, which is why
-                    companies continue to engage FIH for scalable and measurable
-                    social impact.
+                    This resonates well with the CSR objectives of companies,
+                    many of whom have come forward to engage FIH to design and
+                    implement their CSR engagements.
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
