@@ -6,6 +6,7 @@ import VisionMissionSection from "@/components/aboutFIH/VisionMissionSection";
 import ImpactSection from "@/components/aboutFIH/ImpactSection";
 import BoardOfMembersSection from "@/components/aboutFIH/BoardOfMembersSection";
 import OurJourneySection from "@/components/aboutFIH/OurJourneySection";
+import OurApproachBanner from "@/components/aboutFIH/OurApproachBanner";
 import StatutoryComplianceSection from "@/components/aboutFIH/StatutoryComplianceSection";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function AboutPage() {
       />
       <VisionMissionSection content={aboutContent.visionMission} />
       <ImpactSection content={aboutContent.impact} />
+      <OurApproachBanner />
       <OurJourneySection />
       <BoardOfMembersSection />
       <StatutoryComplianceSection />

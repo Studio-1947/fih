@@ -54,14 +54,14 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
         "This model ensures that even the most vulnerable populations receive timely, quality healthcare, right where they are. Beyond service delivery, it creates local employment, builds community capacity, and strengthens resilience in one of the most climate-vulnerable regions in the world.",
       ],
     },
-    {
-      heading: "A Scalable Model for the Future",
-      imagePath: "/floating/IMG20230131134813 (1).jpg",
-      paragraphs: [
-        "The success of the Floating Digital Clinic lies in its integration of the 3T Model: Training local youth, leveraging deep-science Technology, and implementing Task-shifting to ensure medical expertise reaches the last mile.",
-        "This data-driven approach allows for real-time monitoring of patient outcomes and environmental impacts, making it a replicable blueprint for remote healthcare delivery globally.",
-      ],
-    },
+    // {
+    //   heading: "A Scalable Model for the Future",
+    //   imagePath: "/floating/IMG20230131134813 (1).jpg",
+    //   paragraphs: [
+    //     "The success of the Floating Digital Clinic lies in its integration of the 3T Model: Training local youth, leveraging deep-science Technology, and implementing Task-shifting to ensure medical expertise reaches the last mile.",
+    //     "This data-driven approach allows for real-time monitoring of patient outcomes and environmental impacts, making it a replicable blueprint for remote healthcare delivery globally.",
+    //   ],
+    // },
   ],
   testimonials: [
     {
