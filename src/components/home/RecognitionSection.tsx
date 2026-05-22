@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Award, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { RecognitionContent } from "@/lib/content";
 
 type RecognitionSectionProps = {
@@ -76,10 +76,7 @@ export default function RecognitionSection({
         </div>
 
         {/* Bottom Note */}
-        <div className="mt-10 sm:mt-12 rounded-2xl border border-black/5 bg-[#FAFAFA] p-5 sm:p-6 lg:p-8 flex items-start gap-4 shadow-sm">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-            <Award className="h-5 w-5 text-primary" />
-          </div>
+        <div className="mt-10 sm:mt-12 rounded-2xl border border-black/5 bg-[#FAFAFA] p-5 sm:p-6 lg:p-8 shadow-sm">
           <p className="text-sm sm:text-[15px] leading-relaxed text-black/70 [font-family:var(--font-body)]">
             {content.bottomNote.split("Balmer Lawrie & Co. Ltd.").map((part, i, arr) => (
               <span key={i}>
