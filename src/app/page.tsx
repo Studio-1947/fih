@@ -1,6 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import WhatWeDoSection from "@/components/home/WhatWeDoSection";
-import RecognitionSection from "@/components/home/RecognitionSection";
+import BoardScrollSection from "@/components/home/BoardScrollSection";
 import SpecificObjectivesSection from "@/components/home/SpecificObjectivesSection";
 import SupportedBySection from "@/components/home/SupportedBySection";
 import OurScaleSection from "@/components/home/OurScaleSection";
@@ -9,7 +9,6 @@ import PartnerWithUsSection from "@/components/home/PartnerWithUsSection";
 import {
   homeHeroContent,
   whatWeDoContent,
-  recognitionContent,
   partnerWithUsContent,
 } from "@/lib/content";
 import { eventsContent } from "@/lib/content/events";
@@ -49,7 +48,7 @@ export default async function Home() {
       <WhatWeDoSection content={whatWeDoContent} />
 
       <FadeIn>
-        <RecognitionSection content={recognitionContent} />
+        <BoardScrollSection />
       </FadeIn>
 
       <FadeIn>

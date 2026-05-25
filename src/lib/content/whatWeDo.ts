@@ -28,7 +28,7 @@ export const whatWeDoContent: WhatWeDoContent = {
   cards: [
     {
       tag: "Healthcare",
-      title: "Accessible Primary Care",
+      title: "Accessible Primary Care & Public Health",
       description:
         "Operating mobile, fixed, and innovative floating digital clinics to bring high-quality, data-driven healthcare directly to underserved communities.",
       imagePath: "/floating_image.jpg",

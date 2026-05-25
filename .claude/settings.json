@@ -4,7 +4,15 @@
       "Bash(npm run *)",
       "Bash(Get-ChildItem -Path \"d:\\\\downloadss\\\\fihh\\\\fih\\\\src\\\\app\" -Recurse -Filter \"page.tsx\")",
       "Bash(Select-Object FullName)",
-      "PowerShell(Get-ChildItem \"d:\\\\downloadss\\\\fihh\\\\fih\\\\public\\\\press-media\\\\gallery\\\\photos\" | Select-Object -First 20 | ForEach-Object { $_.Name })"
+      "PowerShell(Get-ChildItem \"d:\\\\downloadss\\\\fihh\\\\fih\\\\public\\\\press-media\\\\gallery\\\\photos\" | Select-Object -First 20 | ForEach-Object { $_.Name })",
+      "Bash(git rev-list *)",
+      "PowerShell(Get-ChildItem \"d:\\\\downloadss\\\\fihh\\\\fih\\\\public\\\\Specific Objectives\" | ForEach-Object { $_.Name })",
+      "PowerShell(Get-ChildItem \"d:\\\\downloadss\\\\fihh\\\\fih\\\\public\\\\Specific Objectives\" | ForEach-Object { $_.FullName })",
+      "Bash(cp \"/d/downloadss/fihh/fih/public/Specific Objectives/Women's Empowerment.webp\" \"/tmp/womens.webp\" && echo \"done\")",
+      "PowerShell(Copy-Item \"d:\\\\downloadss\\\\fihh\\\\fih\\\\public\\\\Specific Objectives\\\\Women's Empowerment.webp\" \"d:\\\\downloadss\\\\fihh\\\\fih\\\\public\\\\womens_temp.webp\")"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }
