@@ -24,117 +24,38 @@ function T3TriangleArrows() {
       className="absolute inset-0 z-10 w-full h-full"
       fill="none"
     >
-      <defs>
-        <marker
-          id="imp-ha-dn"
-          markerWidth="4"
-          markerHeight="4"
-          refX="4"
-          refY="2"
-          orient="auto"
-          markerUnits="userSpaceOnUse"
-        >
-          <line
-            x1="0"
-            y1="0"
-            x2="4"
-            y2="2"
-            stroke="white"
-            strokeWidth="0.8"
-            strokeLinecap="round"
-          />
-        </marker>
-      </defs>
       <line
-        x1="43.4"
-        y1="22.6"
-        x2="24.2"
-        y2="56.8"
-        stroke="white"
-        strokeWidth="0.6"
-        strokeOpacity="0.45"
-        markerEnd="url(#imp-ha-dn)"
+        x1="43.4" y1="22.6" x2="24.2" y2="56.8"
+        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
       />
       <line
-        x1="21.6"
-        y1="55.4"
-        x2="40.8"
-        y2="21.2"
-        stroke="white"
-        strokeWidth="0.6"
-        strokeOpacity="0.45"
-        markerEnd="url(#imp-ha-dn)"
+        x1="21.6" y1="55.4" x2="40.8" y2="21.2"
+        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
       />
       <line
-        x1="59.2"
-        y1="21.2"
-        x2="78.4"
-        y2="55.4"
-        stroke="white"
-        strokeWidth="0.6"
-        strokeOpacity="0.45"
-        markerEnd="url(#imp-ha-dn)"
+        x1="59.2" y1="21.2" x2="78.4" y2="55.4"
+        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
       />
       <line
-        x1="75.8"
-        y1="56.8"
-        x2="56.6"
-        y2="22.6"
-        stroke="white"
-        strokeWidth="0.6"
-        strokeOpacity="0.45"
-        markerEnd="url(#imp-ha-dn)"
+        x1="75.8" y1="56.8" x2="56.6" y2="22.6"
+        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
       />
       <line
-        x1="31"
-        y1="68.5"
-        x2="69"
-        y2="68.5"
-        stroke="white"
-        strokeWidth="0.6"
-        strokeOpacity="0.45"
-        markerEnd="url(#imp-ha-dn)"
+        x1="31" y1="68.5" x2="69" y2="68.5"
+        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
       />
       <line
-        x1="69"
-        y1="71.5"
-        x2="31"
-        y2="71.5"
-        stroke="white"
-        strokeWidth="0.6"
-        strokeOpacity="0.45"
-        markerEnd="url(#imp-ha-dn)"
+        x1="69" y1="71.5" x2="31" y2="71.5"
+        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
       />
       <circle
-        cx="50"
-        cy="49"
-        r="13"
-        stroke="white"
-        strokeOpacity="0.2"
-        strokeWidth="0.5"
-        strokeDasharray="2 2"
+        cx="50" cy="49" r="13"
+        stroke="white" strokeOpacity="0.2" strokeWidth="0.5" strokeDasharray="2 2"
       />
-      <text
-        x="50"
-        y="46.5"
-        textAnchor="middle"
-        fontSize="5.5"
-        fontWeight="bold"
-        fill="white"
-        fillOpacity="0.45"
-        letterSpacing="0.3"
-      >
+      <text x="50" y="46.5" textAnchor="middle" fontSize="5.5" fontWeight="bold" fill="white" fillOpacity="0.45" letterSpacing="0.3">
         3T
       </text>
-      <text
-        x="50"
-        y="53"
-        textAnchor="middle"
-        fontSize="3"
-        fill="white"
-        fillOpacity="0.35"
-        letterSpacing="1.5"
-      >
+      <text x="50" y="53" textAnchor="middle" fontSize="3" fill="white" fillOpacity="0.35" letterSpacing="1.5">
         MODEL
       </text>
     </svg>
@@ -142,27 +63,15 @@ function T3TriangleArrows() {
 }
 
 function T3RotatingCircles() {
-  const [step, setStep] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setStep((s) => (s + 1) % 3), 2400);
-    return () => clearInterval(id);
-  }, []);
   return (
     <>
-      {T3_LABELS.map((label, labelIdx) => {
-        const posIdx = (labelIdx + step) % 3;
-        const pos = T3_POSITIONS[posIdx];
+      {T3_LABELS.map((label, i) => {
+        const pos = T3_POSITIONS[i];
         return (
           <div
             key={label}
             className="absolute w-[24%] aspect-square rounded-full bg-white text-[#141416] font-bold text-[9px] shadow-xl border border-black/5 flex items-center justify-center text-center px-1 leading-tight z-20 select-none"
-            style={{
-              top: pos.top,
-              left: pos.left,
-              transform: "translate(-50%, -50%)",
-              transition:
-                "top 800ms cubic-bezier(0.4, 0, 0.2, 1), left 800ms cubic-bezier(0.4, 0, 0.2, 1)",
-            }}
+            style={{ top: pos.top, left: pos.left, transform: "translate(-50%, -50%)" }}
           >
             {label}
           </div>

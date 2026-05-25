@@ -43,29 +43,27 @@ export default function SpecificObjectivesSection() {
         </div>
       </div>
 
-      {/* Full-width cards — no max-w constraint */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 2×2 grid on lg, single column below */}
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {objectives.map((obj, index) => (
-          <div
-            key={index}
-            className="group relative h-72 sm:h-80 lg:h-120 overflow-hidden"
-          >
-            {/* Image */}
-            <Image
-              src={obj.image}
-              alt={obj.title}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
+          <div key={index} className="group flex flex-col sm:flex-row items-center gap-6 sm:gap-8 bg-white rounded-2xl overflow-hidden shadow-sm">
+            {/* Image — left, consistent height across all cards */}
+            <div className="w-full sm:w-2/5 shrink-0 self-stretch overflow-hidden">
+              <div className="relative w-full h-56 sm:h-full">
+                <Image
+                  src={obj.image}
+                  alt={obj.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 20vw"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
 
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-black/10 transition-opacity duration-500 group-hover:from-black/90" />
-
-            {/* Text at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+            {/* Text — right */}
+            <div className="flex-1 p-6 sm:py-8 sm:pr-8 sm:pl-0">
               <div className="mb-4 h-0.75 w-8 rounded-full bg-primary transition-all duration-500 group-hover:w-16" />
-              <h4 className="text-lg sm:text-xl font-bold leading-snug text-white [font-family:var(--font-heading)]">
+              <h4 className="text-lg sm:text-xl lg:text-2xl font-bold leading-snug text-[#202020] [font-family:var(--font-heading)]">
                 {obj.title}
               </h4>
             </div>

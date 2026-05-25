@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import TestimonialSection from "@/components/stories-of-change/TestimonialSection";
 import StoriesOfChangeHero from "@/components/stories-of-change/StoriesOfChangeHero";
 import StoryScrollCards from "@/components/stories-of-change/StoryScrollCards";
 
@@ -17,7 +16,6 @@ export default function StoriesOfChangePage() {
   return (
     <main className="bg-white min-h-screen">
       <StoriesOfChangeHero />
-      <TestimonialSection />
       <StoryScrollCards />
     </main>
   );

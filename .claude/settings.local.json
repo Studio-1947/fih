@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc *)",
-      "Bash(dir \"d:\\\\downloadss\\\\fihh\\\\fih\\\\src\\\\components\\\\home\\\\\" /b)"
+      "Bash(dir \"d:\\\\downloadss\\\\fihh\\\\fih\\\\src\\\\components\\\\home\\\\\" /b)",
+      "Bash(Get-ChildItem -Path \"d:\\\\downloadss\\\\fihh\\\\fih\\\\src\\\\app\" -Recurse -Filter \"*.tsx\")",
+      "Bash(Select-String -Pattern \"stories|Stories\")",
+      "Bash(Select-Object Path -Unique)"
     ]
   }
 }

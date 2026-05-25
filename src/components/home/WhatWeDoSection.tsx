@@ -19,7 +19,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
   const [headingMain, headingTail] = content.heading.split(headingAccent);
 
   return (
-    <section 
+    <section
       className="relative z-50 overflow-hidden bg-secondary text-black"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
@@ -74,7 +74,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
 
                 <div className="space-y-4 p-4 sm:p-5">
                   <div className="space-y-2">
-                    <h3 className="text-[1.72rem] font-semibold leading-tight [font-family:var(--font-heading)]">
+                    <h3 className="text-[1.5rem] font-semibold leading-tight [font-family:var(--font-heading)]">
                       {card.title}
                     </h3>
                     <p className="text-sm leading-relaxed text-black/70 [font-family:var(--font-body)]">

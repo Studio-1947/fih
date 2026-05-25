@@ -11,14 +11,7 @@ const navLinks = [
   { href: "/aboutFIH", label: "About Us" },
   { href: "/grants-mandates", label: "Grants & Mandates" },
   { href: "/stories-of-change", label: "Stories of Change" },
-  { 
-    href: "/csr-projects", 
-    label: "CSR Projects",
-    dropdownItems: [
-      { href: "/csr-projects", label: "CSR Projects V1" },
-      { href: "/csr-projects-v2", label: "CSR Projects V2" }
-    ]
-  },
+  { href: "/csr-projects", label: "CSR Projects" },
   { href: "/press-media", label: "News & Events" },
   { href: "/contact", label: "Contact" },
 ];
@@ -27,12 +20,9 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const isCSRPage = pathname === "/csr-projects" || pathname === "/csr-projects-v2";
+  const isCSRPage = pathname === "/csr-projects";
 
   function isActivePath(href: string): boolean {
-    if (href === "/csr-projects") {
-      return pathname === "/csr-projects" || pathname === "/csr-projects-v2";
-    }
     return pathname === href;
   }
 
@@ -105,21 +95,6 @@ export default function Header() {
                   >
                     {link.label}
                   </Link>
-                  {link.dropdownItems && (
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                      <div className="bg-white rounded-2xl shadow-xl border border-black/5 py-1.5 min-w-[170px] flex flex-col overflow-hidden mt-1">
-                        {link.dropdownItems.map((subItem) => (
-                          <Link
-                            key={subItem.href}
-                            href={subItem.href}
-                            className="px-4 py-2 text-xs font-semibold [font-family:var(--font-heading)] text-black/70 hover:text-black hover:bg-primary/10 transition-colors whitespace-nowrap text-center animate-fadeIn"
-                          >
-                            {subItem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </li>
               ))}
             </ul>
@@ -194,46 +169,21 @@ export default function Header() {
 
           {/* Nav links */}
           <ul className="mx-auto grid w-full max-w-sm gap-3 px-4 pt-8">
-            {navLinks.map((link) => {
-              if (link.dropdownItems) {
-                return (
-                  <li key={link.href} className="flex flex-col gap-2">
-                    <span className="text-center text-xs font-bold uppercase tracking-wider text-black/40 mt-1">
-                      {link.label}
-                    </span>
-                    {link.dropdownItems.map((subItem) => (
-                      <Link
-                        key={subItem.href}
-                        href={subItem.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`flex w-full items-center justify-center rounded-lg border px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)] ${
-                          pathname === subItem.href
-                            ? "border-primary bg-primary/10 font-semibold"
-                            : "border-black/20 bg-white"
-                        }`}
-                      >
-                        {subItem.label}
-                      </Link>
-                    ))}
-                  </li>
-                );
-              }
-              return (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`flex w-full items-center justify-center rounded-lg border px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)] ${
-                      isActivePath(link.href)
-                        ? "border-primary bg-primary/10 font-semibold"
-                        : "border-black/20 bg-white"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              );
-            })}
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`flex w-full items-center justify-center rounded-lg border px-3 py-3 text-center text-sm font-medium [font-family:var(--font-heading)] ${
+                    isActivePath(link.href)
+                      ? "border-primary bg-primary/10 font-semibold"
+                      : "border-black/20 bg-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
             <li>
               <Link
                 href="https://fihruralhealth.org/donate/"
