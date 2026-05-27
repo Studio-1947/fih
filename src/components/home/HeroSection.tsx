@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, HeartHandshake, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { HomeHeroContent } from "@/lib/content/home";
+import HeroImageSlider from "@/components/home/HeroImageSlider";
 
 type HeroSectionProps = {
   content: HomeHeroContent;
@@ -13,7 +14,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
       <div className="w-[80%] mx-auto grid items-stretch gap-6 lg:grid-cols-[1.1fr_0.9fr] overflow-visible">
         <div className="space-y-8 flex flex-col items-center text-center lg:block lg:text-left py-10 lg:py-16 self-center">
           <div className="space-y-6 flex flex-col items-center lg:block">
-            <h1 className="max-w-2xl text-5xl font-bold leading-[1.0] tracking-tight uppercase [font-family:var(--font-heading)] sm:text-6xl lg:text-[5.5rem]">
+            <h1 className="max-w-2xl text-5xl font-bold leading-none tracking-tight uppercase [font-family:var(--font-heading)] sm:text-6xl lg:text-[5.5rem]">
               <span className="text-[#2b2b2b]">HEALTH</span>
               <span className="text-[#888888]"> FOR</span>
               <br />
@@ -46,7 +47,10 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
           <ul className="grid grid-cols-2 gap-x-4 gap-y-6 pt-4 sm:flex sm:flex-wrap sm:gap-x-8 lg:justify-start w-full text-center lg:text-left">
             {content.stats.map((stat) => (
-              <li key={stat.label} className="space-y-1.5 mx-auto sm:mx-0 max-w-[140px]">
+              <li
+                key={stat.label}
+                className="space-y-1.5 mx-auto sm:mx-0 max-w-35"
+              >
                 <p className="text-2xl font-bold tracking-tight text-[#1a1a1a] [font-family:var(--font-heading)]">
                   {stat.value}
                 </p>
@@ -72,16 +76,9 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 priority
               />
 
-              <Image
-                src={content.heroManPath}
-                alt="Community member"
-                width={250}
-                height={360}
-                className="absolute bottom-[-10%] left-[30%] lg:left-[34%] z-20 h-[80%] w-[50%] object-contain"
-                priority
-              />
+              <HeroImageSlider />
 
-              <Image
+              {/* <Image
                 src={content.heroChildPath}
                 alt="Child beneficiary"
                 width={250}
@@ -97,7 +94,7 @@ export default function HeroSection({ content }: HeroSectionProps) {
                 height={360}
                 className="absolute bottom-[-10%] right-[-8%] lg:right-[-12%] z-30 h-[76%] w-[55%] object-bottom"
                 priority
-              />
+              /> */}
             </div>
           </div>
         </div>
