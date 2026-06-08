@@ -221,7 +221,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
         </div>
       </div>
 
-      {/* 2. The Twin Challenges - Editorial Rows */}
+      {/* 2. Transforming Barriers into Lasting Impact - Bento Grid */}
       <div
         ref={challenges.ref}
         className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-700 ease-out delay-100 ${challenges.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -229,52 +229,68 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
         <div className="flex items-center gap-5 mb-16 sm:mb-20">
           <div className="h-px flex-1 bg-black/10" />
           <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#141416]/40 [font-family:var(--font-heading)] shrink-0">
-            Transforming Barriers into Lasting Impact instead of Dual Challenge
+            Transforming Barriers into Lasting Impact
           </span>
           <div className="h-px flex-1 bg-black/10" />
         </div>
 
-        <div className="group border-t border-black/10 py-12 sm:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start hover:bg-white transition-colors duration-500 rounded-2xl px-4 sm:px-8 -mx-4 sm:-mx-8 cursor-default">
-          <div className="lg:col-span-2 flex flex-row lg:flex-col gap-3 items-start">
-            <span className="inline-block bg-[#141416] text-white text-xs font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full [font-family:var(--font-heading)]">
-              Livelihoods
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Card 1: Livelihoods */}
+          <div className="group relative bg-white border border-black/5 hover:border-black/10 p-8 sm:p-12 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between overflow-hidden cursor-default">
+            {/* Subtle card accent lines & background glow */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#141416] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+            <div>
+              {/* Header Badge */}
+              <div className="flex items-center gap-3 mb-8">
+                <span className="inline-block bg-[#141416] text-white text-xs font-bold tracking-[0.2em] uppercase px-3.5 py-2 rounded-xl [font-family:var(--font-heading)] shadow-sm">
+                  Livelihoods
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h4 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#141416] leading-tight tracking-tight mb-8 [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-300">
+                {content.ruralEmployment.heading}
+              </h4>
+
+              {/* Paragraphs */}
+              <div className="space-y-4 text-base sm:text-lg text-[#141416]/70 leading-relaxed [font-family:var(--font-body)]">
+                {content.ruralEmployment.paragraphs.map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="lg:col-span-5">
-            <h4 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#141416] leading-tight tracking-tighter [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-500">
-              {content.ruralEmployment.heading}
-            </h4>
-          </div>
-          <div className="lg:col-span-5 lg:border-l border-black/10 lg:pl-10">
-            <div className="space-y-4 text-lg text-[#141416]/70 leading-relaxed [font-family:var(--font-body)]">
-              {content.ruralEmployment.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
+
+          {/* Card 2: Healthcare */}
+          <div className="group relative bg-white border border-black/5 hover:border-black/10 p-8 sm:p-12 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between overflow-hidden cursor-default">
+            {/* Subtle card accent lines & background glow */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+            <div>
+              {/* Header Badge */}
+              <div className="flex items-center gap-3 mb-8">
+                <span className="inline-block bg-primary text-[#141416] text-xs font-bold tracking-[0.2em] uppercase px-3.5 py-2 rounded-xl [font-family:var(--font-heading)] shadow-sm">
+                  Healthcare
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h4 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#141416] leading-tight tracking-tight mb-8 [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-300">
+                {content.healthcareAccess.heading}
+              </h4>
+
+              {/* Paragraphs */}
+              <div className="space-y-4 text-base sm:text-lg text-[#141416]/70 leading-relaxed [font-family:var(--font-body)]">
+                {content.healthcareAccess.paragraphs.map((p, idx) => (
+                  <p key={idx}>{p}</p>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="group border-t border-black/10 py-12 sm:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start hover:bg-white transition-colors duration-500 rounded-2xl px-4 sm:px-8 -mx-4 sm:-mx-8 cursor-default">
-          <div className="lg:col-span-2 flex flex-row lg:flex-col gap-3 items-start">
-            <span className="inline-block bg-primary text-[#141416] text-xs font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full [font-family:var(--font-heading)]">
-              Healthcare
-            </span>
-          </div>
-          <div className="lg:col-span-5">
-            <h4 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#141416] leading-tight tracking-tighter [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-500">
-              {content.healthcareAccess.heading}
-            </h4>
-          </div>
-          <div className="lg:col-span-5 lg:border-l border-black/10 lg:pl-10">
-            <div className="space-y-4 text-lg text-[#141416]/70 leading-relaxed [font-family:var(--font-body)]">
-              {content.healthcareAccess.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-black/10" />
       </div>
 
       {/* 3. The 3T Model in Action */}
