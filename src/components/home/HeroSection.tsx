@@ -77,24 +77,6 @@ export default function HeroSection({ content }: HeroSectionProps) {
               />
 
               <HeroImageSlider />
-
-              {/* <Image
-                src={content.heroChildPath}
-                alt="Child beneficiary"
-                width={250}
-                height={360}
-                className="absolute bottom-[-10%] left-[4%] lg:left-[6%] z-40 h-[78%] w-[55%] object-bottom"
-                priority
-              />
-
-              <Image
-                src={content.heroWomanPath}
-                alt="Community member"
-                width={250}
-                height={360}
-                className="absolute bottom-[-10%] right-[-8%] lg:right-[-12%] z-30 h-[76%] w-[55%] object-bottom"
-                priority
-              /> */}
             </div>
           </div>
         </div>

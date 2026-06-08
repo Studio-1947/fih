@@ -22,7 +22,8 @@ export type WhatWeDoContent = {
 
 export const whatWeDoContent: WhatWeDoContent = {
   eyebrow: "WHAT WE DO",
-  heading: "Bridging the Gap in Rural Healthcare & Livelihoods.",
+  heading:
+    "Transforming Lives through Employment, Health Access & Community Resilience",
   intro:
     "We leverage the democratization of frugal innovations in health-tech to deliver care to the last mile, while empowering rural youth through skill development.",
   cards: [
@@ -30,7 +31,7 @@ export const whatWeDoContent: WhatWeDoContent = {
       tag: "Healthcare",
       title: "Accessible Primary Care & Public Health",
       description:
-        "Operating mobile, fixed, and innovative floating digital clinics to bring high-quality, data-driven healthcare directly to underserved communities.",
+        "Driven by data and technology, sustainable, citizen-centric, climate-resilient",
       imagePath: "/floating_image.jpg",
       ctaLabel: "Explore Healthcare Programs",
       ctaHref: "/our-work",
@@ -49,7 +50,7 @@ export const whatWeDoContent: WhatWeDoContent = {
       tag: "Education",
       title: "Employment-Oriented Education",
       description:
-        "Creating formal sector employment by training rural youth and visually impaired learners as allied health professionals and tech specialists.",
+        "Enabling formal sector employment through skills, inclusion & innovation",
       imagePath: "/Technology%20usage%20(1).jpg",
       ctaLabel: "Explore Education Programs",
       ctaHref: "https://schoolforskills.in/",

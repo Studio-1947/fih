@@ -3,18 +3,25 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const SLIDES = ["/hero/hero001.svg", "/hero/hero002.svg", "/hero/hero003.svg"];
+const SLIDES = ["/hero/hero001.svg", "/hero/hero002.svg"];
 
-export default function HeroImageSlider() {
+// function that takes interval and length of slides
+function useCarousel(totalSlides: number, intervalMs = 2000) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(
-      () => setActive((a) => (a + 1) % SLIDES.length),
-      4500,
-    );
-    return () => clearInterval(t);
-  }, []);
+    const timer = setInterval(() => {
+      setActive((current) => (current + 1) % totalSlides);
+    }, intervalMs);
+
+    return () => clearInterval(timer);
+  }, [totalSlides, intervalMs]);
+
+  return active;
+}
+
+export default function HeroImageSlider() {
+  const active = useCarousel(SLIDES.length, 1800);
 
   return (
     <>
@@ -22,7 +29,7 @@ export default function HeroImageSlider() {
         <Image
           key={src}
           src={src}
-          alt="Community member"
+          alt={`Community member ${i + 1}`}
           width={250}
           height={360}
           unoptimized

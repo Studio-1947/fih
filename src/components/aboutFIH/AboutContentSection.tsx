@@ -12,7 +12,12 @@ function useFadeIn(threshold = 0.12) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold });
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) setVisible(true);
+      },
+      { threshold },
+    );
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
@@ -37,7 +42,6 @@ export default function AboutContentSection({
   const a5 = useFadeIn();
   return (
     <section className="w-full bg-white">
-      
       {/* 1. Cinematic Editorial Intro Section - Full Background Image */}
       <div
         ref={a1.ref}
@@ -77,12 +81,12 @@ export default function AboutContentSection({
             <div className="mt-8 h-1.5 w-20 bg-primary rounded-full shadow-[0_0_10px_rgba(255,184,0,0.4)]" />
           </div>
 
-          {/* Paragraphs Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 [font-family:var(--font-body)] text-white/75 leading-relaxed text-[15px] sm:text-[17px]">
+          {/* Paragraphs Area */}
+          <div className="max-w-5xl space-y-6 [font-family:var(--font-body)] text-white/75 leading-relaxed text-[15px] sm:text-[17px]">
             {intro.paragraphs.map((p, idx) => (
-              <p 
-                key={idx} 
-                className={idx === 0 ? 'text-lg sm:text-xl font-medium text-white leading-relaxed' : 'font-normal'}
+              <p
+                key={idx}
+                className="text-lg sm:text-xl font-medium text-white leading-relaxed"
               >
                 {p}
               </p>
@@ -100,12 +104,6 @@ export default function AboutContentSection({
       >
         {/* Section Header */}
         <div className="flex flex-col mb-12 gap-3 pb-6 text-left relative">
-          <div className="flex items-center gap-3">
-            <div className="h-[2px] w-8 bg-primary animate-pulse" />
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-primary">
-              Our Core Pillars
-            </span>
-          </div>
           <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#141416] [font-family:var(--font-heading)] tracking-tight uppercase">
             {whatSetsUsApart.title}
           </h3>
@@ -117,20 +115,20 @@ export default function AboutContentSection({
             const cardImages = [
               "/csr/gallery/03.jpeg", // Integrated Model
               "/csr/gallery/04.jpeg", // Technology-Driven
-              "/csr/gallery/07.jpeg"  // Collaborative Approach
+              "/csr/gallery/07.jpeg", // Collaborative Approach
             ];
 
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="group relative flex flex-col text-left cursor-pointer transition-all duration-300 h-full"
               >
                 {/* Visual Header: Wide 16:11 Image Box */}
                 <div className="relative w-full aspect-[16/11] rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-100/50 z-0">
-                  <Image 
-                    src={cardImages[idx]} 
-                    alt={point.title} 
-                    fill 
+                  <Image
+                    src={cardImages[idx]}
+                    alt={point.title}
+                    fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, 400px"
                   />
@@ -182,7 +180,6 @@ export default function AboutContentSection({
 
           {/* Floating Content */}
           <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 py-24 sm:py-32 flex flex-col items-center text-center">
-            
             {/* Eyebrow */}
             <div className="flex items-center gap-4 mb-10">
               <div className="w-10 h-[2px] bg-primary" />
@@ -207,10 +204,17 @@ export default function AboutContentSection({
                 if (p.includes(targetText)) {
                   const parts = p.split(targetText);
                   return (
-                    <p key={idx} className={idx === 0 ? "text-white/90 font-medium text-xl sm:text-2xl text-left" : "text-left"}>
+                    <p
+                      key={idx}
+                      className={
+                        idx === 0
+                          ? "text-white/90 font-medium text-xl sm:text-2xl text-left"
+                          : "text-left"
+                      }
+                    >
                       {parts[0]}
-                      <a 
-                        href="#board-members" 
+                      <a
+                        href="#board-members"
                         className="underline hover:text-primary transition-all duration-300 font-bold decoration-primary/45 hover:decoration-primary decoration-[3px] underline-offset-4 text-white"
                       >
                         {targetText}
@@ -220,13 +224,19 @@ export default function AboutContentSection({
                   );
                 }
                 return (
-                  <p key={idx} className={idx === 0 ? "text-white/90 font-medium text-xl sm:text-2xl text-left" : "text-left"}>
+                  <p
+                    key={idx}
+                    className={
+                      idx === 0
+                        ? "text-white/90 font-medium text-xl sm:text-2xl text-left"
+                        : "text-left"
+                    }
+                  >
                     {p}
                   </p>
                 );
               })}
             </div>
-
           </div>
         </div>
       </div>
@@ -237,7 +247,9 @@ export default function AboutContentSection({
         className={`w-full bg-primary py-24 sm:py-32 px-4 relative overflow-hidden transition-opacity duration-700 ease-out ${a4.visible ? "opacity-100" : "opacity-0"}`}
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
-        <div className="absolute -top-24 -left-10 text-[20rem] font-black text-black/5 leading-none select-none">"</div>
+        <div className="absolute -top-24 -left-10 text-[20rem] font-black text-black/5 leading-none select-none">
+          "
+        </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center flex flex-col justify-center items-center gap-8 sm:gap-12">
           {ourFoundation.quoteIntro && (
             <p className="text-lg sm:text-xl font-medium text-[#141416]/80 max-w-4xl [font-family:var(--font-body)] leading-relaxed">
@@ -263,7 +275,6 @@ export default function AboutContentSection({
           {ourFoundation.conclusion}
         </h4>
       </div>
-
     </section>
   );
 }

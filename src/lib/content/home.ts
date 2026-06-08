@@ -21,8 +21,7 @@ export const homeHeroContent: HomeHeroContent = {
   eyebrow: "HEALTH FOR",
   titleTop: "A Billion.",
   titleBottom: "",
-  description:
-    "Mitigating multi-dimensional poverty and building rural resilience through data-driven healthcare and employment-oriented education.",
+  description: `Foundation for Innovations in Health” (FIH) is a not-for-profit social impact enterprise dedicated to mitigating Multi-Dimensional Poverty (MDP) and building rural resilience through twin interventions: employment-oriented education for rural youth and improved access to public health and primary healthcare for last-mile communities`,
   primaryCta: { label: "Support Our Mission", href: "/contact" },
   secondaryCta: { label: "Discover Our Work", href: "/stories-of-change" },
   stats: [

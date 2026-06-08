@@ -25,37 +25,95 @@ function T3TriangleArrows() {
       fill="none"
     >
       <line
-        x1="43.4" y1="22.6" x2="24.2" y2="56.8"
-        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
+        x1="43.4"
+        y1="22.6"
+        x2="24.2"
+        y2="56.8"
+        stroke="white"
+        strokeWidth="0.6"
+        strokeOpacity="0.45"
+        strokeDasharray="2.5 2"
       />
       <line
-        x1="21.6" y1="55.4" x2="40.8" y2="21.2"
-        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
+        x1="21.6"
+        y1="55.4"
+        x2="40.8"
+        y2="21.2"
+        stroke="white"
+        strokeWidth="0.6"
+        strokeOpacity="0.45"
+        strokeDasharray="2.5 2"
       />
       <line
-        x1="59.2" y1="21.2" x2="78.4" y2="55.4"
-        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
+        x1="59.2"
+        y1="21.2"
+        x2="78.4"
+        y2="55.4"
+        stroke="white"
+        strokeWidth="0.6"
+        strokeOpacity="0.45"
+        strokeDasharray="2.5 2"
       />
       <line
-        x1="75.8" y1="56.8" x2="56.6" y2="22.6"
-        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
+        x1="75.8"
+        y1="56.8"
+        x2="56.6"
+        y2="22.6"
+        stroke="white"
+        strokeWidth="0.6"
+        strokeOpacity="0.45"
+        strokeDasharray="2.5 2"
       />
       <line
-        x1="31" y1="68.5" x2="69" y2="68.5"
-        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
+        x1="31"
+        y1="68.5"
+        x2="69"
+        y2="68.5"
+        stroke="white"
+        strokeWidth="0.6"
+        strokeOpacity="0.45"
+        strokeDasharray="2.5 2"
       />
       <line
-        x1="69" y1="71.5" x2="31" y2="71.5"
-        stroke="white" strokeWidth="0.6" strokeOpacity="0.45" strokeDasharray="2.5 2"
+        x1="69"
+        y1="71.5"
+        x2="31"
+        y2="71.5"
+        stroke="white"
+        strokeWidth="0.6"
+        strokeOpacity="0.45"
+        strokeDasharray="2.5 2"
       />
       <circle
-        cx="50" cy="49" r="13"
-        stroke="white" strokeOpacity="0.2" strokeWidth="0.5" strokeDasharray="2 2"
+        cx="50"
+        cy="49"
+        r="13"
+        stroke="white"
+        strokeOpacity="0.2"
+        strokeWidth="0.5"
+        strokeDasharray="2 2"
       />
-      <text x="50" y="46.5" textAnchor="middle" fontSize="5.5" fontWeight="bold" fill="white" fillOpacity="0.45" letterSpacing="0.3">
+      <text
+        x="50"
+        y="46.5"
+        textAnchor="middle"
+        fontSize="5.5"
+        fontWeight="bold"
+        fill="white"
+        fillOpacity="0.45"
+        letterSpacing="0.3"
+      >
         3T
       </text>
-      <text x="50" y="53" textAnchor="middle" fontSize="3" fill="white" fillOpacity="0.35" letterSpacing="1.5">
+      <text
+        x="50"
+        y="53"
+        textAnchor="middle"
+        fontSize="3"
+        fill="white"
+        fillOpacity="0.35"
+        letterSpacing="1.5"
+      >
         MODEL
       </text>
     </svg>
@@ -71,7 +129,11 @@ function T3RotatingCircles() {
           <div
             key={label}
             className="absolute w-[24%] aspect-square rounded-full bg-white text-[#141416] font-bold text-[9px] shadow-xl border border-black/5 flex items-center justify-center text-center px-1 leading-tight z-20 select-none"
-            style={{ top: pos.top, left: pos.left, transform: "translate(-50%, -50%)" }}
+            style={{
+              top: pos.top,
+              left: pos.left,
+              transform: "translate(-50%, -50%)",
+            }}
           >
             {label}
           </div>
@@ -167,7 +229,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
         <div className="flex items-center gap-5 mb-16 sm:mb-20">
           <div className="h-px flex-1 bg-black/10" />
           <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#141416]/40 [font-family:var(--font-heading)] shrink-0">
-            The Dual Challenge
+            Transforming Barriers into Lasting Impact instead of Dual Challenge
           </span>
           <div className="h-px flex-1 bg-black/10" />
         </div>

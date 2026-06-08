@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion, useMotionValue, useTransform, animate, useInView } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useInView,
+} from "motion/react";
 
 function Counter({
   value,
@@ -35,17 +41,65 @@ function Counter({
 }
 
 const scaleData1 = [
-  { value: 12, prefix: "", suffix: " +", label: "YEAR", bgImage: "/press-media/gallery/photos/photo-gallery-01.jpg" },
-  { value: 6, prefix: "", suffix: "", label: "STATES", bgImage: "/press-media/gallery/photos/photo-gallery-02.jpeg" },
-  { value: 5000, prefix: "", suffix: " +", label: "TRAINED", bgImage: "/press-media/gallery/photos/photo-gallery-04.jpg" },
-  { value: 80, prefix: "", suffix: " +", label: "HOSPITALS", bgImage: "/press-media/gallery/photos/photo-gallery-07.webp" },
+  {
+    value: 12,
+    prefix: "",
+    suffix: " +",
+    label: "YEAR",
+    bgImage: "/press-media/gallery/photos/photo-gallery-01.jpg",
+  },
+  {
+    value: 6,
+    prefix: "",
+    suffix: "",
+    label: "STATES",
+    bgImage: "/press-media/gallery/photos/photo-gallery-02.jpeg",
+  },
+  {
+    value: 5000,
+    prefix: "",
+    suffix: " +",
+    label: "TRAINED",
+    bgImage: "/press-media/gallery/photos/photo-gallery-04.jpg",
+  },
+  {
+    value: 80,
+    prefix: "",
+    suffix: " +",
+    label: "HOSPITALS",
+    bgImage: "/press-media/gallery/photos/photo-gallery-07.webp",
+  },
 ];
 
 const scaleData2 = [
-  { value: 15, prefix: "", suffix: "", label: "MOBILE & FIXED CLINICS", bgImage: "/press-media/gallery/photos/photo-gallery-11.jpg" },
-  { value: 1, prefix: "", suffix: "", label: "MOTOR BOAT", bgImage: "/press-media/gallery/photos/photo-gallery-13.jpg" },
-  { value: 55000, prefix: "", suffix: " +", label: "BENEFICIARIES", bgImage: "/press-media/gallery/photos/photo-gallery-14.jpg" },
-  { value: 250, prefix: "₹ ", suffix: "", label: "AV. COST/PATIENT", bgImage: "/press-media/gallery/photos/photo-gallery-08.webp" },
+  {
+    value: 15,
+    prefix: "",
+    suffix: "",
+    label: "MOBILE & FIXED CLINICS",
+    bgImage: "/press-media/gallery/photos/photo-gallery-11.jpg",
+  },
+  {
+    value: 1,
+    prefix: "",
+    suffix: "",
+    label: "MOTOR BOAT",
+    bgImage: "/press-media/gallery/photos/photo-gallery-13.jpg",
+  },
+  {
+    value: 55000,
+    prefix: "",
+    suffix: " +",
+    label: "BENEFICIARIES",
+    bgImage: "/press-media/gallery/photos/photo-gallery-14.jpg",
+  },
+  {
+    value: 250,
+    prefix: "₹ ",
+    suffix: "",
+    label: "AV. COST/PATIENT",
+    bgImage: "/press-media/gallery/photos/photo-gallery-08.webp",
+  },
 ];
 
 export default function OurScaleSection() {
@@ -66,7 +120,8 @@ export default function OurScaleSection() {
         {/* Group 1 — circles */}
         <div className="mb-20 overflow-x-clip">
           <h3 className="mb-8 text-center text-xl font-medium text-[#141416]/80 sm:text-2xl [font-family:var(--font-heading)]">
-            AHP education and training programme
+            Allied Health Professional (AHP) education and skill development
+            programme
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-6 pt-12 pb-12 lg:pb-24 sm:gap-8 lg:gap-10">
             {scaleData1.map((item, i) => (
@@ -74,7 +129,12 @@ export default function OurScaleSection() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ type: "spring", stiffness: 100, damping: 15, delay: i * 0.1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15,
+                  delay: i * 0.1,
+                }}
                 key={item.label}
                 className={`group relative overflow-hidden flex aspect-square w-40 flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-55 sm:p-6 lg:w-65 lg:p-8 ${
                   i % 2 === 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
@@ -86,7 +146,11 @@ export default function OurScaleSection() {
                 />
                 <div className="absolute inset-0 z-0 bg-[#141416]/25 rounded-full pointer-events-none" />
                 <div className="relative z-10 mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
-                  <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
+                  <Counter
+                    value={item.value}
+                    prefix={item.prefix}
+                    suffix={item.suffix}
+                  />
                 </div>
                 <div className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
                   {item.label}
@@ -107,7 +171,12 @@ export default function OurScaleSection() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ type: "spring", stiffness: 100, damping: 15, delay: i * 0.1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15,
+                  delay: i * 0.1,
+                }}
                 key={item.label}
                 className={`group relative overflow-hidden flex aspect-square w-40 flex-col items-center justify-center rounded-full bg-[#141416] p-4 text-center shadow-2xl ring-8 ring-white transition-all duration-300 hover:scale-105 hover:shadow-primary/20 sm:w-55 sm:p-6 lg:w-65 lg:p-8 ${
                   i % 2 === 0 ? "lg:-translate-y-12" : "lg:translate-y-12"
@@ -119,7 +188,11 @@ export default function OurScaleSection() {
                 />
                 <div className="absolute inset-0 z-0 bg-[#141416]/25 rounded-full pointer-events-none" />
                 <div className="relative z-10 mb-2 whitespace-nowrap text-2xl font-bold tracking-tighter text-primary sm:text-3xl lg:text-4xl [font-family:var(--font-heading)]">
-                  <Counter value={item.value} prefix={item.prefix} suffix={item.suffix} />
+                  <Counter
+                    value={item.value}
+                    prefix={item.prefix}
+                    suffix={item.suffix}
+                  />
                 </div>
                 <div className="relative z-10 text-[10px] font-bold uppercase tracking-widest text-white/80 sm:text-xs [font-family:var(--font-heading)]">
                   {item.label}
