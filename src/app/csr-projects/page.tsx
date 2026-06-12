@@ -252,7 +252,7 @@ export default function CSRProjectsPage() {
           {/* Image Side (Left 50%) */}
           <div className="w-full lg:w-1/2 min-h-[400px] lg:min-h-0 relative overflow-hidden">
             <Image
-              src="/csr/gallery/07.jpeg"
+              src="/csr/gallery/SEHAAT%20-%20BL.jpg"
               alt="CSR Priorities"
               fill
               className="object-cover transition-transform duration-[10000ms] hover:scale-110 saturate-[0.85]"

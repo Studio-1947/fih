@@ -5,9 +5,9 @@ import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 
 const csrImages = [
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_02_45%20PM.jpg", position: "object-top" },
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_05_48%20PM.jpg", position: "object-center" },
-  { src: "/csr/hero/ChatGPT%20Image%20May%2013%2C%202026%2C%2012_07_13%20PM.jpg", position: "object-top" },
+  { src: "/csr/hero/csrhero1.jpg", position: "object-center" },
+  { src: "/csr/hero/csrhero2.jpg", position: "object-center" },
+  { src: "/csr/hero/csrhero3.png", position: "object-top" },
 ];
 
 export default function CSRHero() {
@@ -21,7 +21,7 @@ export default function CSRHero() {
   }, []);
 
   return (
-    <section 
+    <section
       className="relative w-full h-[80vh] min-h-[550px] lg:min-h-[750px] max-h-[1000px] overflow-hidden bg-black -mt-32 flex flex-col justify-center"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
@@ -68,14 +68,15 @@ export default function CSRHero() {
                 Corporate Social Responsibility
               </span>
             </div>
-            
+
             <h1 className="text-5xl sm:text-6xl lg:text-[100px] font-black text-white leading-[1] tracking-tighter [font-family:var(--font-heading)] uppercase drop-shadow-2xl">
               Creating <br />
-              <span className="text-primary drop-shadow-[0_0_20px_rgba(255,184,0,0.3)]">Sustainable</span> <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(255,184,0,0.3)]">
+                Sustainable
+              </span>{" "}
+              <br />
               Change.
             </h1>
-            
-
           </FadeIn>
         </div>
       </div>
@@ -98,7 +99,7 @@ export default function CSRHero() {
             justify-content: center;
             text-align: center;
           }
-          
+
           .flex.items-center.gap-4 {
             justify-content: center;
           }

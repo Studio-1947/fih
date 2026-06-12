@@ -224,7 +224,7 @@ export default function ImpactSection({ content }: ImpactSectionProps) {
       {/* 2. Transforming Barriers into Lasting Impact - Bento Grid */}
       <div
         ref={challenges.ref}
-        className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-700 ease-out delay-100 ${challenges.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 lg:py-8 transition-all duration-700 ease-out delay-100 ${challenges.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <div className="flex items-center gap-5 mb-16 sm:mb-20">
           <div className="h-px flex-1 bg-black/10" />

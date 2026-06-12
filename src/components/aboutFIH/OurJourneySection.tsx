@@ -26,13 +26,13 @@ const journeyEvents = [
   {
     year: "2017",
     title: "The Trepidation",
-    imagePath: "/AboutUs/our%20journey/2017.webp",
+    imagePath: "/AboutUs/our%20journey/2017.jpg",
     body: "The first ever digital clinic was set up at Barhra, Birbhum (funded by Department of Science & Technology, Government of India). A child of 12 yrs was diagnosed with a rare but life-threatening cardiac disorder through digital consultation with a cardiologist sitting in Bangladesh. One life was saved!",
   },
   {
     year: "2018",
     title: "The Translation",
-    imagePath: "/AboutUs/our%20journey/2018.webp",
+    imagePath: "/AboutUs/our%20journey/2018.png",
     body: "Institutions took an interest, and came forward to build translational collaborations to innovate frugal, accurate and ethnographically aligned diagnostic solutions to fulfil primary care needs. Research became democratic!",
   },
   {
@@ -44,7 +44,7 @@ const journeyEvents = [
   {
     year: "2020",
     title: "Onwards – Traction",
-    imagePath: "/AboutUs/our%20journey/2020.webp",
+    imagePath: "/AboutUs/our%20journey/2020.png",
     body: "Expanded footprint of training schools across multiple states in India; thousands received training and subsequent job placement in a network of 60+ hospitals across almost all major cities in India.",
   },
   {

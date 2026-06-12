@@ -121,7 +121,7 @@ export default function AboutContentSection({
             return (
               <div
                 key={idx}
-                className="group relative flex flex-col text-left cursor-pointer transition-all duration-300 h-full"
+                className="group relative flex flex-col text-left transition-all duration-300 h-full"
               >
                 {/* Visual Header: Wide 16:11 Image Box */}
                 <div className="relative w-full aspect-[16/11] rounded-[2rem] overflow-hidden bg-gray-50 border border-gray-100/50 z-0">
