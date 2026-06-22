@@ -3,6 +3,7 @@ import { Lato, Merriweather, Poppins } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { SanityLive } from "@/sanity/lib/live";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -87,6 +88,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <SanityLive />
+        <Analytics />
       </body>
     </html>
   );
