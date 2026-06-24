@@ -48,16 +48,33 @@ export default function ContactFormSection({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "3fe6bc76-0a54-40db-bad6-0bce05933aaa");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setIsSubmitted(true);
+        e.currentTarget.reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        console.error("Form submission failed:", data);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      // Reset after showing success message
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -154,6 +171,7 @@ export default function ContactFormSection({
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Integrated Collaboration Options */}
+                  <input type="hidden" name="inquiry_type" value={selectedType} />
                   <div className="space-y-3">
                     <label className="flex gap-1 text-label font-bold uppercase tracking-widest text-black/80 [font-family:var(--font-body)]">
                       How can we collaborate?{" "}
@@ -208,6 +226,7 @@ export default function ContactFormSection({
                       </label>
                       <input
                         id="name"
+                        name="name"
                         required
                         type="text"
                         placeholder="Enter your name"
@@ -223,6 +242,7 @@ export default function ContactFormSection({
                       </label>
                       <input
                         id="email"
+                        name="email"
                         required
                         type="email"
                         placeholder="email@example.com"
@@ -243,6 +263,7 @@ export default function ContactFormSection({
                     </label>
                     <input
                       id="phone"
+                      name="phone"
                       type="tel"
                       placeholder="+91 00000 00000"
                       className="h-14 w-full rounded-xl border border-black/10 bg-black/[0.02] px-5 text-base outline-0 transition-colors focus:border-primary [font-family:var(--font-body)]"
@@ -258,6 +279,7 @@ export default function ContactFormSection({
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       required
                       rows={5}
                       placeholder={
