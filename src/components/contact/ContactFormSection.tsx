@@ -53,7 +53,7 @@ export default function ContactFormSection({
     setIsSubmitting(true);
     
     const formData = new FormData(e.currentTarget);
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "3fe6bc76-0a54-40db-bad6-0bce05933aaa");
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY as string);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
