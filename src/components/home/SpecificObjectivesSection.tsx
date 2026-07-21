@@ -1,13 +1,23 @@
 import Image from "next/image";
 
-const objectives = [
+type Objective = {
+  title: string;
+  image: string;
+  /** Crop anchor; defaults to object-top */
+  objectPosition?: string;
+};
+
+const objectives: Objective[] = [
   {
     title: "Accessible & affordable primary care & public health",
     image: "/Specific%20Objectives/Accessible%20%26%20affordable%20primary%20care%20%26%20public%20health.webp",
   },
   {
     title: "Employment creation among rural youth",
-    image: "/Specific%20Objectives/Employment%20creation%20among%20rural%20youth.webp",
+    image: "/Specific%20Objectives/employment-creation-among-rural-youth-2025.webp",
+    // Tall portrait — sits between top and center so the subject fills the frame
+    // without leaving dead ceiling space above her head
+    objectPosition: "object-[50%_25%]",
   },
   {
     title: "Upliftment of marginalized community",
@@ -55,7 +65,7 @@ export default function SpecificObjectivesSection() {
                   alt={obj.title}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 20vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className={`object-cover ${obj.objectPosition ?? "object-top"} transition-transform duration-700 group-hover:scale-105`}
                 />
               </div>
             </div>

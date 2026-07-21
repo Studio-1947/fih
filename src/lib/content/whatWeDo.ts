@@ -32,7 +32,7 @@ export const whatWeDoContent: WhatWeDoContent = {
       title: "Accessible Primary Care & Public Health",
       description:
         "Driven by data and technology, sustainable, citizen-centric, climate-resilient",
-      imagePath: "/floating_image.jpg",
+      imagePath: "/what-we-do/accessible-primary-care-public-health.webp",
       ctaLabel: "Explore Healthcare Programs",
       ctaHref: "/our-work",
       programs: [
@@ -51,7 +51,7 @@ export const whatWeDoContent: WhatWeDoContent = {
       title: "Employment-Oriented Education",
       description:
         "Enabling formal sector employment through skills, inclusion & innovation",
-      imagePath: "/Technology%20usage%20(1).jpg",
+      imagePath: "/what-we-do/employment-oriented-education.webp",
       ctaLabel: "Explore Education Programs",
       ctaHref: "https://schoolforskills.in/",
       programs: [

@@ -10,15 +10,19 @@ import {
   ShieldAlert,
   Stethoscope,
   TreePine,
+  TrendingDown,
+  TrendingUp,
 } from "lucide-react";
 
 type OrbConfig = {
   title: string;
   Icon: typeof GraduationCap;
   tone: string;
+  /** Direction of change, shown alongside the label (income up, disease burden down) */
+  trend?: "up" | "down";
 };
 
-function Orb({ title, Icon, tone, delay }: OrbConfig & { delay: number }) {
+function Orb({ title, Icon, tone, trend, delay }: OrbConfig & { delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -40 }}
@@ -32,6 +36,18 @@ function Orb({ title, Icon, tone, delay }: OrbConfig & { delay: number }) {
       </div>
       <span className="mt-3 lg:mt-4 max-w-28 lg:max-w-32 xl:max-w-36 px-2 text-center text-[15px] lg:text-[13px] xl:text-[14px] font-bold leading-tight text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.55)] [font-family:var(--font-heading)]">
         {title}
+        {trend === "up" && (
+          <TrendingUp
+            className="ml-1 inline h-4 w-4 align-text-bottom"
+            aria-label="increases"
+          />
+        )}
+        {trend === "down" && (
+          <TrendingDown
+            className="ml-1 inline h-4 w-4 align-text-bottom"
+            aria-label="decreases"
+          />
+        )}
       </span>
     </motion.div>
   );
@@ -41,10 +57,13 @@ function MergedPair({
   first,
   second,
   baseDelay,
+  joiner,
 }: {
   first: OrbConfig;
   second: OrbConfig;
   baseDelay: number;
+  /** Renders a "+" between the two orbs instead of overlapping them */
+  joiner?: boolean;
 }) {
   return (
     <div className="flex items-center justify-center">
@@ -52,7 +71,24 @@ function MergedPair({
         <div className="relative z-10">
           <Orb {...first} delay={baseDelay} />
         </div>
-        <div className="relative -mt-12 sm:-mt-14 lg:mt-0 lg:-ml-10 xl:-ml-12">
+        {joiner && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.4, delay: baseDelay + 0.06 }}
+            className="z-20 -my-4 lg:-mx-4 lg:my-0 flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm"
+          >
+            <span className="text-lg font-black leading-none text-black">+</span>
+          </motion.div>
+        )}
+        <div
+          className={
+            joiner
+              ? "relative"
+              : "relative -mt-12 sm:-mt-14 lg:mt-0 lg:-ml-10 xl:-ml-12"
+          }
+        >
           <Orb {...second} delay={baseDelay + 0.12} />
         </div>
       </div>
@@ -103,6 +139,7 @@ export default function CSRImpactFlow() {
       <div className="relative flex w-full flex-col items-center justify-center gap-4 lg:flex-row lg:justify-center lg:gap-2 xl:gap-4">
         <MergedPair
           baseDelay={0}
+          joiner
           first={{
             title: "Education",
             Icon: GraduationCap,
@@ -123,11 +160,13 @@ export default function CSRImpactFlow() {
             title: "Income",
             Icon: IndianRupee,
             tone: "border-[#e2c87f] bg-[#f6e8b4] text-black",
+            trend: "up",
           }}
           second={{
             title: "Disease burden",
             Icon: Stethoscope,
             tone: "border-[#dcc067] bg-[#f1dc99] text-black",
+            trend: "down",
           }}
         />
 
