@@ -45,21 +45,6 @@ export default function HeroSection({ content }: HeroSectionProps) {
             </Link>
           </div>
 
-          <ul className="grid grid-cols-2 gap-x-4 gap-y-6 pt-4 sm:flex sm:flex-wrap sm:gap-x-8 lg:justify-start w-full text-center lg:text-left">
-            {content.stats.map((stat) => (
-              <li
-                key={stat.label}
-                className="space-y-1.5 mx-auto sm:mx-0 max-w-35"
-              >
-                <p className="text-2xl font-bold tracking-tight text-[#1a1a1a] [font-family:var(--font-heading)]">
-                  {stat.value}
-                </p>
-                <p className="text-[13px] leading-tight text-[#666666] [font-family:var(--font-body)] font-medium">
-                  {stat.label}
-                </p>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="relative w-full max-w-none lg:mx-0 self-end">

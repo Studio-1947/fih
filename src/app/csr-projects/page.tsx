@@ -18,7 +18,14 @@ const presentProjects = [
     partner: "Mahanagar Gas Limited (MGL)",
     title: "MGL Hunar Project",
     description:
-      "Awarded a CSR mandate to FIH on 12th December 2022 for training of 180 women as General Duty Assistants over a period of 3 years. This involves training women at Raigad district as 'Allied Health Professionals' and creating livelihood for them in the health sector.",
+      "Mahanagar Gas Limited (MGL) awarded a CSR mandate to FIH for training of 330 rural and semi-urban youth as General Duty Assistants, over a period of 3 years. This involves training youth at Raigad district as ‘Allied Health Professionals’ and creating livelihood for them in the health sector (March 2025).",
+  },
+  {
+    logo: "/csr/present/mahanagar_gas.png",
+    partner: "Mahanagar Gas Limited (MGL)",
+    title: "Delivering Opportunities through Touch (DOT)",
+    description:
+      "Mahanagar Gas Limited (MGL) entrusted us with another CSR mandate to implement “Delivering Opportunities through Touch (DOT)” — a unique initiative in India under the MGL SAKSHAM program. The project aims to enhance science education and digital literacy among Class X students with visual impairments through tactile, refreshable, multi-line, AI-powered Braille displays, enabling more inclusive and accessible learning (March 2026).",
   },
   {
     logo: "/csr/present/indian_oil.png",
@@ -52,16 +59,9 @@ const presentProjects = [
   {
     logo: "/csr/present/Balmer Lawrie.png",
     partner: "Balmer Lawrie & Co. Ltd.",
-    title: "Project SEHAAT",
+    title: "Uday – Healthcare at the Doorstep",
     description:
-      "Social Endeavour for Health Education, Awareness & Accessible Health through Trained Community Health Workers — for health awareness creation and screening in specific areas (hypertension, diabetes, heart problem, anaemia etc.) at the community level in Silvassa, Dadra & Nagar Haveli.",
-  },
-  {
-    logo: "/csr/present/Brahmaputra.png",
-    partner: "Brahmaputra Cracker and Polymer Ltd. (BCPL)",
-    title: "School for Skills – Dibrugarh",
-    description:
-      "Awarded a mandate to establish 'School for Skills: Allied Health Sciences, Dibrugarh' and train 90 unemployed youth across the district of Dibrugarh, Assam. The trained and certified General Duty Assistants will receive formal sector (health sector) employment opportunities.",
+      "Balmer Lawrie & Co. Ltd. awarded us the project Uday – Healthcare at the Doorstep (Chowkathe Swastha Parisheba) to create health awareness and conduct community-based screening for hypertension, diabetes, heart problem, anaemia, in the Sundarbans. The project is implemented through a custom-designed floating digital clinic (motorboat), bringing essential primary healthcare services to underserved island communities (June 2025 and May 2026).",
   },
   {
     logo: "/csr/present/Indraprastha gas.png",
@@ -74,6 +74,27 @@ const presentProjects = [
 
 // ── Past Projects ─────────────────────────────────────────────────────────────
 const pastProjects = [
+  {
+    logo: "/csr/present/mahanagar_gas.png",
+    partner: "Mahanagar Gas Limited (MGL)",
+    title: "MGL Hunar Project – Raigad",
+    description:
+      "Through the CSR mandate of Mahanagar Gas Limited (MGL), 180 rural and semi-urban female youth from Raigad district, Maharashtra, were trained and certified as General Duty Assistants. Of the certified students, 94% secured employment across 35 hospitals in Maharashtra.",
+  },
+  {
+    logo: "/csr/present/Balmer Lawrie.png",
+    partner: "Balmer Lawrie & Co. Ltd.",
+    title: "Project SEHAAT – Silvassa",
+    description:
+      "“SEHAAT” (Social Endeavour for Health Education, Awareness & Accessible Health through Trained Community Health Workers) for health awareness creation and screening in specific areas (hypertension, diabetes, heart problem, anaemia etc.) at the community level in Silvassa, Dadra & Nagar Haveli.",
+  },
+  {
+    logo: "/csr/present/Brahmaputra.png",
+    partner: "Brahmaputra Cracker & Polymer Ltd. (BCPL)",
+    title: "School for Skills – Dibrugarh",
+    description:
+      "Through the CSR mandate of Brahmaputra Cracker & Polymer Ltd. (BCPL), 82 rural and semi-urban youth, predominantly female, from Dibrugarh, Assam, were trained and certified as General Duty Assistants. Of the certified students, 84% secured employment across 10 hospitals.",
+  },
   {
     logo: "/csr/past/jsw.png",
     partner: "JSW Bengal Steel Ltd. / JSW Cement Ltd. / JSW Utkal Steel Ltd.",
@@ -173,7 +194,7 @@ export default function CSRProjectsPage() {
                 {/* Back image */}
                 <div className="absolute right-[40%] sm:right-[35%] lg:right-[45%] top-12 w-40 h-48 sm:w-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border-[6px] border-white -rotate-6 z-10 group">
                   <Image
-                    src="/csr/gallery/04.jpeg"
+                    src="/csr/integrated-approach/2.webp"
                     alt="CSR"
                     fill
                     className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700"
@@ -183,7 +204,7 @@ export default function CSRProjectsPage() {
                 {/* Front image */}
                 <div className="absolute right-4 sm:right-12 lg:right-0 top-0 w-44 h-56 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-[8px] border-white rotate-3 z-20 group hover:rotate-1 transition-transform duration-500">
                   <Image
-                    src="/csr/gallery/01.jpeg"
+                    src="/csr/integrated-approach/1.webp"
                     alt="CSR"
                     fill
                     className="object-cover saturate-[0.75] group-hover:saturate-100 transition-all duration-700"
@@ -221,7 +242,7 @@ export default function CSRProjectsPage() {
                 {/* Back image */}
                 <div className="absolute left-[40%] sm:left-[35%] lg:left-[45%] top-12 w-40 h-48 sm:w-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border-[6px] border-white rotate-6 z-10 group">
                   <Image
-                    src="/csr/gallery/03.jpeg"
+                    src="/csr/measurable-impact/2.webp"
                     alt="CSR"
                     fill
                     className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700"
@@ -231,7 +252,7 @@ export default function CSRProjectsPage() {
                 {/* Front image */}
                 <div className="absolute left-4 sm:left-12 lg:left-0 top-0 w-44 h-56 sm:w-60 sm:h-72 rounded-2xl overflow-hidden shadow-2xl border-[8px] border-white -rotate-3 z-20 group hover:-rotate-1 transition-transform duration-500">
                   <Image
-                    src="/csr/gallery/08.jpeg"
+                    src="/csr/measurable-impact/1.webp"
                     alt="CSR"
                     fill
                     className="object-cover saturate-[0.75] group-hover:saturate-100 transition-all duration-700"
@@ -250,13 +271,25 @@ export default function CSRProjectsPage() {
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
           {/* Image Side (Left 50%) */}
-          <div className="w-full lg:w-1/2 min-h-[400px] lg:min-h-0 relative overflow-hidden">
-            <Image
-              src="/csr/gallery/SEHAAT%20-%20BL.jpg"
-              alt="CSR Priorities"
-              fill
-              className="object-cover transition-transform duration-[10000ms] hover:scale-110 saturate-[0.85]"
-            />
+          <div className="w-full lg:w-1/2 min-h-[400px] lg:min-h-0 relative overflow-hidden flex flex-col gap-1 bg-[#141416]">
+            {/* Collage — screening camp above, community outreach below */}
+            <div className="relative flex-3 overflow-hidden group">
+              <Image
+                src="/csr/strategic-alignment/1.webp"
+                alt="Community health screening camp"
+                fill
+                className="object-cover transition-transform duration-10000 group-hover:scale-110 saturate-[0.85]"
+              />
+            </div>
+            <div className="relative flex-2 overflow-hidden group">
+              <Image
+                src="/csr/strategic-alignment/2.webp"
+                alt="Community outreach session"
+                fill
+                className="object-cover transition-transform duration-10000 group-hover:scale-110 saturate-[0.85]"
+              />
+            </div>
+
             {/* Subtle gradient overlay to blend into the black text side */}
             <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#141416] to-transparent hidden lg:block z-10" />
             <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#141416] to-transparent lg:hidden z-10" />
@@ -336,7 +369,7 @@ export default function CSRProjectsPage() {
               <div className="rounded-[2.5rem] border border-black/5 bg-white p-4 shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
                 <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden mb-6">
                   <Image
-                    src="/csr/gallery/04.jpeg"
+                    src="/csr/strategy/educating-rural-youth.webp"
                     alt="Educating rural youth"
                     fill
                     className="object-cover transition-transform duration-[5000ms] group-hover:scale-110"

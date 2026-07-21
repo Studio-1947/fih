@@ -70,9 +70,14 @@ export type AboutContent = {
   }[];
   statutoryCompliance: {
     title: string;
-    details: {
-      label: string;
-      value: string;
+    groups: {
+      title: string;
+      items: {
+        label: string;
+        value: string;
+        /** Registration identifiers render as monospace reference codes */
+        code?: boolean;
+      }[];
     }[];
   };
   grantsAndMandates: {
@@ -240,27 +245,56 @@ export const aboutContent: AboutContent = {
       description:
         "A biological sciences alumnus of Presidency & Jadavpur University, she is now the Program Director of the ‘Adolescent Leadership Program’ at “Jabala Action Research Organisation”, a civil society organization working on child rights, human trafficking, unsafe migration, and women’s labor. Her primary area of action research is the socio-cultural aspects and sexual and reproductive health rights of women & girls from Santhal & Pahariya communities & other indigenous tribes in the eastern states of India, including Intimate partner violence in South Asia.\n\nDurba has more than 15 years of experience as researcher and trainer in a variety of sectors in social work. She has held teaching positions at some prestigious educational institutions in Kolkata. Durba conducted workshops with Centre for Criminology and Justice (CCJ), School of Social Work (SSW) & Tata Institute of Social Sciences on advocacy and intervention in the field of child marriage. She actively provides research support to initiatives on sex trafficking, HIV/AIDS control, and prevention of Child marriage. She was part of CNNS’s Anthropometric data collection program in 107 PSUs of West Bengal as the State trainer, for UNICEF and Population Council in 2018. She has been engaged in the training of adolescent girls on Leadership; Gender and Sexuality; ‘Reproductive Health & Menstrual Health Management (MHM) etc. She has been an invited speaker at Ford Foundation Centre for Social Justice, New York, Curtin University, Perth, West Australia, International Organization of Migration (India Chapter) and many other national and international platforms.\n\nIt was her life’s calling that she left academia to join social sector, driven by a conviction that regressive social practices need to be addressed most urgently and that can be done only identifying and removing irrational and unscientific prejudices in which they are mired.",
     },
+    {
+      name: "Dr. Bibaswan Basu",
+      role: "Member",
+      imagePath: "/AboutUs/board_members/Dr.%20Bibaswan%20Basu.webp",
+      description:
+        "Dr. Basu has a total of twelve (12) years of teaching experience, along with eight (8) years of experience in the development sector, focusing on Healthcare, Education and Livelihood. His core domain of work includes allied health professional (AHP) education and skill development; improving access to affordable primary care and public health for underserved rural communities; and promoting inclusive education and livelihood generation for visually impaired persons by leveraging innovative technology.\n\nHe has been extensively involved in implementing multiple programs pertaining to AHP education, capacity building, healthcare training, skill development, livelihood generation among youth, upliftment of scheduled caste and scheduled tribe youth and women empowerment across West Bengal, Assam, Madhya Pradesh, Maharashtra, Uttar Pradesh, Gujarat, Bihar, Uttarakhand, Meghalaya. He was nominated as academic expert by various Vocational & Skill Development departments at National and State levels. He served as the Chief Operating Officer of the Foundation for Innovations in Health. He is also a member of the Executive Committee at the School for Skills: Healthcare & Technology at IIT Kharagpur and IIT Indore.\n\nRole in the organization – contributes to curriculum and pedagogy innovation, training and skill development initiatives, collaboration management, quality assurance, CSR program design and implementation, and the acquisition of projects and funding opportunities.",
+    },
   ],
   statutoryCompliance: {
     title: "Statutory Compliance",
-    details: [
+    groups: [
       {
-        label: "Registered as",
-        value:
-          "Society (WB Societies Registration Act 1961); S/2L/7000 dated 02.07.2013",
+        title: "The Organisation",
+        items: [
+          {
+            label: "Registered as",
+            value:
+              "Society (WB Societies Registration Act 1961); S/2L/7000 dated 02.07.2013",
+          },
+          { label: "Year of Registration", value: "2013" },
+          {
+            label: "Registered Address",
+            value: "44A SP Mukherjee Road, Kolkata, West Bengal – 700026",
+          },
+          { label: "Phone No.", value: "+91 33 2455-3334" },
+          { label: "PAN No.", value: "AAAAF2698E", code: true },
+        ],
       },
-      { label: "Year of Registration", value: "2013" },
       {
-        label: "Registered Address",
-        value: "44A SP Mukherjee Road, Kolkata, West Bengal – 700026",
+        title: "Tax & Regulatory Registrations",
+        items: [
+          {
+            label: "12A – Income tax Act",
+            value: "AAAAF2698E25KL01",
+            code: true,
+          },
+          {
+            label: "80G – Income tax Act",
+            value: "AAAAF2698E24KL01",
+            code: true,
+          },
+          { label: "CSR Registration No.", value: "CSR00001983", code: true },
+          { label: "FCRA Registration No.", value: "147121120", code: true },
+          {
+            label: "Darpan Portal Registration No.",
+            value: "WB/2017/0168588",
+            code: true,
+          },
+        ],
       },
-      { label: "Phone No.", value: "+91 33 2455-3334" },
-      { label: "PAN No.", value: "AAAAF2698E" },
-      { label: "12A – Income tax Act", value: "AAAAF2698E25KL01" },
-      { label: "80G – Income tax Act", value: "AAAAF2698E24KL01" },
-      { label: "CSR Registration No.", value: "CSR00001983" },
-      { label: "FCRA Registration No.", value: "147121120" },
-      { label: "Darpan Portal Registration No.", value: "WB/2017/0168588" },
     ],
   },
   grantsAndMandates: {

@@ -58,7 +58,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
                 key={card.title}
                 className="overflow-hidden rounded-2xl border border-black/5 bg-[#f6f5f1] text-black shadow-[0_18px_40px_rgba(0,0,0,0.22)]"
               >
-                <div className="relative h-52 overflow-hidden bg-[#d9d3c6] sm:h-56">
+                <div className="relative aspect-4/3 overflow-hidden bg-[#d9d3c6]">
                   <div className="absolute left-4 top-4 z-20 inline-flex items-center rounded-full bg-primary px-3 py-1 text-[11px] font-semibold uppercase tracking-widest [font-family:var(--font-heading)]">
                     {card.tag}
                   </div>
@@ -67,7 +67,7 @@ export default function WhatWeDoSection({ content }: WhatWeDoSectionProps) {
                     src={card.imagePath}
                     alt={card.title}
                     fill
-                    className="object-cover object-top"
+                    className="object-contain"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>

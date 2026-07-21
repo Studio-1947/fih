@@ -1,12 +1,10 @@
+import { BadgeCheck, Building2, ShieldCheck } from "lucide-react";
 import { aboutContent } from "@/lib/content/about";
 
 export default function StatutoryComplianceSection() {
   const { statutoryCompliance } = aboutContent;
 
-  // Split details into two halves for the 2-column layout
-  const midPoint = Math.ceil(statutoryCompliance.details.length / 2);
-  const leftColumn = statutoryCompliance.details.slice(0, midPoint);
-  const rightColumn = statutoryCompliance.details.slice(midPoint);
+  const groupIcons = [Building2, ShieldCheck];
 
   return (
     <section
@@ -21,53 +19,60 @@ export default function StatutoryComplianceSection() {
           </h2>
           <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mb-8"></div>
           <p className="text-black/70 text-lg leading-relaxed [font-family:var(--font-body)]">
-            FIH is committed to full transparency and strict adherence to all legal and statutory requirements. Our comprehensive registrations ensure maximum accountability to our stakeholders, partners, and the communities we serve.
+            FIH is committed to full transparency and strict adherence to all
+            legal and statutory requirements. Our comprehensive registrations
+            ensure maximum accountability to our stakeholders, partners, and the
+            communities we serve.
           </p>
         </div>
 
-        {/* Structured Table Layout */}
-        <div className="bg-white rounded-[2rem] shadow-sm border border-black/5 overflow-hidden max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-black/5">
-            {/* Left Column */}
-            <div className="flex flex-col divide-y divide-black/5">
-              {leftColumn.map((item, index) => (
-                <div key={index} className="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 hover:bg-[#F5F5F7] transition-colors duration-300">
-                  <span className="text-[13px] sm:text-sm font-bold text-black/50 uppercase tracking-wider sm:w-2/5 shrink-0 pt-0.5">
-                    {item.label}
-                  </span>
-                  <span className="text-[15px] sm:text-base text-black/90 font-medium sm:w-3/5 break-words [font-family:var(--font-body)]">
-                    {item.label === "Website" ? (
-                      <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-all">
-                        {item.value}
-                      </a>
-                    ) : (
-                      item.value
-                    )}
-                  </span>
-                </div>
-              ))}
-            </div>
+        {/* Grouped compliance cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {statutoryCompliance.groups.map((group, groupIndex) => {
+            const Icon = groupIcons[groupIndex] ?? BadgeCheck;
 
-            {/* Right Column */}
-            <div className="flex flex-col divide-y divide-black/5">
-              {rightColumn.map((item, index) => (
-                <div key={index} className="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 hover:bg-[#F5F5F7] transition-colors duration-300">
-                  <span className="text-[13px] sm:text-sm font-bold text-black/50 uppercase tracking-wider sm:w-2/5 shrink-0 pt-0.5">
-                    {item.label}
+            return (
+              <div
+                key={group.title}
+                className="flex flex-col bg-white rounded-4xl shadow-sm border border-black/5 overflow-hidden"
+              >
+                {/* Group header */}
+                <div className="flex items-center gap-3 px-6 sm:px-8 py-5 border-b border-black/5 bg-[#FCFCFD]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Icon className="h-4.5 w-4.5" aria-hidden="true" />
                   </span>
-                  <span className="text-[15px] sm:text-base text-black/90 font-medium sm:w-3/5 break-words [font-family:var(--font-body)]">
-                    {item.label === "Website" ? (
-                      <a href={item.value} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline transition-all">
-                        {item.value}
-                      </a>
-                    ) : (
-                      item.value
-                    )}
-                  </span>
+                  <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-black/70 [font-family:var(--font-heading)]">
+                    {group.title}
+                  </h3>
                 </div>
-              ))}
-            </div>
-          </div>
+
+                {/* Rows */}
+                <dl className="flex flex-col divide-y divide-black/5">
+                  {group.items.map((item) => (
+                    <div
+                      key={item.label}
+                      className="px-6 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-baseline gap-1.5 sm:gap-6 hover:bg-[#F5F5F7] transition-colors duration-300"
+                    >
+                      <dt className="text-[13px] font-bold text-black/50 uppercase tracking-wider sm:w-2/5 shrink-0">
+                        {item.label}
+                      </dt>
+                      <dd className="sm:w-3/5 wrap-break-word">
+                        {item.code ? (
+                          <span className="inline-block rounded-md bg-[#F5F5F7] px-2.5 py-1 font-mono text-[13px] sm:text-sm font-semibold tracking-tight text-black/90">
+                            {item.value}
+                          </span>
+                        ) : (
+                          <span className="text-[15px] sm:text-base text-black/90 font-medium [font-family:var(--font-body)]">
+                            {item.value}
+                          </span>
+                        )}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

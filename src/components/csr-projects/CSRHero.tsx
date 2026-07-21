@@ -5,9 +5,16 @@ import Image from "next/image";
 import FadeIn from "@/components/ui/FadeIn";
 
 const csrImages = [
-  { src: "/csr/hero/csrhero1.jpg", position: "object-center" },
-  { src: "/csr/hero/csrhero2.jpg", position: "object-center" },
-  { src: "/csr/hero/csrhero3.png", position: "object-top" },
+  { src: "/csr/hero/banner-01.webp", position: "object-center" },
+  { src: "/csr/hero/banner-02.webp", position: "object-center" },
+  { src: "/csr/hero/banner-03.webp", position: "object-center" },
+  { src: "/csr/hero/banner-04.webp", position: "object-center" },
+  { src: "/csr/hero/banner-05.webp", position: "object-center" },
+  { src: "/csr/hero/banner-06.webp", position: "object-center" },
+  { src: "/csr/hero/banner-07.webp", position: "object-center" },
+  { src: "/csr/hero/banner-08.webp", position: "object-center" },
+  { src: "/csr/hero/banner-09.webp", position: "object-center" },
+  { src: "/csr/hero/banner-10.webp", position: "object-center" },
 ];
 
 export default function CSRHero() {
@@ -16,7 +23,7 @@ export default function CSRHero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % csrImages.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -25,8 +32,10 @@ export default function CSRHero() {
       className="relative w-full h-[80vh] min-h-[550px] lg:min-h-[750px] max-h-[1000px] overflow-hidden bg-black -mt-32 flex flex-col justify-center"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
-      {/* Background Image Slideshow (Full Screen) */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* Background Image Slideshow.
+          Inset from the top by the same 128px the section is pulled up (-mt-32),
+          so the banners start below the transparent nav instead of behind it. */}
+      <div className="absolute inset-x-0 bottom-0 top-32">
         {csrImages.map((img, index) => (
           <div
             key={img.src}
@@ -42,11 +51,13 @@ export default function CSRHero() {
               src={img.src}
               alt={`CSR Impact ${index + 1}`}
               fill
-              className={`object-cover ${img.position} transition-transform duration-[15000ms] ease-out ${
-                currentImageIndex === index ? "scale-110" : "scale-100"
-              }`}
-              // priority on all images ensures they are all preloaded immediately
-              priority
+              // No zoom: these banners are 2.8:1, so any scale-up crops the
+              // heads out of the group photos
+              className={`object-cover ${img.position}`}
+              // Only the first slide blocks render; the rest load lazily as the
+              // slideshow advances, so ten banners don't all preload at once
+              priority={index === 0}
+              loading={index === 0 ? undefined : "lazy"}
               sizes="100vw"
             />
           </div>

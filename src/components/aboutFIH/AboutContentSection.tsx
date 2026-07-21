@@ -113,9 +113,9 @@ export default function AboutContentSection({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {whatSetsUsApart.points.map((point, idx) => {
             const cardImages = [
-              "/csr/gallery/03.jpeg", // Integrated Model
-              "/csr/gallery/04.jpeg", // Technology-Driven
-              "/csr/gallery/07.jpeg", // Collaborative Approach
+              "/what-sets-us-apart/1-formal-sector-employment.webp",
+              "/what-sets-us-apart/2-data-driven-approach.webp",
+              "/what-sets-us-apart/3-access-barriers.webp",
             ];
 
             return (

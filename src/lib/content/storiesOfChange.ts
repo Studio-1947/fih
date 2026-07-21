@@ -49,7 +49,7 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
     },
     {
       heading: "Impact That Matters",
-      imagePath: "/floating/IMG20231116131526.jpg",
+      imagePath: "/floating/impact-that-matters.webp",
       paragraphs: [
         "This model ensures that even the most vulnerable populations receive timely, quality healthcare, right where they are. Beyond service delivery, it creates local employment, builds community capacity, and strengthens resilience in one of the most climate-vulnerable regions in the world.",
       ],
