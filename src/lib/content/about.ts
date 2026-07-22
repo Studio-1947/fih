@@ -2,6 +2,8 @@ export type AboutContent = {
   hero: {
     bannerHook: string;
     bgImagePath: string;
+    /** Alt text for the hero image */
+    imageAlt: string;
   };
   intro: {
     heading: string;
@@ -106,7 +108,9 @@ export type AboutContent = {
 export const aboutContent: AboutContent = {
   hero: {
     bannerHook: "Reimagining Healthcare & Livelihoods for Rural India",
-    bgImagePath: "/AboutUs/about_us_fih.png",
+    bgImagePath: "/Technology%20usage%20%281%29.jpg",
+    imageAlt:
+      "An FIH-trained community health worker screening a young woman at her home in rural West Bengal",
   },
   intro: {
     heading: "About Foundation for Innovations in Health",

@@ -17,10 +17,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="space-y-0">
-      <AboutHeroSection
-        content={aboutContent.hero}
-        visionMission={aboutContent.visionMission}
-      />
+      <AboutHeroSection content={aboutContent.hero} />
       <AboutContentSection
         intro={aboutContent.intro}
         whatSetsUsApart={aboutContent.whatSetsUsApart}
