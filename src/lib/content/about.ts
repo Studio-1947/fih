@@ -70,14 +70,24 @@ export type AboutContent = {
   }[];
   statutoryCompliance: {
     title: string;
-    groups: {
-      title: string;
-      items: {
-        label: string;
-        value: string;
-        /** Registration identifiers render as monospace reference codes */
-        code?: boolean;
-      }[];
+    /** Headline registrations, shown as verified-credential tiles */
+    credentials: {
+      /** Short name shown large on the tile, e.g. "80G" */
+      code: string;
+      /** What the registration is under, e.g. "Income Tax Act" */
+      caption: string;
+      value: string;
+    }[];
+    /** Supporting organisation details, shown as a quieter reference strip */
+    details: {
+      label: string;
+      value: string;
+      /** Chooses the leading icon; mapped to a component in the section */
+      icon: "document" | "location" | "calendar" | "id" | "phone";
+      /** Long values span the full row rather than sitting in one column */
+      wide?: boolean;
+      /** Offers a click-to-copy control next to the value */
+      copy?: boolean;
     }[];
   };
   grantsAndMandates: {
@@ -255,46 +265,51 @@ export const aboutContent: AboutContent = {
   ],
   statutoryCompliance: {
     title: "Statutory Compliance",
-    groups: [
+    credentials: [
       {
-        title: "The Organisation",
-        items: [
-          {
-            label: "Registered as",
-            value:
-              "Society (WB Societies Registration Act 1961); S/2L/7000 dated 02.07.2013",
-          },
-          { label: "Year of Registration", value: "2013" },
-          {
-            label: "Registered Address",
-            value: "44A SP Mukherjee Road, Kolkata, West Bengal – 700026",
-          },
-          { label: "Phone No.", value: "+91 33 2455-3334" },
-          { label: "PAN No.", value: "AAAAF2698E", code: true },
-        ],
+        code: "12A",
+        caption: "Income Tax Act",
+        value: "AAAAF2698E25KL01",
       },
       {
-        title: "Tax & Regulatory Registrations",
-        items: [
-          {
-            label: "12A – Income tax Act",
-            value: "AAAAF2698E25KL01",
-            code: true,
-          },
-          {
-            label: "80G – Income tax Act",
-            value: "AAAAF2698E24KL01",
-            code: true,
-          },
-          { label: "CSR Registration No.", value: "CSR00001983", code: true },
-          { label: "FCRA Registration No.", value: "147121120", code: true },
-          {
-            label: "Darpan Portal Registration No.",
-            value: "WB/2017/0168588",
-            code: true,
-          },
-        ],
+        code: "80G",
+        caption: "Income Tax Act",
+        value: "AAAAF2698E24KL01",
       },
+      {
+        code: "CSR",
+        caption: "Registration No.",
+        value: "CSR00001983",
+      },
+      {
+        code: "FCRA",
+        caption: "Foreign Contribution",
+        value: "147121120",
+      },
+      {
+        code: "DARPAN",
+        caption: "NITI Aayog Portal",
+        value: "WB/2017/0168588",
+      },
+    ],
+    details: [
+      {
+        label: "Registered as",
+        value:
+          "Society (WB Societies Registration Act 1961); S/2L/7000 dated 02.07.2013",
+        icon: "document",
+        wide: true,
+      },
+      {
+        label: "Registered Address",
+        value: "44A SP Mukherjee Road, Kolkata, West Bengal – 700026",
+        icon: "location",
+        wide: true,
+        copy: true,
+      },
+      { label: "Year of Registration", value: "2013", icon: "calendar" },
+      { label: "PAN No.", value: "AAAAF2698E", icon: "id", copy: true },
+      { label: "Phone No.", value: "+91 33 2455-3334", icon: "phone", copy: true },
     ],
   },
   grantsAndMandates: {

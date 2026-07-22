@@ -49,7 +49,7 @@ const presentProjects = [
       "Ambuja Neotia group has supported the 'CSR Project' (purpose-modified fully equipped launch) at Sundarbans to deliver accessible and affordable primary care to the last mile population of Sundarbans.",
   },
   {
-    logo: "/csr/present/aditya_birla.png",
+    logo: "/csr/present/aditya_birla_jan_seva_trust.png",
     partner:
       "Aditya Birla Jan Seva Trust (Jayashree Textiles, Grasim Industries Ltd.)",
     title: "Project TRANSFORM",
@@ -245,7 +245,9 @@ export default function CSRProjectsPage() {
                     src="/csr/measurable-impact/2.webp"
                     alt="CSR"
                     fill
-                    className="object-cover saturate-50 group-hover:saturate-100 transition-all duration-700"
+                    // Subjects sit right of centre; a centred crop clips the
+                    // health worker out of this portrait frame
+                    className="object-cover object-[70%_50%] saturate-50 group-hover:saturate-100 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-primary/20 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700" />
                 </div>
@@ -455,7 +457,7 @@ export default function CSRProjectsPage() {
       {/* ── CSR Impact Flow ─────────────────────────────────────────────── */}
       <FadeIn>
         <section
-          className="relative bg-black overflow-hidden"
+          className="relative bg-white overflow-hidden"
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
           <div className="w-full max-w-none px-0">

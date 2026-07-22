@@ -32,14 +32,39 @@ export default function CSRHero() {
       className="relative w-full h-[80vh] min-h-[550px] lg:min-h-[750px] max-h-[1000px] overflow-hidden bg-black -mt-32 flex flex-col justify-center"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
-      {/* Background Image Slideshow.
+      {/* Blurred backdrop. Fills the whole section — including the strip behind
+          the transparent nav — so that band reads as a soft continuation of the
+          banner rather than a flat black gap. Same src and sizes as the sharp
+          layer below, so it costs no extra image download. */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {csrImages.map((img, index) => (
+          <Image
+            key={`${img.src}-backdrop`}
+            src={img.src}
+            alt=""
+            aria-hidden="true"
+            fill
+            className="object-cover scale-125 blur-2xl transition-opacity duration-2000 ease-in-out"
+            style={{ opacity: currentImageIndex === index ? 1 : 0 }}
+            priority={index === 0}
+            loading={index === 0 ? undefined : "lazy"}
+            sizes="100vw"
+          />
+        ))}
+      </div>
+
+      {/* Sharp slideshow.
           Inset from the top by the same 128px the section is pulled up (-mt-32),
-          so the banners start below the transparent nav instead of behind it. */}
-      <div className="absolute inset-x-0 bottom-0 top-32">
+          so the banners start below the transparent nav instead of behind it.
+          Its top edge is masked to fade into the blurred backdrop over 6rem,
+          otherwise the inset reads as a hard divider line. */}
+      <div
+        className="absolute inset-x-0 bottom-0 top-32 z-1 mask-[linear-gradient(to_bottom,transparent_0,black_6rem)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0,black_6rem)]"
+      >
         {csrImages.map((img, index) => (
           <div
             key={img.src}
-            className="absolute inset-0 w-full h-full transition-opacity duration-[2000ms] ease-in-out"
+            className="absolute inset-0 w-full h-full transition-opacity duration-2000 ease-in-out"
             style={{
               // Always keep non-active slides below; active slide on top
               // This prevents the "blank gap" when transitioning between slides
