@@ -79,7 +79,7 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
     {
       name: "Trupti Minde",
       description:
-        "She is a 19 years old girl from Dasgaon village of Raigad district. Her family's income is around 10000 per month. Overcoming the financial constraint, she completed ''General Duty Assistant'' course from ''School for Skills: Allied Health Sciences, Raigad''. She was financially supported by Mahanagar Gas Limited through the CSR program. After certification from Healthcare Sector Skill Council, she has been employed locally as a Junior Nursing Attendant at Neulife Multispecialty Hospital, Mahad.",
+        "Trupti’s journey began when she learned about School for Skills: Allied Health Sciences (SFS), Raigad, a unit of Foundation for Innovations in Health. She received high-quality training at SFS in the domain of healthcare, a field she had always been passionate about. Support from Mahanagar Gas Limited (MGL) allowed Trupti to focus solely on her training without the burden of financial stress. She excelled, gaining not only knowledge but also confidence in her abilities. She is currently employed as Doula Nurse at Cloud Nine Hospital, Vashi, earning a monthly salary of ₹20,000. Trupti’s success inspired others in and around her village — many followed in her footsteps, seeking opportunities that once seemed out of reach, bringing a new sense of hope and prosperity to Mahad.",
       imagePath: "/stories_of_change/testomonial/Trupti Minde.jpg",
     },
     {
@@ -135,6 +135,30 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
       description:
         "She is a certified Frontline Health Worker. She has one daughter. Currently, she is delivering primary care and public health to the last mile population of Sundarbans through the Floating Digital Clinic. She is working along with husband in this digital clinic program.",
       imagePath: "/stories_of_change/testomonial/Puspalata Mondal.jpg",
+    },
+    {
+      name: "Aanchal and Prachi",
+      description:
+        "Growing up in the remote villages of Fatehpur, Uttar Pradesh, Aanchal and Prachi aspired to build independent and meaningful careers despite limited opportunities in their communities. They enrolled in a structured healthcare skill development programme at the School for Skills: Allied Health Sciences, Fatehpur, a unit of Foundation for Innovations in Health, which equipped them with comprehensive theoretical knowledge, hands-on practical training, and workplace readiness. Financial support from Indraprastha Gas Limited (IGL) allowed them to complete their training without the burden of economic constraints. Both now serve as Patient Care Assistants at Medanta Hospital, Lucknow, earning a monthly salary of ₹14,000. Their journey demonstrates that with access to quality skill development and determination, girls from rural communities can overcome barriers and build successful professional careers.",
+      imagePath: "/stories_of_change/testomonial/Aanchal and Prachi.jpg",
+    },
+    {
+      name: "Komal Dnyaneshwar Somkuwar",
+      description:
+        "Komal always aspired to build a meaningful career in the healthcare sector, but limited opportunities and financial constraints made her goal seem distant. Her life took a positive turn when she enrolled in the School for Skills: Allied Health Sciences (SFS), Nagpur, a unit of Foundation for Innovations in Health. The structured training programme equipped her with the technical expertise, practical exposure, and professional values essential for a career in patient care, and support extended by Western Coalfields Limited (WCL) enabled her to study without financial hardship. She is currently employed as Patient Care Assistant Supervisor at Ruby Hall Clinic, Pune, earning a monthly salary of ₹20,000. Her achievement has become a source of encouragement for many young people in her community.",
+      imagePath: "/stories_of_change/testomonial/Komal Dnyaneshwar Somkuwar.jpg",
+    },
+    {
+      name: "Shilpa Devanand Khobragade",
+      description:
+        "Shilpa transformed her aspiration of working in healthcare into reality through the training received at the School for Skills: Allied Health Sciences (SFS), Nagpur, a unit of Foundation for Innovations in Health. With the financial support of Western Coalfields Limited (WCL), she successfully completed her skill development programme and gained the confidence and practical knowledge needed to begin her professional journey. Today, Shilpa is employed as Supervisor at Shree Anandpur Charitable Trust Diagnostic Center, Pune, earning a monthly salary of ₹25,000. Her journey is an inspiring example of how the right training and support can lead to sustainable employment and a brighter future.",
+      imagePath: "/stories_of_change/testomonial/Shilpa Devanand Khobragade.jpg",
+    },
+    {
+      name: "Simi Patar",
+      description:
+        "Hailing from a small village in Dibrugarh, Simi Patar dreamed of building a career that would allow her to serve her community while achieving financial independence. She enrolled at the School for Skills: Allied Health Sciences (SFS), Dibrugarh, where she received quality training, practical exposure, and the confidence to pursue a profession in healthcare. With the support of Brahmaputra Cracker & Polymer Limited (BCPL), Simi successfully completed her training and secured employment at Dibrugarh Cancer Centre, earning a monthly salary of ₹11,550 — an important milestone in her journey toward a stable and dignified livelihood. Her journey serves as an inspiration for others in her village.",
+      imagePath: "/stories_of_change/testomonial/Simi Patar.jpg",
     },
   ],
 };
