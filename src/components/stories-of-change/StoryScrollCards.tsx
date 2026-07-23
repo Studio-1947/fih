@@ -18,8 +18,8 @@ const testimonialMetadata: Record<string, { tag: string; stat: string; accent: s
     accent: "from-emerald-500/10 to-teal-500/10"
   },
   "Trupti Minde": {
-    tag: "Allied Health Graduate",
-    stat: "Neulife Hospital, Mahad",
+    tag: "Doula Nurse",
+    stat: "Cloud Nine Hospital, Vashi",
     accent: "from-blue-500/10 to-indigo-500/10"
   },
   "Sonali Vilas Pawar": {
@@ -66,6 +66,26 @@ const testimonialMetadata: Record<string, { tag: string; stat: string; accent: s
     tag: "Frontline Health Worker",
     stat: "Floating Clinic, Sundarbans",
     accent: "from-emerald-500/10 to-cyan-500/10"
+  },
+  "Aanchal and Prachi": {
+    tag: "Patient Care Assistants",
+    stat: "Medanta Hospital, Lucknow",
+    accent: "from-rose-500/10 to-orange-500/10"
+  },
+  "Komal Dnyaneshwar Somkuwar": {
+    tag: "Patient Care Supervisor",
+    stat: "Ruby Hall Clinic, Pune",
+    accent: "from-violet-500/10 to-fuchsia-500/10"
+  },
+  "Shilpa Devanand Khobragade": {
+    tag: "Diagnostic Supervisor",
+    stat: "Shree Anandpur Trust, Pune",
+    accent: "from-cyan-500/10 to-sky-500/10"
+  },
+  "Simi Patar": {
+    tag: "Allied Health Professional",
+    stat: "Dibrugarh Cancer Centre",
+    accent: "from-lime-500/10 to-emerald-500/10"
   }
 };
 
