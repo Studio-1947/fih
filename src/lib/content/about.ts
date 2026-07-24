@@ -107,7 +107,7 @@ export type AboutContent = {
 
 export const aboutContent: AboutContent = {
   hero: {
-    bannerHook: "Reimagining Healthcare & Livelihoods for Rural India",
+    bannerHook: "Reimagining healthcare & livelihoods for rural India",
     bgImagePath: "/Technology%20usage%20%281%29.jpg",
     imageAlt:
       "An FIH-trained community health worker screening a young woman at her home in rural West Bengal",
@@ -120,7 +120,7 @@ export const aboutContent: AboutContent = {
     ],
   },
   whatSetsUsApart: {
-    title: "What Sets Us Apart",
+    title: "What sets us apart",
     points: [
       {
         title: "Large scale formal sector employment creation",
@@ -347,12 +347,6 @@ export const aboutContent: AboutContent = {
           "Advance technology driven, affordable and high quality diagnostic laboratory services for rural community of West Bengal.",
       },
       {
-        organization: "BioNEST, IIT Guwahati",
-        imagePath: "/grantes%26mandates/BioNEST.webp",
-        description:
-          "Adoption of frugal diagnostic technology and employment linked allied health professional training especially among the rural community of North East States of India.",
-      },
-      {
         organization: "Asia Initiatives (USA)",
         imagePath: "/grantes%26mandates/Asia%20Initiatives.png",
         description:
@@ -366,19 +360,6 @@ export const aboutContent: AboutContent = {
         description:
           "AHP education in South 24 Pgs, accessible and affordable primary care and public health through digital clinic cluster and motorized boat at Sundarbans.",
         status: "Completed in 2024",
-      },
-      {
-        organization: "Bansberia Municipality, Hooghly",
-        imagePath: "/grantes%26mandates/Bansberia%20Municipality.webp",
-        description:
-          "Improve access to high quality, technology driven, affordable healthcare for the community with special emphasis on the vulnerable population.",
-      },
-      {
-        organization: "SUSRUT Eye Foundation & Research Centre",
-        imagePath:
-          "/grantes%26mandates/SUSRUT%20Eye%20Foundation%20%26%20Research%20Centre.webp",
-        description:
-          "Improve access to affordable high quality general and speciality eye care services for the rural underserved.",
       },
       {
         organization: "Karkinos Healthcare Pvt. Ltd.",

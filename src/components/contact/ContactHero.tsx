@@ -50,7 +50,7 @@ export default function ContactHero({ title, intro }: ContactHeroProps) {
           </div>
 
           <BlurText
-            text="Join Us in Bringing Healthcare to the Doorstep"
+            text="Your support creates employment and access to healthcare"
             delay={150}
             animateBy="words"
             direction="bottom"

@@ -23,7 +23,7 @@ type StoriesOfChangeHeroProps = {
 export default function StoriesOfChangeHero({
   kicker = "Voices of Resilience",
   title = "Stories",
-  highlight = "of Change.",
+  highlight = "of change.",
   description =
     "Real stories from communities transformed by our primary healthcare, education, and livelihood initiatives. Meet the individuals driving sustainable change.",
   items = storiesOfChangeContent.testimonials,
@@ -106,7 +106,7 @@ export default function StoriesOfChangeHero({
               </span>
             </div>
             
-            <h1 className="text-5xl sm:text-7xl lg:text-[100px] font-black text-white leading-[0.95] tracking-tighter [font-family:var(--font-heading)] uppercase drop-shadow-2xl mb-8">
+            <h1 className="text-5xl sm:text-7xl lg:text-[100px] font-black text-white leading-[0.95] tracking-tighter [font-family:var(--font-heading)] drop-shadow-2xl mb-8">
               {title} <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(255,184,0,0.3)]">{highlight}</span>
             </h1>

@@ -8,6 +8,8 @@ type ServicesSectionProps = {
 };
 
 export default function ServicesSection({ services }: ServicesSectionProps) {
+  const [featured, ...rest] = services;
+
   return (
     <section className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-24 bg-[#0A0A0B] rounded-[3.5rem] mb-16 overflow-hidden border border-white/5">
       
@@ -32,8 +34,8 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
               OUR SERVICES
               <span className="h-0.5 w-8 bg-primary" aria-hidden="true" />
             </p>
-            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl [font-family:var(--font-heading)] uppercase">
-              Comprehensive Care for Every Need
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl [font-family:var(--font-heading)]">
+              Comprehensive care for every need
             </h2>
             <p className="text-white/60 [font-family:var(--font-body)] text-base max-w-2xl mx-auto font-medium leading-relaxed">
               We provide a wide range of specialized healthcare services to rural communities through our innovative digital clinics and partnerships.
@@ -41,54 +43,68 @@ export default function ServicesSection({ services }: ServicesSectionProps) {
           </div>
         </FadeIn>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-0">
-          {services.map((service, idx) => (
-            <FadeIn key={idx} delay={idx * 0.05} className="break-inside-avoid mb-6 lg:mb-8">
-              <div 
-                className="flex flex-col bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 hover:bg-white hover:border-transparent hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 ease-out group cursor-pointer"
-              >
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between">
+        {/* Featured service (with its feature list) beside the remaining services */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {/* Featured card */}
+          {featured && (
+            <FadeIn className="h-full">
+              <div className="group flex h-full flex-col bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/10 hover:bg-white hover:border-transparent hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 ease-out cursor-pointer">
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-300">
+                    {featured.title}
+                  </h3>
+                  <div className="w-10 h-10 shrink-0 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                    <ArrowRight className="w-5 h-5 text-white/50 group-hover:text-[#0A0A0B] transition-colors" />
+                  </div>
+                </div>
+
+                <p className="text-white/70 group-hover:text-gray-600 leading-relaxed text-sm [font-family:var(--font-body)] transition-colors duration-300">
+                  {featured.description}
+                </p>
+
+                {featured.features && featured.features.length > 0 && (
+                  <div className="mt-6 pt-6 border-t border-white/10 group-hover:border-black/5 transition-colors duration-300">
+                    <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 group-hover:text-gray-400 mb-4 [font-family:var(--font-heading)] transition-colors">
+                      Key Features
+                    </h4>
+                    <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                      {featured.features.map((feature, fIdx) => (
+                        <li key={fIdx} className="flex gap-3">
+                          <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-white/10 text-primary group-hover:bg-primary/20 group-hover:text-primary-dark flex items-center justify-center transition-colors">
+                            <Check className="w-2.5 h-2.5" />
+                          </div>
+                          <span className="text-xs text-white/80 group-hover:text-gray-600 [font-family:var(--font-body)] transition-colors">
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </FadeIn>
+          )}
+
+          {/* Remaining services stacked */}
+          <div className="flex flex-col gap-6 lg:gap-8">
+            {rest.map((service, idx) => (
+              <FadeIn key={idx} delay={idx * 0.05} className="flex-1">
+                <div className="group flex h-full flex-col justify-center bg-white/5 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-white/10 hover:bg-white hover:border-transparent hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 ease-out cursor-pointer">
+                  <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-white [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                    <div className="w-10 h-10 shrink-0 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                       <ArrowRight className="w-5 h-5 text-white/50 group-hover:text-[#0A0A0B] transition-colors" />
                     </div>
                   </div>
-                  
                   <p className="text-white/70 group-hover:text-gray-600 leading-relaxed text-sm [font-family:var(--font-body)] transition-colors duration-300">
                     {service.description}
                   </p>
-                  
-                  {service.features && service.features.length > 0 && (
-                    <div className="pt-4 border-t border-white/10 group-hover:border-black/5 transition-colors duration-300">
-                      <h4 className="text-xs font-bold uppercase tracking-widest text-white/40 group-hover:text-gray-400 mb-4 [font-family:var(--font-heading)] transition-colors">
-                        Key Features
-                      </h4>
-                      <ul className="space-y-3">
-                        {service.features.slice(0, 10).map((feature, fIdx) => (
-                          <li key={fIdx} className="flex gap-3">
-                            <div className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-white/10 text-primary group-hover:bg-primary/20 group-hover:text-primary-dark flex items-center justify-center transition-colors">
-                              <Check className="w-2.5 h-2.5" />
-                            </div>
-                            <span className="text-xs text-white/80 group-hover:text-gray-600 [font-family:var(--font-body)] transition-colors">
-                              {feature}
-                            </span>
-                          </li>
-                        ))}
-                        {service.features.length > 10 && (
-                          <li className="text-xs text-primary font-bold uppercase tracking-wider [font-family:var(--font-body)]">
-                            + {service.features.length - 10} more features
-                          </li>
-                        )}
-                      </ul>
-                    </div>
-                  )}
                 </div>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>

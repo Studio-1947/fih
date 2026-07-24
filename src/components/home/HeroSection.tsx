@@ -14,12 +14,12 @@ export default function HeroSection({ content }: HeroSectionProps) {
       <div className="w-[80%] mx-auto grid items-stretch gap-6 lg:grid-cols-[1.1fr_0.9fr] overflow-visible">
         <div className="space-y-8 flex flex-col items-center text-center lg:block lg:text-left py-10 lg:py-16 self-center">
           <div className="space-y-6 flex flex-col items-center lg:block">
-            <h1 className="max-w-2xl text-5xl font-bold leading-none tracking-tight uppercase [font-family:var(--font-heading)] sm:text-6xl lg:text-[5.5rem]">
-              <span className="text-[#2b2b2b]">HEALTH</span>
-              <span className="text-[#888888]"> FOR</span>
+            <h1 className="max-w-2xl text-5xl font-bold leading-none tracking-tight [font-family:var(--font-heading)] sm:text-6xl lg:text-[5.5rem]">
+              <span className="text-[#2b2b2b]">Health</span>
+              <span className="text-[#888888]"> for</span>
               <br />
-              <span className="text-[#888888]">A</span>
-              <span className="text-[#2b2b2b]"> BILLION.</span>
+              <span className="text-[#888888]">a</span>
+              <span className="text-[#2b2b2b]"> billion.</span>
             </h1>
 
             <p className="max-w-xl text-base leading-relaxed text-[#888888] [font-family:var(--font-body)] sm:text-lg">

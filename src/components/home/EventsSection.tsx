@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export interface EventItem {
@@ -26,27 +26,20 @@ function formatDate(dateStr: string) {
 
 export default function EventsSection({ events }: EventsSectionProps) {
   const [selected, setSelected] = useState<EventItem | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Manual, button-driven horizontal scroll — no auto-play. Each click nudges
+  // the track by most of its visible width so a fresh set of cards slides in.
+  const scrollByViewport = (direction: 1 | -1) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: direction * el.clientWidth * 0.85, behavior: "smooth" });
+  };
 
   if (!events.length) return null;
 
   return (
     <>
-      <style>{`
-        .events-marquee-track {
-          display: flex;
-          gap: 1.5rem;
-          width: max-content;
-          animation: marquee-events 60s linear infinite;
-        }
-        .events-marquee-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes marquee-events {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
-
       <section
         id="events"
         className="w-full bg-white pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-12 overflow-hidden"
@@ -75,75 +68,76 @@ export default function EventsSection({ events }: EventsSectionProps) {
             </h2>
           </motion.div>
 
-          {/* Scrollable Cards - Marquee */}
-          <div
-            className="relative overflow-visible pb-4"
-            style={{
-              maskImage:
-                "linear-gradient(to right, transparent, black 1%, black 95%, transparent)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 1%, black 95%, transparent)",
-            }}
-          >
-            <div className="events-marquee-track">
-              {[0, 1].map((groupIndex) => (
-                <div key={groupIndex} className="flex gap-6 items-start">
-                  {events.map((event, i) => (
-                    <motion.button
-                      key={`${event.id}-${groupIndex}-${i}`}
-                      initial={{ opacity: 0, y: 32 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-60px" }}
-                      transition={{
-                        duration: 0.6,
-                        delay: i * 0.1,
-                        ease: [0.21, 0.47, 0.32, 0.98],
-                      }}
-                      onClick={() => setSelected(event)}
-                      className="group flex-shrink-0 w-[280px] sm:w-80 cursor-pointer text-left flex flex-col"
-                    >
-                      {/* Image */}
-                      <div className="relative h-52 sm:h-60 w-full rounded-[1.5rem] overflow-hidden bg-black/5 mb-4">
-                        <Image
-                          src={event.imageUrl}
-                          alt={event.title}
-                          fill
-                          sizes="(max-width: 640px) 288px, 320px"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[1.5rem]" />
-                      </div>
+          {/* Manually-scrolled cards with prominent controls on both sides */}
+          <div className="relative">
+            {/* Prev */}
+            <button
+              type="button"
+              aria-label="Previous events"
+              onClick={() => scrollByViewport(-1)}
+              className="absolute left-0 sm:-left-5 top-26 sm:top-30 -translate-y-1/2 z-20 flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white text-black shadow-xl ring-1 ring-black/5 cursor-pointer transition-all duration-200 hover:bg-primary hover:text-white hover:scale-105 active:scale-95"
+            >
+              <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2.5} />
+            </button>
 
-                      {/* Card Content */}
-                      <div className="space-y-2 px-1 flex-1">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/40 [font-family:var(--font-heading)]">
-                          {formatDate(event.date)}
-                        </p>
-                        <h3 className="text-base sm:text-lg font-bold leading-snug text-black line-clamp-2 [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-200 min-h-[2.8rem] sm:min-h-[3.2rem]">
-                          {event.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-black/55 line-clamp-2 [font-family:var(--font-body)] mb-2">
-                          {event.description}
-                        </p>
-                        <span className="inline-block pt-1 text-xs font-bold text-black/40 group-hover:text-primary transition-colors duration-200 [font-family:var(--font-heading)] mt-auto">
-                          Read more →
-                        </span>
-                      </div>
-                    </motion.button>
-                  ))}
-                </div>
+            {/* Next */}
+            <button
+              type="button"
+              aria-label="Next events"
+              onClick={() => scrollByViewport(1)}
+              className="absolute right-0 sm:-right-5 top-26 sm:top-30 -translate-y-1/2 z-20 flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white text-black shadow-xl ring-1 ring-black/5 cursor-pointer transition-all duration-200 hover:bg-primary hover:text-white hover:scale-105 active:scale-95"
+            >
+              <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2.5} />
+            </button>
+
+            <div
+              ref={scrollRef}
+              className="flex gap-6 items-start overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {events.map((event, i) => (
+                <motion.button
+                  key={event.id}
+                  initial={{ opacity: 0, y: 32 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{
+                    duration: 0.6,
+                    delay: i * 0.1,
+                    ease: [0.21, 0.47, 0.32, 0.98],
+                  }}
+                  onClick={() => setSelected(event)}
+                  className="group flex-shrink-0 w-[280px] sm:w-80 snap-start cursor-pointer text-left flex flex-col"
+                >
+                  {/* Image */}
+                  <div className="relative h-52 sm:h-60 w-full rounded-[1.5rem] overflow-hidden bg-black/5 mb-4">
+                    <Image
+                      src={event.imageUrl}
+                      alt={event.title}
+                      fill
+                      sizes="(max-width: 640px) 288px, 320px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 rounded-[1.5rem]" />
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="space-y-2 px-1 flex-1">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black/40 [font-family:var(--font-heading)]">
+                      {formatDate(event.date)}
+                    </p>
+                    <h3 className="text-base sm:text-lg font-bold leading-snug text-black line-clamp-2 [font-family:var(--font-heading)] group-hover:text-primary transition-colors duration-200 min-h-[2.8rem] sm:min-h-[3.2rem]">
+                      {event.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-black/55 line-clamp-2 [font-family:var(--font-body)] mb-2">
+                      {event.description}
+                    </p>
+                    <span className="inline-block pt-1 text-xs font-bold text-black/40 group-hover:text-primary transition-colors duration-200 [font-family:var(--font-heading)] mt-auto">
+                      Read more →
+                    </span>
+                  </div>
+                </motion.button>
               ))}
             </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="flex justify-center gap-2 mt-8 lg:hidden">
-            {events.map((_, i) => (
-              <div
-                key={i}
-                className="h-2 rounded-full bg-black/20 transition-all duration-300 w-8"
-              />
-            ))}
           </div>
         </div>
       </section>

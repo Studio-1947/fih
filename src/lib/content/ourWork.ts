@@ -129,9 +129,9 @@ export const ourWorkContent: OurWorkContent = {
           "CHW undertakes tests and dispenses medicines as advised. Shares reports with doctor real-time",
       },
       {
-        title: "Vital/Action Documentation",
+        title: "Documentation Completion",
         description:
-          "Billing & other documentation completed, patient handed over printed prescription, with follow-up appointment",
+          "The patient receives a printed prescription, signed by the doctor, along with a follow-up appointment where required.",
       },
       {
         title: "Patient departs",
@@ -141,7 +141,7 @@ export const ourWorkContent: OurWorkContent = {
   },
   services: [
     {
-      title: "Physical Health",
+      title: "Physical health",
       description:
         "Comprehensive physical health services supported by digital health records and specialized care.",
       features: [
@@ -160,24 +160,14 @@ export const ourWorkContent: OurWorkContent = {
       ],
     },
     {
-      title: "Dental Health",
+      title: "Dental health",
       description:
         "Essel Mining & Industries Limited (Aditya Birla Group) has handed a fully equipped custom designed dental van to FIH through their CSR program. Quality dental services is being provided to the rural population of West Bengal.",
     },
     {
-      title: "Mental Health",
+      title: "Mental health",
       description:
         "The specialists from NIMHASNS, Bangalore have upskilled over 100 Health Workers as Community Mental Health Workers through an online program. Mental health services are being provided, under supervision of doctors from NIMHANS, into the rural communities.",
-    },
-    {
-      title: "Diagnostic Services",
-      description:
-        "FIH has entered into an agreement with Bansberia Municipality, Hooghly for 'Operation and Management' of multiple healthcare services at Bansberia Municipality Hospital under PPP model. At present diagnostic laboratory, ECG services are being provided. X Ray facility has been established with support from CRTDH, IIT Kharagpur.",
-    },
-    {
-      title: "Eye Services",
-      description:
-        "FIH has entered into an agreement with 'Susrut Eye Foundation & Research Centre' to improve access to affordable high quality general and speciality eye care services for the underserved. At present, the services are being delivered in Hooghly and Birbhum district.",
     },
   ],
 };

@@ -13,7 +13,7 @@ export default function GrantsMandateHero() {
     <StoriesOfChangeHero
       kicker="Government, Institution & Others"
       title="Grants &"
-      highlight="Mandates."
+      highlight="mandates."
       description="Strategic grants and mandates powering rural healthcare, education, and livelihood programs across India."
       items={logoItems}
       imageClassName="object-contain p-3 sm:p-4 mix-blend-multiply"
