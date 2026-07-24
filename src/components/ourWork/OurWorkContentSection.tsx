@@ -62,7 +62,7 @@ export default function OurWorkContentSection({
         <FadeIn>
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-[#1a1a1a] sm:text-4xl [font-family:var(--font-heading)]">
-              Core Pillars of Our Model
+              Core pillars of our model
             </h2>
             <div className="mt-4 mx-auto w-16 h-1 bg-primary rounded-full"></div>
           </div>

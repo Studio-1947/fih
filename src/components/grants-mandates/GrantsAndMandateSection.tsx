@@ -29,21 +29,21 @@ export default function GrantsAndMandateSection() {
 
               {/* Content Container */}
               <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                <h3 className="text-xl sm:text-2xl font-bold text-black leading-snug group-hover:text-primary-dark transition-colors duration-300 [font-family:var(--font-heading)] mb-4">
-                  {item.organization}
-                </h3>
-                
+                <div className="mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-black leading-snug group-hover:text-primary-dark transition-colors duration-300 [font-family:var(--font-heading)]">
+                    {item.organization}
+                  </h3>
+
+                  {item.subtext && (
+                    <p className="mt-1.5 text-[13px] sm:text-sm text-black/55 font-medium italic leading-relaxed [font-family:var(--font-body)]">
+                      {item.subtext}
+                    </p>
+                  )}
+                </div>
+
                 <p className="text-black/75 leading-relaxed text-[15px] sm:text-base flex-grow [font-family:var(--font-body)]">
                   {item.description}
                 </p>
-                
-                {item.subtext && (
-                  <div className="mt-5 bg-[#FAFAFA] rounded-xl p-4 border border-black/5">
-                    <p className="text-[13px] text-black/60 font-medium italic leading-relaxed [font-family:var(--font-body)]">
-                      {item.subtext}
-                    </p>
-                  </div>
-                )}
                 
                 {/* Partners section */}
                 {item.partners && (

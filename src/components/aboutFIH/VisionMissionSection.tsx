@@ -8,7 +8,7 @@ type VisionMissionSectionProps = {
 export default function VisionMissionSection({ content }: VisionMissionSectionProps) {
   return (
     <section 
-      className="w-full mt-24 sm:mt-32 flex flex-col lg:flex-row"
+      className="w-full flex flex-col lg:flex-row"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
       {/* Vision Half - Dark */}

@@ -32,7 +32,7 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
   },
   sections: [
     {
-      heading: "A Region on the Frontlines of Climate Change",
+      heading: "A region on the frontlines of climate change",
       imagePath: "/floating/IMG20231130153542 (1).jpg",
       paragraphs: [
         "The Sundarbans faces recurrent climate disasters due to its fragile geography. Cyclones such as Cyclone Amphan, Cyclone Yaas, Cyclone Fani, and Cyclone Bulbul have caused widespread devastation, resulting in loss of lives, large-scale displacement, and economic damage of nearly USD 20 billion.",
@@ -40,7 +40,7 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
       ],
     },
     {
-      heading: "Bridging the Healthcare Gap",
+      heading: "Bridging the healthcare gap",
       imagePath: "/floating/IMG20220519145411 (1).jpg",
       paragraphs: [
         "To address this critical need, the Floating Digital Clinic was introduced, an innovative solution designed to overcome geographical barriers and deliver healthcare directly to underserved communities.",
@@ -48,7 +48,7 @@ export const storiesOfChangeContent: StoriesOfChangeContent = {
       ],
     },
     {
-      heading: "Impact That Matters",
+      heading: "Impact that matters",
       imagePath: "/floating/impact-that-matters.webp",
       paragraphs: [
         "This model ensures that even the most vulnerable populations receive timely, quality healthcare, right where they are. Beyond service delivery, it creates local employment, builds community capacity, and strengthens resilience in one of the most climate-vulnerable regions in the world.",

@@ -16,7 +16,7 @@ const presentProjects = [
   {
     logo: "/csr/present/mahanagar_gas.png",
     partner: "Mahanagar Gas Limited (MGL)",
-    title: "MGL Hunar Project",
+    title: "School for Skills Raigad",
     description:
       "Mahanagar Gas Limited (MGL) awarded a CSR mandate to FIH for training of 330 rural and semi-urban youth as General Duty Assistants, over a period of 3 years. This involves training youth at Raigad district as ‘Allied Health Professionals’ and creating livelihood for them in the health sector (March 2025).",
   },
@@ -37,7 +37,7 @@ const presentProjects = [
   {
     logo: "/csr/present/aditya_birla.png",
     partner: "Essel Mining Industries Limited",
-    title: "Dental Van Programme",
+    title: "Mobile Dental Van",
     description:
       "Essel Mining Industries Limited has handed a fully equipped custom designed dental van to FIH through their CSR program. Quality dental services are being provided to the rural population of West Bengal.",
   },
@@ -52,7 +52,7 @@ const presentProjects = [
     logo: "/csr/present/aditya_birla_jan_seva_trust.png",
     partner:
       "Aditya Birla Jan Seva Trust (Jayashree Textiles, Grasim Industries Ltd.)",
-    title: "Project TRANSFORM",
+    title: "TRANSFORM",
     description:
       "Technology innovations driven precancer and cancer Risk Assessment, Novel Screening among Females, Onset detection, earlier Remedy and Management. Consists of i) a data-driven approach, ii) innovation of frugal health-tech, iii) training local female community health workers and iv) task-shifting from doctors to health workers. Screening of Cancer: Cervix, Breast and Oral Cavity. Location: Rishra, West Bengal.",
   },
@@ -77,7 +77,7 @@ const pastProjects = [
   {
     logo: "/csr/present/mahanagar_gas.png",
     partner: "Mahanagar Gas Limited (MGL)",
-    title: "MGL Hunar Project – Raigad",
+    title: "School for Skills Raigad",
     description:
       "Through the CSR mandate of Mahanagar Gas Limited (MGL), 180 rural and semi-urban female youth from Raigad district, Maharashtra, were trained and certified as General Duty Assistants. Of the certified students, 94% secured employment across 35 hospitals in Maharashtra.",
   },
@@ -98,14 +98,14 @@ const pastProjects = [
   {
     logo: "/csr/past/jsw.png",
     partner: "JSW Bengal Steel Ltd. / JSW Cement Ltd. / JSW Utkal Steel Ltd.",
-    title: "JSW Healthcare CSR Programme",
+    title: "Rural Healthcare & Skill Development",
     description:
       "Between 2013 and 2020, FIH participated in multitude of healthcare linked CSR programs in West Bengal (Midnapore) and Odisha (Paradip). Over 200 youth were trained and employed across various hospitals. Thousands of people in deep rural areas received primary care and public health through clinics.",
   },
   {
     logo: "/csr/past/coal_india.png",
     partner: "Western Coalfields Ltd. (WCL), Nagpur",
-    title: "WCL Allied Health Training",
+    title: "School for Skills Nagpur",
     description:
       "Through the CSR mandate of Western Coalfields Ltd., 56 disadvantaged youth were certified as General Duty Assistants. Over 80% of the certified students received employment opportunities in the health sector.",
   },
@@ -273,22 +273,26 @@ export default function CSRProjectsPage() {
           style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
         >
           {/* Image Side (Left 50%) */}
-          <div className="w-full lg:w-1/2 min-h-[400px] lg:min-h-0 relative overflow-hidden flex flex-col gap-1 bg-[#141416]">
-            {/* Collage — screening camp above, community outreach below */}
-            <div className="relative flex-3 overflow-hidden group">
+          <div className="w-full lg:w-1/2 min-h-130 lg:min-h-160 relative overflow-hidden flex flex-col gap-1 bg-[#141416] py-4 lg:py-8">
+            {/* Collage — both frames carry the point of the section (workers
+                using technology for healthcare, students in training), so they
+                are shown whole with object-contain. The dark section colour
+                absorbs the letterbox, and a gentle zoom on hover keeps it
+                alive without ever cropping a subject out. */}
+            <div className="relative flex-1 overflow-hidden group">
               <Image
                 src="/csr/strategic-alignment/1.webp"
-                alt="Community health screening camp"
+                alt="Community health worker screening patients on a floating clinic"
                 fill
-                className="object-cover transition-transform duration-10000 group-hover:scale-110 saturate-[0.85]"
+                className="object-contain object-center transition-transform duration-10000 group-hover:scale-105"
               />
             </div>
-            <div className="relative flex-2 overflow-hidden group">
+            <div className="relative flex-1 overflow-hidden group">
               <Image
                 src="/csr/strategic-alignment/2.webp"
-                alt="Community outreach session"
+                alt="Students in allied-health training on a hospital ward"
                 fill
-                className="object-cover transition-transform duration-10000 group-hover:scale-110 saturate-[0.85]"
+                className="object-contain object-center transition-transform duration-10000 group-hover:scale-105"
               />
             </div>
 
@@ -344,11 +348,11 @@ export default function CSRProjectsPage() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
             <BlurText
-              text="CREATING LASTING VALUE AT THE INTERSECTION OF HEALTH, LIVELIHOODS, AND RESILIENCE."
+              text="Creating lasting value at the intersection of health, livelihoods, and resilience."
               animateBy="words"
               direction="bottom"
               delay={80}
-              className="text-4xl sm:text-5xl lg:text-7xl font-black uppercase tracking-tight [font-family:var(--font-heading)] leading-[1.1] text-black justify-center text-center"
+              className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight [font-family:var(--font-heading)] leading-[1.1] text-black justify-center text-center"
             />
           </div>
         </section>
@@ -411,29 +415,31 @@ export default function CSRProjectsPage() {
                     Expanding access to care
                   </h3>
                   <p className="text-black/60 [font-family:var(--font-body)] leading-relaxed font-medium">
-                    Enhancing access to primary care and health education,
+                    Enhancing access to primary care and health education.
                   </p>
                 </div>
               </div>
 
               {/* Box 3: Resulting Impact */}
               <div className="relative flex flex-col justify-between rounded-[2.5rem] border border-black/5 p-8 text-white shadow-sm overflow-hidden group">
-                {/* Background Image */}
+                {/* Background Image — smiling trainees, kept bright */}
                 <Image
-                  src="/csr/gallery/08.jpeg"
-                  alt="Impact"
+                  src="/csr/gallery/17.jpeg"
+                  alt="Smiling young women in allied-health training"
                   fill
-                  className="object-cover transition-transform duration-[15000ms] group-hover:scale-110 saturate-50"
+                  className="object-cover object-center transition-transform duration-[15000ms] group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/80 transition-colors duration-700 group-hover:bg-black/70" />
+                {/* Gradient scrim only where text sits (top + bottom card),
+                    leaving the faces bright in the middle */}
+                <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/45 to-black/85 transition-colors duration-700" />
 
                 <div className="relative z-10">
                   <p className="text-xs font-bold uppercase tracking-[0.25em] text-primary mb-4 drop-shadow-md">
                     Resulting impact
                   </p>
                   <h3 className="text-3xl font-black [font-family:var(--font-heading)] leading-[1.1] mb-5 tracking-tighter">
-                    Higher household income, lower health expenditure, and
-                    reduced multi-dimensional poverty.
+                    Mitigating multi-dimensional poverty and building rural
+                    resilience.
                   </h3>
                   <p className="text-white/70 [font-family:var(--font-body)] leading-relaxed font-medium">
                     The combined effect also improves health outcomes and

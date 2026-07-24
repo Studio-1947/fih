@@ -14,7 +14,7 @@ export default function StatutoryComplianceSection() {
 
   return (
     <section
-      className="pt-20 pb-16 bg-[#FAFAFA] border-t border-black/5"
+      className="pt-16 pb-16 bg-[#FAFAFA]"
       style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

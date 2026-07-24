@@ -73,102 +73,28 @@ const regularAwards = awards.slice(1);
 
 export function AwardsHero() {
   return (
-    <section
-      className="relative -mt-24 min-h-[60vh] sm:h-[80vh] lg:h-[90vh] py-20 sm:py-0 flex flex-col items-center justify-center bg-black overflow-x-clip"
-      id="awards-hero"
-    >
-      {/* Subtle Grid of Gallery Images in Background (45 degree split, no spaces) */}
-      <div className="absolute inset-0 grid grid-cols-2 md:grid-cols-4 gap-0 p-0 opacity-[0.75] pointer-events-none select-none">
-        
-        {/* Column 1 */}
-        <div className="relative w-full h-full overflow-hidden">
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-01.jpg" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-02.jpeg" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-        </div>
-
-        {/* Column 2 */}
-        <div className="relative w-full h-full overflow-hidden">
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-03.png" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-04.jpg" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-        </div>
-
-        {/* Column 3 */}
-        <div className="relative w-full h-full overflow-hidden">
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-05.png" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-06.png" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-        </div>
-
-        {/* Column 4 */}
-        <div className="relative w-full h-full overflow-hidden">
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-11.jpg" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-          <div 
-            className="absolute inset-0 w-full h-full"
-            style={{ clipPath: "polygon(100% 0, 100% 100%, 0 100%)" }}
-          >
-            <Image src="/press-media/gallery/photos/photo-gallery-13.jpg" alt="" fill className="object-cover" sizes="25vw" />
-          </div>
-        </div>
-
+    <section id="awards-hero" className="relative w-full bg-white">
+      {/* Section heading (kicker removed) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-6 sm:pb-8 text-center">
+        <h2 className="text-3xl min-[360px]:text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight [font-family:var(--font-heading)] text-black leading-tight">
+          Awards &amp; recognition
+        </h2>
+        <div className="mt-5 h-1 w-20 bg-primary rounded-full mx-auto" />
       </div>
 
-      {/* Cover any gap above the -mt-24 section (header height varies by breakpoint) */}
-      <div className="absolute inset-x-0 top-[-200px] h-[200px] bg-black pointer-events-none" />
-
-      {/* Premium Blending Overlays */}
-      <div className="absolute inset-0 bg-black/25 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,black_70%)] pointer-events-none" />
-
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="w-full px-6 sm:w-[85%] md:w-[80%] mx-auto text-center z-10">
-        <span className="text-primary font-bold tracking-[0.2em] uppercase text-[11px] sm:text-xs [font-family:var(--font-heading)]">
-          Recognitions
-        </span>
-        <h2 className="mt-4 text-3xl min-[360px]:text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight [font-family:var(--font-heading)] text-white leading-tight">
-          Awards & Recognition
-        </h2>
-        <div className="mt-6 h-1 w-20 bg-primary rounded-full mx-auto" />
-        <p className="mt-6 text-sm min-[360px]:text-base sm:text-xl lg:text-2xl leading-relaxed text-white/70 [font-family:var(--font-body)] max-w-3xl mx-auto">
-          Celebrating the honours received from prestigious institutions and
-          global organisations that recognise FIH&apos;s transformative impact
-          in healthcare innovation.
-        </p>
+      {/* Full-bleed recognition slide — the frame's aspect ratio matches the
+          image's own (1920:596), so object-cover fills the full viewport width
+          edge-to-edge with the entire slide visible and nothing cropped. */}
+      <div className="relative w-full aspect-1920/596">
+        <Image
+          src="/press-media/stanford-recognition.jpg"
+          alt="FIH recognised among the top 40 global changemakers at the Stanford Sustainability Summit, July 2025"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          quality={90}
+          priority
+        />
       </div>
     </section>
   );
