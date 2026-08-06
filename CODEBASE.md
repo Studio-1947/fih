@@ -15,7 +15,7 @@ Foundation for Innovations in Health · Next.js 16 · Tailwind CSS v4 · Sanity 
 | Images | `next/image` |
 | Fonts | Google Fonts via `next/font` — Poppins (headings), Lato (body), Merriweather (quotes) |
 | CMS | Sanity v5 + `next-sanity` v12 |
-| CMS Studio | Mounted at `/admin` via Next.js catch-all route |
+| CMS Studio | Mounted at `/admin_for_main_website` via Next.js catch-all route |
 
 ---
 
@@ -301,20 +301,21 @@ Sections: Awards & Recognition → Publications → Events (reused) → Gallery
 
 ---
 
-### Admin (`src/app/admin/[[...tool]]/page.tsx`)
+### Admin (`src/app/admin_for_main_website/[[...tool]]/page.tsx`)
 
-- Sanity Studio mounted via `<NextStudio config={config} />`
-- Catch-all route handles all internal studio navigation
-- Accessible at `/admin` on any deployment
-- CORS must include the deployment URL for publish to work
-
----
+- Embedded Sanity Studio CMS interface
+- Catch-all route using `next-sanity/studio` (`NextStudio`)
+- Accessible at `/admin_for_main_website` on any deployment
+- Static rendering mode (`export const dynamic = 'force-static'`)
+- Re-exports `metadata` and `viewport` from `next-sanity/studio`
+- Config: `sanity.config.ts` (basePath `/admin_for_main_website`, structureTool, visionTool)
+- Credentials: `src/sanity/env.ts` reads from `NEXT_PUBLIC_SANITY_*` env vars
 
 ## Sanity CMS
 
 ### Project config
 - Project ID: `zquzohi1` · Dataset: `production` · API version: `2026-04-20`
-- Config: `sanity.config.ts` (basePath `/admin`, structureTool, visionTool)
+- Config: `sanity.config.ts` (basePath `/admin_for_main_website`, structureTool, visionTool)
 - Credentials: `src/sanity/env.ts` reads from `NEXT_PUBLIC_SANITY_*` env vars
 
 ### Client (`src/sanity/lib/client.ts`)

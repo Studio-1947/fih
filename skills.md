@@ -31,7 +31,7 @@ All routes are filesystem-based:
 - Root layout: `src/app/layout.tsx`
 - Home page: `src/app/page.tsx`
 - Other pages: `src/app/<route>/page.tsx`
-- Admin route: `src/app/admin/[[...tool]]/page.tsx`
+- Admin route: `src/app/admin_for_main_website/[[...tool]]/page.tsx`
 
 ### 2.3 Components & Utilities
 - **Reusable UI**: `src/components`
