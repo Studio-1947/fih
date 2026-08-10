@@ -12,35 +12,16 @@ import {
   partnerWithUsContent,
 } from "@/lib/content";
 import { eventsContent } from "@/lib/content/events";
-import { sanityFetch } from "@/sanity/lib/live";
-import { urlFor } from "@/sanity/lib/image";
-import { EVENTS_QUERY } from "@/sanity/lib/queries";
 import type { EventItem } from "@/components/home/EventsSection";
 
 import FadeIn from "@/components/ui/FadeIn";
 
-export default async function Home() {
-  const { data: sanityEvents } = await sanityFetch({ query: EVENTS_QUERY });
+const fallbackEvents: EventItem[] = eventsContent.map((e) => ({
+  ...e,
+  imageUrl: e.image,
+}));
 
-  const events: EventItem[] =
-    sanityEvents && sanityEvents.length > 0
-      ? sanityEvents.map(
-          (e: {
-            _id: string;
-            title: string;
-            description: string;
-            image: Parameters<typeof urlFor>[0];
-            date: string;
-          }) => ({
-            id: e._id,
-            title: e.title,
-            description: e.description,
-            imageUrl: urlFor(e.image).width(900).auto("format").url(),
-            date: e.date,
-          })
-        )
-      : eventsContent.map((e) => ({ ...e, imageUrl: e.image }));
-
+export default function Home() {
   return (
     <div className="space-y-0">
       <HeroSection content={homeHeroContent} />
@@ -64,7 +45,7 @@ export default async function Home() {
       </FadeIn>
 
       <FadeIn>
-        <EventsSection events={events} />
+        <EventsSection events={fallbackEvents} />
       </FadeIn>
 
       <FadeIn>

@@ -1,9 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { client } from "@/sanity/lib/client";
+import { EVENTS_QUERY } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 export interface EventItem {
   id: string;
@@ -14,7 +17,7 @@ export interface EventItem {
 }
 
 interface EventsSectionProps {
-  events: EventItem[];
+  events?: EventItem[];
 }
 
 function formatDate(dateStr: string) {
@@ -24,9 +27,40 @@ function formatDate(dateStr: string) {
   });
 }
 
-export default function EventsSection({ events }: EventsSectionProps) {
+export default function EventsSection({ events: initialEvents = [] }: EventsSectionProps) {
+  const [eventsList, setEventsList] = useState<EventItem[]>(initialEvents);
   const [selected, setSelected] = useState<EventItem | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    async function fetchLiveEvents() {
+      try {
+        const sanityEvents = await client.fetch(EVENTS_QUERY);
+        if (sanityEvents && sanityEvents.length > 0) {
+          const mapped: EventItem[] = sanityEvents.map(
+            (e: {
+              _id: string;
+              title: string;
+              description: string;
+              image: Parameters<typeof urlFor>[0];
+              date: string;
+            }) => ({
+              id: e._id,
+              title: e.title,
+              description: e.description,
+              imageUrl: urlFor(e.image).width(900).auto("format").url(),
+              date: e.date,
+            })
+          );
+          setEventsList(mapped);
+        }
+      } catch (err) {
+        console.error("Failed to fetch live Sanity events on client:", err);
+      }
+    }
+
+    fetchLiveEvents();
+  }, []);
 
   // Manual, button-driven horizontal scroll — no auto-play. Each click nudges
   // the track by most of its visible width so a fresh set of cards slides in.
@@ -36,7 +70,7 @@ export default function EventsSection({ events }: EventsSectionProps) {
     el.scrollBy({ left: direction * el.clientWidth * 0.85, behavior: "smooth" });
   };
 
-  if (!events.length) return null;
+  if (!eventsList.length) return null;
 
   return (
     <>
@@ -94,7 +128,7 @@ export default function EventsSection({ events }: EventsSectionProps) {
               ref={scrollRef}
               className="flex gap-6 items-start overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
-              {events.map((event, i) => (
+              {eventsList.map((event, i) => (
                 <motion.button
                   key={event.id}
                   initial={{ opacity: 0, y: 32 }}

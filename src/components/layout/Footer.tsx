@@ -151,7 +151,17 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/8 pt-5 text-xs text-white/45 [font-family:var(--font-body)] sm:flex-row sm:items-center sm:justify-between">
           <p>{year} Foundation for Innovations in Health. All Rights Reserved.</p>
-          <p>Designed by Studio 1947</p>
+          <p>
+            Designed by{" "}
+            <a
+              href="https://www.1947.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white underline underline-offset-2"
+            >
+              Studio 1947
+            </a>
+          </p>
         </div>
       </div>
     </footer>
