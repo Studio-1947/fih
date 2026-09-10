@@ -102,7 +102,7 @@ export default function OurWorkPage() {
       </section>
 
       <ClinicWorkflowCircle workflow={ourWorkContent.clinicWorkflow} />
-      <ClinicWorkflowSection workflow={ourWorkContent.clinicWorkflow} />
+      {/* <ClinicWorkflowSection workflow={ourWorkContent.clinicWorkflow} /> */}
       <OurWorkContentSection
         benefits={ourWorkContent.benefits}
         uniqueness={ourWorkContent.uniqueness}

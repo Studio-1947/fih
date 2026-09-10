@@ -1,12 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { aboutContent } from "@/lib/content/about";
 
 export default function BoardOfMembersSection() {
   const { boardMembers } = aboutContent;
   const [selectedMember, setSelectedMember] = useState<typeof boardMembers[0] | null>(null);
+
+  useEffect(() => {
+    if (selectedMember) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setSelectedMember(null);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [selectedMember]);
 
   // Function to format multiline description
   const formatDescription = (text: string) => {
@@ -69,12 +85,12 @@ export default function BoardOfMembersSection() {
           />
           
           {/* Modal Content — fixed size, no overflow on the outer shell */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row transform transition-all animate-in fade-in zoom-in-95 duration-200"
-               style={{ height: "min(85vh, 560px)" }}>
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row transform transition-all animate-in fade-in zoom-in-95 duration-200 overflow-hidden"
+               style={{ height: "min(80dvh, 560px)" }}>
             {/* Close Button */}
             <button 
               onClick={() => setSelectedMember(null)}
-              className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-sm hover:bg-gray-100 p-2 rounded-full text-gray-600 transition-colors shadow-sm"
+              className="absolute top-3 right-3 z-30 bg-black/50 text-white md:bg-white/80 md:text-gray-600 backdrop-blur-sm hover:bg-black/70 md:hover:bg-gray-100 p-2 rounded-full transition-colors shadow-md cursor-pointer"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

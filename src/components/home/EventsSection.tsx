@@ -62,6 +62,35 @@ export default function EventsSection({ events: initialEvents = [] }: EventsSect
     fetchLiveEvents();
   }, []);
 
+  // Lock scroll when modal is open on all screen types + handle Escape key.
+  // The <html> element (not <body>) is the real scrolling box here — globals
+  // set overflow-x-clip on both, which computes overflow-y to `auto` on
+  // <html> per spec — so it must be locked too, or desktop wheel scroll still
+  // moves the page behind the modal.
+  useEffect(() => {
+    if (selected) {
+      const html = document.documentElement;
+      const scrollbarWidth = window.innerWidth - html.clientWidth;
+
+      html.style.overflowY = "hidden";
+      document.body.style.overflowY = "hidden";
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setSelected(null);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        html.style.overflowY = "";
+        document.body.style.overflowY = "";
+        document.body.style.paddingRight = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [selected]);
+
   // Manual, button-driven horizontal scroll — no auto-play. Each click nudges
   // the track by most of its visible width so a fresh set of cards slides in.
   const scrollByViewport = (direction: 1 | -1) => {
@@ -185,7 +214,7 @@ export default function EventsSection({ events: initialEvents = [] }: EventsSect
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 p-3 sm:p-6 backdrop-blur-sm overflow-y-auto"
             onClick={() => setSelected(null)}
           >
             <motion.div
@@ -194,16 +223,20 @@ export default function EventsSection({ events: initialEvents = [] }: EventsSect
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
               transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="relative w-full max-w-2xl rounded-[2rem] bg-white shadow-2xl max-h-[90vh] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="relative w-full max-w-2xl rounded-[1.5rem] sm:rounded-[2rem] bg-white shadow-2xl max-h-[80dvh] sm:max-h-[85vh] my-auto overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-5 right-5 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/8 hover:bg-black/14 transition-colors"
-              >
-                <X className="h-5 w-5 text-black" />
-              </button>
+              {/* Sticky Close Button (Always visible on mobile & desktop) */}
+              <div className="sticky top-0 z-30 flex justify-end p-3 sm:p-5 pointer-events-none -mb-12 sm:-mb-14">
+                <button
+                  type="button"
+                  onClick={() => setSelected(null)}
+                  className="pointer-events-auto flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80 sm:bg-black/10 sm:text-black sm:hover:bg-black/20 transition-all shadow-md backdrop-blur-md cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
 
               {/* Modal Image */}
               <div className="relative h-64 sm:h-80 w-full rounded-t-[2rem] overflow-hidden bg-black/5">

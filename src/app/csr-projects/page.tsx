@@ -28,6 +28,13 @@ const presentProjects = [
       "Mahanagar Gas Limited (MGL) entrusted us with another CSR mandate to implement “Delivering Opportunities through Touch (DOT)” — a unique initiative in India under the MGL SAKSHAM program. The project aims to enhance science education and digital literacy among Class X students with visual impairments through tactile, refreshable, multi-line, AI-powered Braille displays, enabling more inclusive and accessible learning (March 2026).",
   },
   {
+    logo: "/csr/present/bajaj_holding.jpeg",
+    partner: "Bajaj Holdings & Investment Limited",
+    title: "School for Skills – Kalimpong & Dibrugarh",
+    description:
+      "Bajaj Holdings & Investment Limited awarded a mandate to maintain 150 rural and semi-urban youth as allied health professionals across Kalimpong & Dibrugarh. The trained and certified general duty aide will receive formal sector employment in hospitals and allied health facilities.",
+  },
+  {
     logo: "/csr/present/indian_oil.png",
     partner: "FIH – SFS Academy, Bansberia",
     title: "State-of-Art Allied Health Education Centre",

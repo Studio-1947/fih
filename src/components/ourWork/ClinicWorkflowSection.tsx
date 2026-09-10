@@ -39,9 +39,6 @@ export default function ClinicWorkflowSection({ workflow }: ClinicWorkflowSectio
       {/* Header */}
       <FadeIn className="w-full relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16 space-y-4">
-          <span className="inline-block rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-black/50 [font-family:var(--font-heading)]">
-            Option B · Left to right
-          </span>
           <p className="inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-primary [font-family:var(--font-heading)]">
             <span className="h-px w-8 bg-primary" aria-hidden="true" />
             Uday Journey

@@ -25,12 +25,12 @@ function MemberModal({
         onClick={onClose}
       />
       <div
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row"
-        style={{ height: "min(85vh, 560px)" }}
+        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl flex flex-col md:flex-row overflow-hidden"
+        style={{ height: "min(80dvh, 560px)" }}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-sm hover:bg-gray-100 p-2 rounded-full text-gray-600 transition-colors shadow-sm"
+          className="absolute top-3 right-3 z-30 bg-black/50 text-white md:bg-white/80 md:text-gray-600 backdrop-blur-sm hover:bg-black/70 md:hover:bg-gray-100 p-2 rounded-full transition-colors shadow-md cursor-pointer"
         >
           <svg
             className="w-5 h-5"
@@ -96,6 +96,22 @@ export default function BoardScrollSection() {
     unitRef.current = el.scrollWidth / 3;
     el.scrollLeft = unitRef.current;
   }, []);
+
+  useEffect(() => {
+    if (selected) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setSelected(null);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [selected]);
 
   const handleScroll = () => {
     const el = scrollRef.current;
