@@ -61,9 +61,6 @@ export default function ClinicWorkflowCircle({ workflow }: ClinicWorkflowCircleP
 
       <FadeIn className="w-full">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 space-y-4 relative z-20">
-          <span className="inline-block rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-black/50 [font-family:var(--font-heading)]">
-            Option A · Circular
-          </span>
           <p className="inline-flex items-center gap-3 text-[11px] font-black uppercase tracking-[0.3em] text-primary [font-family:var(--font-heading)]">
             <span className="h-px w-8 bg-primary" aria-hidden="true" />
             Uday Journey

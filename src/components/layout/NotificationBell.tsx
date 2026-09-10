@@ -206,7 +206,7 @@ export default function NotificationBell() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-600 flex cursor-pointer items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-600 flex cursor-pointer items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm"
             onClick={closeModal}
           >
             <motion.div
@@ -215,7 +215,7 @@ export default function NotificationBell() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 20 }}
               transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="relative w-full max-w-xl cursor-default overflow-hidden rounded-4xl bg-white shadow-2xl"
+              className="relative my-auto max-h-[85vh] w-full max-w-xl cursor-default overflow-y-auto rounded-4xl bg-white shadow-2xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
