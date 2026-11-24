@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lato, Merriweather, Poppins } from "next/font/google";
+import { Lato, Poppins } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import "./globals.css";
@@ -14,13 +14,6 @@ const lato = Lato({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "700", "900"],
-});
-
-const merriweather = Merriweather({
-  variable: "--font-quote",
-  subsets: ["latin"],
-  style: ["italic"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -79,7 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${merriweather.variable} antialiased overflow-x-clip`}
+      className={`${poppins.variable} ${lato.variable} antialiased overflow-x-clip`}
     >
       <body className="flex flex-col bg-surface text-black text-[16px] [font-family:var(--font-body)] overflow-x-clip">
         <Header />
